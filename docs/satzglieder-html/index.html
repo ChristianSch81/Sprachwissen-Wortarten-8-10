@@ -1,0 +1,3542 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deutsch Sprachwissen II (Satzglieder) 8/9/10</title>
+  <style>
+    :root {
+      --ink: #232323;
+      --muted: #616161;
+      --line: #d7d7d7;
+      --paper: #ffffff;
+      --accent: #9d1f2f;
+      --accent-dark: #741622;
+      --blue: #063970;
+      --blue-soft: #eef6ff;
+      --green: #277a32;
+      --orange: #ef7d00;
+      --teal: #008491;
+      --violet: #6b3fa0;
+      --danger: #b3261e;
+      --success: #226c3f;
+      --shadow: 0 16px 34px rgba(45, 45, 45, 0.13);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+      background:
+        radial-gradient(circle at 9% 260px, rgba(255, 198, 78, 0.24) 0 76px, transparent 77px),
+        radial-gradient(circle at 91% 330px, rgba(121, 185, 177, 0.22) 0 90px, transparent 91px),
+        linear-gradient(180deg, rgba(157, 31, 47, 0.96) 0, rgba(157, 31, 47, 0.96) 155px, transparent 155px),
+        linear-gradient(180deg, #f2f2f2 0%, #ffffff 42%, #f4f4f4 100%);
+    }
+    button, select, input, textarea { font: inherit; }
+    a { color: inherit; }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .side {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      padding: 22px 18px;
+      background: #fff;
+      border-right: 1px solid var(--line);
+    }
+
+    .brand {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 2px solid rgba(157, 31, 47, 0.25);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: inset 0 0 0 6px #f3f3f3;
+    }
+    .brand h1 { margin: 0; font-size: 1.35rem; line-height: 1.15; }
+    .brand p, .footer-note { margin: 0; color: var(--muted); }
+
+    .progress-box {
+      margin: 18px 0 14px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .progress-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-weight: 750;
+      font-size: .92rem;
+    }
+    .bar {
+      height: 10px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .bar span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #5f5f5f);
+      transition: width .25s ease;
+    }
+    .progress-feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid rgba(157, 31, 47, .18);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #fff, #fff7f8);
+      color: var(--accent-dark);
+      font-size: .86rem;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+    .progress-feedback strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .reset-progress-button {
+      width: 100%;
+      min-height: 36px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border: 1px solid rgba(157, 31, 47, .35);
+      border-radius: var(--radius);
+      background: #fff7f8;
+      color: var(--accent-dark);
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .nav-group { margin-top: 16px; }
+    .nav-group h2 {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .topic-button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 12px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      margin: 5px 0;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+    .topic-button:hover, .topic-button:focus {
+      border-color: rgba(157, 31, 47, .32);
+      background: #fff7f8;
+      outline: none;
+    }
+    .topic-button.active {
+      border-color: var(--accent);
+      background: #fff1f2;
+      font-weight: 800;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #bfc7d4;
+    }
+    .topic-button.active .dot { background: var(--accent); }
+    .done-mark {
+      display: none;
+      color: var(--success);
+      font-weight: 900;
+      font-size: .75rem;
+    }
+    .topic-button.done .done-mark { display: inline; }
+
+    main { min-width: 0; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .topbar-title strong { color: var(--accent-dark); }
+    .topbar-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex-wrap: wrap;
+    }
+    .subject-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.92);
+      color: var(--accent-dark);
+      font-size: .86rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      max-width: 100%;
+      line-height: 1.2;
+      white-space: normal;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+    }
+    .school-logo, .grammar-icon {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.16);
+    }
+    .grammar-icon { background: #eee; }
+    .action, .video-links a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border: 1px solid #cfcfcf;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font-weight: 750;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .action.primary {
+      border-color: #5f5f5f;
+      background: #5f5f5f;
+      color: #fff;
+    }
+
+    .content {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 24px 28px;
+    }
+    .overview-band {
+      display: grid;
+      grid-template-columns: minmax(260px, .82fr) minmax(320px, 1.18fr);
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 34px;
+      padding: 24px;
+      border: 2px solid rgba(157,31,47,.16);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255,199,78,.18), transparent 28%),
+        radial-gradient(circle at 86% 12%, rgba(35,103,199,.10), transparent 24%),
+        #fff;
+      box-shadow: var(--shadow);
+    }
+    .overview-copy h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.05;
+    }
+    .overview-copy p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .chapter-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .chapter-chip {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      font-weight: 750;
+      box-shadow: 0 8px 18px rgba(38,38,38,.08);
+    }
+    .chapter-chip::before {
+      content: attr(data-icon);
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      margin: 0 8px 6px 0;
+      border-radius: 8px;
+      background: rgba(255,255,255,.72);
+      color: var(--accent-dark);
+      font-weight: 900;
+    }
+    .chapter-chip:nth-child(1) { border-color: rgba(41,146,71,.35); background: linear-gradient(180deg, #effaf0, #fff); }
+    .chapter-chip:nth-child(2) { border-color: rgba(255,124,34,.4); background: linear-gradient(180deg, #fff2e6, #fff); }
+    .chapter-chip:nth-child(3) { border-color: rgba(0,132,144,.36); background: linear-gradient(180deg, #eafafb, #fff); }
+    .chapter-chip:nth-child(4) { border-color: rgba(157,31,47,.35); background: linear-gradient(180deg, #fff1f2, #fff); }
+    .chapter-chip span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 500;
+    }
+    .overview-icons {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .overview-icon-tile {
+      min-height: 74px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      padding: 8px 6px;
+      border: 1px solid rgba(157,31,47,.16);
+      border-radius: var(--radius);
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(38,38,38,.07);
+    }
+    .overview-icon-tile strong {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 1rem;
+    }
+    .overview-icon-tile span {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 750;
+    }
+    .learning-goals {
+      grid-column: 1 / -1;
+      padding: 18px;
+      border: 1px solid rgba(157, 31, 47, .24);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 12% 15%, rgba(255, 222, 89, .18), transparent 26%),
+        linear-gradient(135deg, #ffffff 0%, #fff6f7 100%);
+      box-shadow: var(--shadow);
+    }
+    .learning-goals h3 {
+      margin: 0 0 12px;
+      color: var(--accent-dark);
+      font-size: 1.25rem;
+    }
+    .learning-goals ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .learning-goals li {
+      position: relative;
+      padding: 10px 12px 10px 36px;
+      border: 1px solid rgba(157, 31, 47, .14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+      color: var(--ink);
+      font-weight: 650;
+      line-height: 1.35;
+    }
+    .learning-goals li::before {
+      content: "✓";
+      position: absolute;
+      top: 11px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 900;
+    }
+    .overview-img, .visual-panel img, .pdf-frame {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .overview-img { max-height: 560px; object-fit: contain; }
+    .pdf-frame { min-height: 640px; }
+
+    .topic-layout {
+      display: grid;
+      grid-template-columns: minmax(320px, .9fr) minmax(360px, 1.1fr);
+      gap: 22px;
+      align-items: start;
+    }
+    .visual-panel {
+      position: sticky;
+      top: 82px;
+      display: grid;
+      gap: 12px;
+    }
+    .visual-panel img, .topic-card, .check-card, .video-card {
+      box-shadow: 0 12px 28px rgba(16,37,90,.08);
+    }
+    .topic-card, .check-card, .video-card, .footer-note {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .topic-card { overflow: hidden; }
+    .topic-head {
+      padding: 18px;
+      color: #fff;
+      background: var(--accent);
+    }
+    .topic-head[data-chapter="satzglieder"] { background: var(--blue); }
+    .topic-head[data-chapter="satzarten"] { background: var(--orange); }
+    .topic-head[data-chapter="feldermodell"] { background: var(--teal); }
+    .topic-head p, .topic-head h2 { margin: 0; }
+    .topic-head h2 {
+      margin-top: 6px;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.05;
+    }
+    .topic-body {
+      display: grid;
+      gap: 18px;
+      padding: 18px;
+    }
+    .definition {
+      padding: 14px;
+      border-left: 6px solid var(--accent);
+      border-radius: var(--radius);
+      background: #fff7f8;
+      font-size: 1.06rem;
+      font-weight: 650;
+    }
+    .memory-box {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border: 2px solid #f0b33b;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff8e5, #fff);
+    }
+    .memory-box strong {
+      display: inline-grid;
+      place-items: center;
+      min-width: 74px;
+      min-height: 38px;
+      border-radius: 8px;
+      background: #ffd05a;
+      color: #4d3410;
+      font-weight: 900;
+    }
+    .memory-box span { color: #4a3210; font-weight: 750; }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+    .info-box, .notice {
+      padding: 13px;
+      border-radius: var(--radius);
+    }
+    .info-box {
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    .notice {
+      border: 1px solid #f0c16d;
+      background: #fff5f5;
+    }
+    .info-box h3, .notice strong, .video-card h3, .check-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+    }
+    .info-box p, .notice span { margin: 0; color: #27365f; }
+    .info-box ul { margin: 0; padding-left: 20px; }
+    .info-box li + li { margin-top: 4px; }
+    .intro-box {
+      margin-bottom: 12px;
+      border-color: rgba(157,31,47,.22);
+      background: linear-gradient(180deg, #fff7f7, #fff);
+    }
+    .discovery {
+      margin-bottom: 12px;
+      padding: 14px;
+      border: 2px solid #f0c16d;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff8e5, #fff);
+    }
+    .discovery h3 { margin: 0 0 8px; font-size: 1.02rem; }
+    .discovery p { margin: 0; color: #27365f; }
+    .discovery ul { margin: 8px 0; padding-left: 20px; }
+    .discovery li { margin: 6px 0; }
+    .reveal-btn {
+      min-height: 38px;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: #fff;
+      font-weight: 850;
+      cursor: pointer;
+    }
+    .reveal-btn:hover {
+      background: #7e1725;
+    }
+    .field-table-box {
+      margin-bottom: 12px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      overflow-x: auto;
+    }
+    .field-table-box h3 {
+      margin: 0 0 10px;
+      font-size: 1.02rem;
+      color: var(--teal);
+    }
+    .field-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+    .field-table th,
+    .field-table td {
+      padding: 10px;
+      border: 1px solid #dbe7f3;
+      text-align: left;
+      vertical-align: top;
+    }
+    .field-table th {
+      background: #eafafa;
+      color: var(--teal);
+      font-weight: 900;
+    }
+    .field-table td:first-child {
+      font-weight: 850;
+      color: #0b3d72;
+    }
+    .video-card {
+      padding: 14px;
+      background: #f2f2f2;
+    }
+    .video-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .video-links a { border-color: #79b9b1; }
+    .checks {
+      display: grid;
+      gap: 16px;
+    }
+    .check-card { padding: 14px; }
+    .deep-task {
+      margin-top: 16px;
+      padding: 16px;
+      border: 2px solid #79b9b1;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #eefafa, #fff);
+      box-shadow: 0 12px 28px rgba(16,37,90,.08);
+    }
+    .deep-task-label {
+      display: inline-grid;
+      place-items: center;
+      min-height: 34px;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 900;
+    }
+    .deep-task h3 {
+      margin: 0 0 8px;
+      color: var(--teal);
+      font-size: 1.08rem;
+    }
+    .deep-task p {
+      margin: 0 0 10px;
+      color: #27365f;
+    }
+    .deep-task ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+    .deep-task li + li { margin-top: 6px; }
+    .task-output {
+      margin-top: 12px;
+      padding: 10px;
+      border-left: 5px solid var(--orange);
+      border-radius: 8px;
+      background: #fff8e5;
+      color: #4a3210;
+    }
+    .choice-grid {
+      display: grid;
+      gap: 8px;
+    }
+    .choice, .mark-token, .extra-choice {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 11px;
+      border: 1px solid #c9d7eb;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+    .choice.correct, .drop-slot.correct, .extra-choice.correct, .mark-token.correct {
+      border-color: #72b788;
+      background: #edf8f1;
+      color: var(--success);
+      font-weight: 750;
+    }
+    .choice.wrong, .drop-slot.wrong, .extra-choice.wrong, .mark-token.wrong {
+      border-color: #e0a09a;
+      background: #fff1ef;
+      color: var(--danger);
+    }
+    .mark-token.selected, .extra-choice.selected {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+      font-weight: 750;
+    }
+    .feedback {
+      min-height: 26px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .cloze-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+    }
+    .cloze-row select {
+      min-width: 150px;
+      min-height: 38px;
+      border: 1px solid #c4d2e5;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      padding: 6px 8px;
+    }
+    .match-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+    .match-bank, .match-targets { display: grid; gap: 8px; }
+    .drag-token {
+      min-height: 40px;
+      padding: 8px 10px;
+      border: 1px solid #c7d4e6;
+      border-radius: var(--radius);
+      background: #fff;
+      cursor: grab;
+      font-weight: 750;
+      user-select: none;
+    }
+    .drag-token.selected {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+      box-shadow: inset 0 0 0 2px rgba(35,103,199,.18);
+    }
+    .drop-slot {
+      min-height: 56px;
+      padding: 8px;
+      border: 2px dashed #bfd0e7;
+      border-radius: var(--radius);
+      background: #f8fbff;
+    }
+    .drop-slot strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .drop-slot.over { border-color: var(--blue); background: var(--blue-soft); }
+    .mark-sentence {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+    }
+    .extra-input, .extra-textarea {
+      width: 100%;
+      border: 1px solid #c4d2e5;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    .extra-input { min-height: 40px; padding: 8px 10px; }
+    .extra-textarea { min-height: 92px; padding: 10px; resize: vertical; }
+    .extra-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .extra-check-btn, .check-btn {
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: #fff;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    #testSection {
+      display: none;
+      max-width: 1050px;
+      margin: 30px auto 0;
+      padding: 24px;
+      background: #f7f7f7;
+      border: 2px solid rgba(157,31,47,.32);
+      border-radius: var(--radius);
+      color: #14213d;
+    }
+    #testSection h2 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      color: var(--accent-dark);
+    }
+    #testSection .intro {
+      margin: 0 0 22px;
+      color: #41546b;
+      font-size: 1rem;
+    }
+    .quiz-section {
+      margin: 22px 0;
+      padding: 16px;
+      border: 1px solid #dbe7f3;
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 5px 18px rgba(15,60,110,.06);
+    }
+    .quiz-section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #edf3fb;
+    }
+    .quiz-section-header h3 { margin: 0; color: var(--blue); font-size: 1.25rem; }
+    .quiz-section-score {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      background: #fff7f8;
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+    .quiz-card {
+      background: white;
+      border: 1px solid #dbe7f3;
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .quiz-card.correct { border-color: #2e9d50; background: #f2fff5; }
+    .quiz-card.wrong { border-color: #d65a31; background: #fff7f2; }
+    .question-title { font-weight: 750; margin-bottom: 12px; color: #0b3d72; }
+    .quiz-card label { display: block; margin: 8px 0; cursor: pointer; }
+    .quiz-card input[type="text"], .quiz-card select {
+      padding: 8px 10px;
+      border: 1px solid #b8cadc;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      min-width: 220px;
+      background: #fff;
+    }
+    .assign-row {
+      display: grid;
+      grid-template-columns: minmax(150px,1fr) minmax(220px,1fr);
+      gap: 12px;
+      align-items: center;
+      margin: 8px 0;
+    }
+    .word {
+      font-weight: 700;
+      background: #eef6ff;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 22px;
+      position: sticky;
+      bottom: 0;
+      background: #f7f7f7;
+      padding: 14px 0 0;
+    }
+    .reset-btn {
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 0;
+      border-radius: var(--radius);
+      background: #e7eef7;
+      color: var(--blue);
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .score {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+    }
+    .hint { font-size: .92rem; color: #566b80; margin-top: 6px; }
+    .context-fill-line {
+      line-height: 2.25;
+      background: #f9fbff;
+      border: 1px dashed #b8cadc;
+      border-radius: var(--radius);
+      padding: 12px;
+    }
+    .context-fill-line input[type="text"] {
+      width: 150px;
+      min-width: 120px;
+      margin: 0 5px;
+      background: #fff;
+    }
+    .correct-text { color: #247a3d; }
+    .wrong-text { color: #b8401f; }
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 24px auto 0;
+      padding: 12px 0 4px;
+      border-top: 2px solid var(--accent);
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 650;
+    }
+
+    @media (max-width: 980px) {
+      .app { grid-template-columns: 1fr; }
+      .side { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .topic-layout, .overview-band { grid-template-columns: 1fr; }
+      .visual-panel { position: static; }
+    }
+    @media (max-width: 680px) {
+      .topbar { align-items: stretch; flex-direction: column; padding: 12px; }
+      .content { padding: 14px; }
+      .nav-group, .chapter-strip, .overview-icons, .learning-goals ul, .info-grid, .match-wrap, .assign-row { grid-template-columns: 1fr; }
+      .overview-icons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .memory-box { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="side" aria-label="Themennavigation">
+      <section class="brand">
+        <h1>Deutsch Sprachwissen II (Satzglieder) 8/9/10</h1>
+        <p>Satzglieder und Satzstrukturen für Lernpartnerinnen und Lernpartner</p>
+      </section>
+      <section class="progress-box" aria-label="Fortschritt">
+        <div class="progress-title">
+          <span>Mini-Checks</span>
+          <span id="progressText">0 von 12</span>
+        </div>
+        <div class="bar" aria-hidden="true"><span id="progressBar"></span></div>
+        <div class="progress-feedback" id="progressFeedback" aria-live="polite"></div>
+        <button class="reset-progress-button" id="resetProgressBtn" type="button">Fortschritt zurücksetzen</button>
+      </section>
+      <nav id="topicNav"></nav>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div class="topbar-title"><strong id="currentPath">Überblick</strong><span class="subject-label">Deutsch Sprachwissen II (Satzglieder) 8/9/10</span></div>
+        <div class="actions">
+          <img class="school-logo" src="assets/asw-logo.png" alt="Alemannenschule Wutöschingen Logo">
+          <img class="grammar-icon" src="assets/grammatik-icon.png" alt="Grammatik-Icon: Subjekt Prädikat Objekt">
+          <button class="action" id="overviewBtn" type="button">Überblick</button>
+          <button class="action primary" id="completeBtn" type="button">Ich habe das Thema verstanden</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="overview-band" id="overview">
+          <div class="overview-copy">
+            <h2>Satzglieder, Satzarten und Satzstrukturen sicher bestimmen</h2>
+            <p>Diese Lernumgebung führt Schritt für Schritt durch die wichtigsten Grundlagen: vom Subjekt über Objekte bis zu Satzreihe, Satzgefüge und Feldermodell.</p>
+            <div class="chapter-strip">
+              <div class="chapter-chip" data-icon="1">Satzglieder<span>erkennen und unterscheiden</span></div>
+              <div class="chapter-chip" data-icon="2">Satzarten und Satzstrukturen<span>verstehen</span></div>
+              <div class="chapter-chip" data-icon="3">Feldermodell<span>kennenlernen</span></div>
+              <div class="chapter-chip" data-icon="4">Teste dein Wissen<span>Wissen im Abschlusstest überprüfen</span></div>
+            </div>
+            <div class="overview-icons" aria-label="Schnelle Orientierung">
+              <div class="overview-icon-tile"><strong>S</strong><span>Subjekt</span></div>
+              <div class="overview-icon-tile"><strong>P</strong><span>Prädikat</span></div>
+              <div class="overview-icon-tile"><strong>O</strong><span>Objekte</span></div>
+              <div class="overview-icon-tile"><strong>H</strong><span>Hauptsatz</span></div>
+              <div class="overview-icon-tile"><strong>N</strong><span>Nebensatz</span></div>
+              <div class="overview-icon-tile"><strong>F</strong><span>Felder</span></div>
+            </div>
+          </div>
+          <img class="overview-img" src="assets/uebersicht-satzglieder.webp" alt="Übersicht: Satzglieder und Satzarten">
+          <section class="learning-goals" aria-labelledby="learningGoalsTitle">
+            <h3 id="learningGoalsTitle">Teillernziele</h3>
+            <ul>
+              <li>Ich kann die wichtigsten Satzglieder Subjekt, Prädikat, Objekte, adverbiale Bestimmungen und Attribute unterscheiden.</li>
+              <li>Ich kann das Subjekt mit der Frage „Wer oder was?“ bestimmen.</li>
+              <li>Ich kann das Prädikat als Verbteil des Satzes erkennen und einteilige sowie mehrteilige Prädikate markieren.</li>
+              <li>Ich kann verschiedene Objekte mithilfe passender Fragen bestimmen.</li>
+              <li>Ich kann adverbiale Bestimmungen nach lokal, temporal, kausal und modal unterscheiden.</li>
+              <li>Ich kann Attribute als nähere Beschreibung eines Nomens erkennen.</li>
+              <li>Ich kann Hauptsätze und Nebensätze anhand ihrer Selbstständigkeit und Verbposition unterscheiden.</li>
+              <li>Ich kann Satzreihe und Satzgefüge voneinander abgrenzen.</li>
+              <li>Ich kann Infinitivgruppen und Partizipialgruppen erkennen und ihre Funktion im Satz erklären.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section class="topic-layout" id="topicArea" aria-live="polite"></section>
+
+        <p class="footer-note">Die Video-Schaltfläche führt zu passenden Deutsch- und Grammatikvideos. Das Feldermodell ist als PDF eingebunden.</p>
+
+        <section id="testSection">
+          <h2>Teste dein Wissen: Satzglieder und Satzstrukturen</h2>
+          <p class="intro">60 interaktive Aufgaben zu Satzgliedern, Satzarten, Infinitivgruppen, Partizipialgruppen und Feldermodell. Ab 45 Punkten bist du sicher.</p>
+          <div id="quizContainer"></div>
+          <div class="controls">
+            <button class="check-btn" type="button" id="quizCheckBtn">Auswerten</button>
+            <button class="reset-btn" type="button" id="quizResetBtn">Zurücksetzen</button>
+            <span id="quizScore" class="score"></span>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <span>Alemannenschule Wutöschingen</span>
+          <span>Autor: Christian Schwend</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const chapters = {
+  "satzglieder": "Kapitel 1: Satzglieder",
+  "satzarten": "Kapitel 2: Satzarten und Satzstrukturen",
+  "feldermodell": "Kapitel 3: Feldermodell"
+};
+    const topicIntroTexts = {
+  subjekt: "In fast jedem Satz gibt es einen Teil, der sagt, wer oder was etwas tut. Diesen Teil nennt man das Subjekt. Es ist der Träger der Handlung und meist ein Nomen oder ein Pronomen. Auf das Subjekt kannst du mit der Frage „Wer oder was?“ antworten. In „Der Hund rennt schnell“ ist „Der Hund“ das Subjekt. Wenn du das Subjekt sicher erkennst, hast du den ersten wichtigen Baustein des Satzes gefunden. In diesem Abschnitt lernst du verschiedene Subjektformen kennen.",
+  praedikat: "Der Teil des Satzes, der die Handlung ausdrückt, ist das Prädikat. Es sagt uns, was geschieht, und besteht meist aus einem Verb. Manchmal gehören auch noch Hilfsverben oder Modalverben dazu, wie in „Ich habe geschlafen“ oder „Er muss lernen“. Ohne Prädikat wäre der Satz unvollständig. Den Satz kannst du oft mit der Frage „Was ist mit dem Subjekt?“ auf seine Handlung prüfen. Hier lernst du, das Prädikat als Kern jedes Satzes zu identifizieren.",
+  objekte: "Manche Verben brauchen Ergänzungen, um einen vollständigen Sinn zu ergeben. Diese Ergänzungen nennt man Objekte. Sie sagen uns, wen oder was jemand sieht, wem jemand hilft oder worüber jemand spricht. Man unterscheidet Akkusativ-, Dativ- und Genitivobjekte sowie Präpositionalobjekte. In „Ich gebe dem Hund das Futter“ sind beides Objekte. In diesem Kapitel lernst du, die verschiedenen Objekte anhand ihrer Fragen zu unterscheiden.",
+  adverbiale: "Wann, wo, warum oder wie geschieht etwas? Diese Umstände werden durch adverbiale Bestimmungen ausgedrückt. Sie sind Satzglieder, die die Handlung näher beschreiben. Wörter wie „gestern“, „im Park“ oder „deshalb“ können solche Bestimmungen sein. Anders als Objekte sind sie meist nicht vom Verb zwingend gefordert. Hier erfährst du, wie du adverbiale Bestimmungen erkennst und von anderen Satzgliedern abgrenzt.",
+  attribute: "Manchmal möchte man ein Nomen näher beschreiben, ohne einen neuen Satz bilden zu müssen. Das geht mit Attributen. Sie sind keine eigenen Satzglieder, sondern gehören zu einem Nomen und erklären es genauer. Ein attributives Adjektiv wie in „der große Hund“ oder ein Genitivattribut wie in „das Buch des Schülers“ sind typische Beispiele. In diesem Teil lernst du, verschiedene Attributarten zu erkennen und ihren Unterschied zu Satzgliedern zu verstehen.",
+  hauptsatz: "Der Hauptsatz ist ein Satz, der allein stehen kann und für sich vollständig ist. Er enthält mindestens ein finites Verb und ein Subjekt. Anders als Nebensätze kann er allein eine Aussage bilden. In „Ich gehe nach Hause“ ist das ein einfacher Hauptsatz. Hauptsätze sind die Bausteine, aus denen wir größere Texte bilden. In diesem Abschnitt wiederholst du die Merkmale des Hauptsatzes und übst, ihn sicher zu erkennen.",
+  nebensatz: "Ein Nebensatz kann nicht allein stehen. Er ist von einem Hauptsatz abhängig und wird oft durch eine Subjunktion eingeleitet. Besonders auffällig ist, dass das finite Verb im Nebensatz meist an letzter Stelle steht. Wörter wie „weil“, „dass“ oder „obwohl“ leiten typische Nebensätze ein. In „Ich bleibe, weil es regnet“ ist der zweite Teil der Nebensatz. Hier lernst du, Nebensätze zu identifizieren und ihre Struktur zu verstehen.",
+  satzreihe: "Wenn zwei oder mehr Hauptsätze durch eine Konjunktion miteinander verbunden werden, entsteht eine Satzreihe. Beide Teile sind gleichrangig und könnten auch allein stehen. Ein Beispiel ist: „Ich gehe nach Hause, und du bleibst hier.“ Die Konjunktion „und“ verbindet hier gleichwertige Sätze. Satzreihen machen Texte abwechslungsreicher. In diesem Teil übst du, Satzreihen von Satzgefügen zu unterscheiden.",
+  satzgefuege: "Ein Satzgefüge besteht aus einem Hauptsatz und mindestens einem Nebensatz. Dabei ist der Nebensatz dem Hauptsatz untergeordnet und kann nicht allein stehen. Wörter wie „weil“, „dass“ oder „wenn“ leiten die Nebensätze ein und sorgen dafür, dass das finite Verb ans Ende rückt. In „Ich freue mich, dass du kommst“ ist der zweite Teil untergeordnet. Hier lernst du, Satzgefüge zu erkennen und aufzugliedern.",
+  infinitivgruppe: "Manchmal enthält ein Satz einen Satzteil mit einem Verb im Infinitiv. Diesen Teil nennt man Infinitivgruppe. Er kann beispielsweise nach Modalverben stehen: „Ich will nach Hause gehen.“ Die Infinitivgruppe „nach Hause gehen“ bleibt dabei am Ende stehen. Infinitivgruppen sind typisch für bestimmte Verbpaare im Deutschen. In diesem Abschnitt lernst du, Infinitivgruppen im Satz zu erkennen und von anderen Satzteilen abzugrenzen.",
+  partizipgruppe: "Manchmal beschreibt man ein Nomen nicht mit einem einfachen Adjektiv, sondern mit einer ganzen Wortgruppe, die ein Partizip enthält. Das nennt man Partizipialgruppe. Sie steht meist direkt hinter oder vor dem Nomen, das sie beschreibt. Beispiele sind „der im Park spielende Hund“ oder „das gestern gekaufte Buch“. Partizipialgruppen werden meist mit Partizip I oder Partizip II gebildet. Sie fungieren im Satz wie ein erweitertes Attribut. In diesem Abschnitt lernst du, solche Wortgruppen zu erkennen und ihre Funktion zu verstehen.",
+  feldermodell: "Das Feldermodell ist ein Werkzeug, um den Aufbau deutscher Sätze zu analysieren. Dabei bildet das Verb eine Art Klammer, die den Satz in verschiedene Felder einteilt. Man unterscheidet das Vorfeld vor dem Verb, die linke und rechte Satzklammer sowie das Mittel- und Nachfeld. Im Vorfeld steht meist das Subjekt oder eine andere Betonung. Zwischen linker und rechter Satzklammer befindet sich das Mittelfeld mit den Satzgliedern. Besonders wichtig ist das Koordinationsfeld, das noch vor dem Vorfeld liegt. Dieses Feld ist in den meisten Sätzen leer. Es wird erst belegt, wenn vor dem eigentlichen Satz eine Anrede, ein Ausruf oder eine verbindende Konjunktion steht. Wörter wie „und“, „aber“ oder „denn“ agieren hier als Brücke zwischen zwei Sätzen. Sie gehören deshalb nicht zum Satzinneren, sondern stehen im Koordinationsfeld. Beispiel: „Und ich gehe nach Hause“ - hier steht „und“ im Koordinationsfeld vor dem Vorfeld. Das Feldermodell hilft dir so, den Satzbau systematisch zu verstehen und die richtige Stellung der Wörter zu erklären."
+};
+    const fieldModelRows = [
+  ["Koordinationsfeld", "KO", "Begrüßungen, Ausrufe oder verbindende Wörter vor dem eigentlichen Satz", "„Und“, „Aber“, „Hey“, „Maria,“"],
+  ["Vorfeld", "VF", "Ein Satzglied vor dem Verb", "„Der Hund“ bellt."],
+  ["Linke Satzklammer", "LSK", "Das finite Verb im Hauptsatz oder Einleitewörter wie dass und weil im Nebensatz", "Der Hund „bellt“."],
+  ["Mittelfeld", "MF", "Alles, was sonst noch im Satz steht: Wer? Was? Wann? Wo? Wie?", "Der Hund bellt „laut im Garten“."],
+  ["Rechte Satzklammer", "RSK", "Der Rest vom Verb, zum Beispiel Partizipien oder Infinitive", "Er hat „geschlafen“."],
+  ["Nachfeld", "NF", "Zusatzinformationen nach dem Satzende", "..., „weil er müde war“."]
+];
+    const topicDiscoveries = {
+  subjekt: { text: "Vergleiche die markierten Satzteile. Wer oder was tut etwas?", items: ["<strong>Der Hund</strong> rennt schnell.", "<strong>Die Klasse</strong> schreibt einen Test.", "<strong>Dass du kommst</strong>, freut mich."], question: "Welche Frage hilft dir, den markierten Satzteil zu finden?" },
+  praedikat: { text: "Achte auf die Verbteile. Was geschieht im Satz?", items: ["Der Hund <strong>bellt</strong> laut.", "Mia <strong>hat</strong> den Text <strong>geschrieben</strong>.", "Tom <strong>steht</strong> jeden Morgen früh <strong>auf</strong>."], question: "Wann besteht das Prädikat aus mehr als einem Teil?" },
+  objekte: { text: "Beobachte, welche Ergänzungen das Verb braucht.", items: ["Mia liest <strong>ein Buch</strong>.", "Tom hilft <strong>seinem Bruder</strong>.", "Wir denken <strong>an den Ausflug</strong>."], question: "Welche Fragen passen zu den markierten Ergänzungen?" },
+  adverbiale: { text: "Die markierten Angaben beschreiben die Umstände genauer.", items: ["Die Kinder spielen <strong>auf dem Schulhof</strong>.", "Wir schreiben <strong>morgen</strong> einen Test.", "<strong>Wegen des Regens</strong> bleiben wir drinnen.", "Tom arbeitet <strong>sehr sorgfältig</strong>."], question: "Welche Angaben nennen Ort, Zeit, Grund oder Art und Weise?" },
+  attribute: { text: "Die markierten Wörter und Wortgruppen beschreiben ein Nomen genauer.", items: ["der <strong>kleine</strong> Hund", "das Fahrrad <strong>meines Bruders</strong>", "die Schülerin <strong>mit dem roten Rucksack</strong>", "Das Buch, <strong>das ich lese</strong>, ist spannend."], question: "Zu welchem Nomen gehört das markierte Attribut jeweils?" },
+  hauptsatz: { text: "Prüfe, ob der Satz allein stehen kann und wo das finite Verb steht.", items: ["Mia <strong>liest</strong> ein Buch.", "Heute <strong>schreibt</strong> die Klasse einen Test.", "Den Text <strong>hat</strong> Mia gelesen."], question: "Was fällt dir an der Verbposition im Hauptsatz auf?" },
+  nebensatz: { text: "Vergleiche die Satzteile. Welche brauchen einen Hauptsatz?", items: ["weil Mia krank <strong>ist</strong>", "dass Tom später <strong>kommt</strong>", "obwohl es <strong>regnet</strong>"], question: "Wo steht das finite Verb im Nebensatz?" },
+  satzreihe: { text: "Hier werden gleichrangige Hauptsätze verbunden.", items: ["Mia liest, Tom schreibt.", "Der Hund bellt, <strong>und</strong> die Katze schläft.", "Ich bleibe zu Hause, <strong>denn</strong> ich bin krank."], question: "Könnten die Teilsätze auch allein stehen?" },
+  satzgefuege: { text: "Hier hängt ein Nebensatz von einem Hauptsatz ab.", items: ["Mia bleibt zu Hause, <strong>weil sie krank ist</strong>.", "Ich hoffe, <strong>dass du kommst</strong>.", "<strong>Obwohl es regnet</strong>, spielen wir draußen."], question: "Welcher Teil ist Hauptsatz, welcher Teil ist Nebensatz?" },
+  infinitivgruppe: { text: "Achte auf die Grundform des Verbs und das Wort „zu“.", items: ["Mia versucht, <strong>den Text zu verstehen</strong>.", "Tom lernt, <strong>um den Test zu bestehen</strong>.", "Er ging los, <strong>ohne sich zu verabschieden</strong>."], question: "Woran erkennst du die Infinitivgruppe?" },
+  partizipgruppe: { text: "Achte auf Partizipien und das Bezugswort.", items: ["<strong>Lachend</strong> betrat Mia den Raum.", "<strong>Vom Regen überrascht</strong>, liefen wir nach Hause.", "der <strong>wartende</strong> Schüler", "das <strong>geöffnete</strong> Fenster"], question: "Welche Wörter sind Partizipien? Worauf beziehen sie sich?" },
+  feldermodell: { text: "Untersuche, wie der Satz vor und zwischen den Verbteilen aufgebaut ist.", items: ["<strong>Heute</strong> hat Mia ein spannendes Buch <strong>gelesen</strong>.", "<strong>Im Unterricht</strong> schreibt Tom einen Text.", "<strong>Den Ball</strong> hat Lina schnell gefangen."], question: "Was steht im Vorfeld? Welche Verbteile bilden die Satzklammer?" }
+};
+    const topics = [
+  {
+    "id": "subjekt",
+    "chapter": "satzglieder",
+    "title": "Subjekt",
+    "image": "assets/subjekt.webp",
+    "definition": "Das Subjekt ist ein Satzglied. Es sagt, wer oder was etwas tut, ist oder erlebt. Meistens steht es im Nominativ und passt mit dem Prädikat zusammen.",
+    "easy": "Du findest das Subjekt mit der Frage: Wer oder was?",
+    "deep": [
+      "Das Subjekt kann ein Nomen, eine Nomengruppe, ein Pronomen, eine Infinitivgruppe oder ein Nebensatz sein.",
+      "Das Subjekt muss nicht am Satzanfang stehen.",
+      "Subjekt und Prädikat passen in Person und Numerus zusammen."
+    ],
+    "examples": [
+      "Der Hund bellt.",
+      "Heute schreibt die Klasse einen Test.",
+      "Dass du mitmachst, freut uns."
+    ],
+    "mistake": "Nicht das erste Satzglied ist automatisch das Subjekt. Frage immer: Wer oder was tut etwas?",
+    "memory": "Das Subjekt sagt, wer oder was etwas tut, ist oder erlebt.",
+    "videoLinks": [
+      [
+        "ivi education: Subjekt",
+        "https://ivi-education.de/video/subjekt/"
+      ],
+      [
+        "ivi education: Umstellprobe",
+        "https://ivi-education.de/video/umstellprobe/"
+      ],
+      [
+        "ivi education: Grundwissen Satzglieder",
+        "https://ivi-education.de/video/grundwissen-satzglieder/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welches Satzglied ist in „Heute schreibt die Klasse einen Test.“ das Subjekt?",
+        [
+          "Heute",
+          "schreibt",
+          "die Klasse",
+          "einen Test"
+        ],
+        "die Klasse"
+      ],
+      "cloze": [
+        "Nach dem Subjekt fragt man mit",
+        [
+          "Wer oder was?",
+          "Wen oder was?",
+          "Wem?",
+          "Wann?"
+        ],
+        "Wer oder was?"
+      ],
+      "match": [
+        [
+          "Der Hund bellt.",
+          "Der Hund"
+        ],
+        [
+          "Im Park spielen viele Kinder.",
+          "viele Kinder"
+        ],
+        [
+          "Dass du kommst, freut mich.",
+          "Dass du kommst"
+        ]
+      ],
+      "extra": {
+        "type": "mark",
+        "title": "Subjekt markieren",
+        "prompt": "Markiere das Subjekt im Satz.",
+        "words": [
+          [
+            "Nach der Schule",
+            false
+          ],
+          [
+            "fährt",
+            false
+          ],
+          [
+            "Lina",
+            true
+          ],
+          [
+            "nach Hause.",
+            false
+          ]
+        ],
+        "solution": "Lina"
+      }
+    }
+  },
+  {
+    "id": "praedikat",
+    "chapter": "satzglieder",
+    "title": "Prädikat",
+    "image": "assets/praedikat.webp",
+    "definition": "Das Prädikat ist der Verbteil des Satzes. Es sagt, was geschieht oder was jemand tut. Es kann einteilig oder mehrteilig sein.",
+    "easy": "Frage: Was geschieht? Was tut jemand?",
+    "deep": [
+      "Im Aussagesatz steht das finite Verb meist an zweiter Stelle.",
+      "Bei mehrteiligen Prädikaten gehören alle Verbteile dazu.",
+      "Bei trennbaren Verben gehören beide Teile zusammen."
+    ],
+    "examples": [
+      "Der Hund bellt laut.",
+      "Mia hat den Text geschrieben.",
+      "Tom steht jeden Morgen früh auf."
+    ],
+    "mistake": "Bei mehrteiligen Prädikaten nicht nur das Hilfsverb markieren: hat geschrieben gehört zusammen.",
+    "memory": "Das Prädikat ist der Verbteil des Satzes.",
+    "videoLinks": [
+      [
+        "ivi education: Prädikat",
+        "https://ivi-education.de/video/praedikat/"
+      ],
+      [
+        "ivi education: Mehrteilige Prädikate",
+        "https://ivi-education.de/video/mehrteilige-praedikate/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welches Prädikat steckt in „Mia hat den Text geschrieben.“?",
+        [
+          "Mia",
+          "hat",
+          "hat geschrieben",
+          "den Text"
+        ],
+        "hat geschrieben"
+      ],
+      "cloze": [
+        "Das Prädikat sagt, was geschieht oder was jemand",
+        [
+          "tut",
+          "ist",
+          "fragt",
+          "nennt"
+        ],
+        "tut"
+      ],
+      "match": [
+        [
+          "Der Hund bellt.",
+          "bellt"
+        ],
+        [
+          "Tom steht früh auf.",
+          "steht auf"
+        ],
+        [
+          "Lina hat gelernt.",
+          "hat gelernt"
+        ]
+      ],
+      "extra": {
+        "type": "correct",
+        "title": "Fehler korrigieren",
+        "prompt": "Korrigiere die Prädikat-Markierung.",
+        "wrong": "Mia [hat] den Text geschrieben.",
+        "answers": [
+          "Mia hat den Text [geschrieben].",
+          "[hat geschrieben]",
+          "hat geschrieben"
+        ],
+        "solution": "Das ganze Prädikat lautet: hat geschrieben."
+      }
+    }
+  },
+  {
+    "id": "objekte",
+    "chapter": "satzglieder",
+    "title": "Objekte",
+    "image": "assets/objekte.webp",
+    "definition": "Objekte ergänzen das Prädikat. Sie zeigen, auf wen oder was sich eine Handlung bezieht. Es gibt Akkusativobjekte, Dativobjekte, Genitivobjekte und Präpositionalobjekte.",
+    "easy": "Objekte findest du mit passenden Fragen wie Wen oder was?, Wem?, Wessen? oder Worauf?",
+    "deep": [
+      "Das Verb bestimmt oft, welches Objekt passt.",
+      "Ein Satz kann mehrere Objekte enthalten.",
+      "Präpositionalobjekte hängen fest mit einer Präposition zusammen."
+    ],
+    "examples": [
+      "Mia liest ein Buch.",
+      "Tom hilft seinem Bruder.",
+      "Wir denken an den Ausflug."
+    ],
+    "mistake": "Präpositionalobjekt und adverbiale Bestimmung nicht verwechseln. Achte auf Verb und Frage.",
+    "memory": "Objekte ergänzen das Prädikat.",
+    "videoLinks": [
+      [
+        "ivi education: Akkusativobjekt",
+        "https://ivi-education.de/video/akkusativobjekt/"
+      ],
+      [
+        "ivi education: Dativobjekt",
+        "https://ivi-education.de/video/dativobjekt/"
+      ],
+      [
+        "ivi education: Genitivobjekt",
+        "https://ivi-education.de/video/genitivobjekt/"
+      ],
+      [
+        "ivi education: Präpositionalobjekt",
+        "https://ivi-education.de/video/praepositionalobjekt/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welches Objekt steckt in „Mia liest ein Buch.“?",
+        [
+          "Mia",
+          "liest",
+          "ein Buch",
+          "kein Objekt"
+        ],
+        "ein Buch"
+      ],
+      "cloze": [
+        "Nach dem Dativobjekt fragt man mit",
+        [
+          "Wem?",
+          "Wen oder was?",
+          "Wessen?",
+          "Wo?"
+        ],
+        "Wem?"
+      ],
+      "match": [
+        [
+          "Akkusativobjekt",
+          "ein Buch"
+        ],
+        [
+          "Dativobjekt",
+          "seinem Bruder"
+        ],
+        [
+          "Präpositionalobjekt",
+          "an den Ausflug"
+        ]
+      ],
+      "extra": {
+        "type": "wordtype",
+        "title": "Objektart bestimmen",
+        "prompt": "Bestimme die Objektart des fettgedruckten Ausdrucks.",
+        "sentence": "Tom hilft <strong>seinem Bruder</strong>.",
+        "options": [
+          "Akkusativobjekt",
+          "Dativobjekt",
+          "Genitivobjekt",
+          "adverbiale Bestimmung"
+        ],
+        "answer": "Dativobjekt"
+      }
+    }
+  },
+  {
+    "id": "adverbiale",
+    "chapter": "satzglieder",
+    "title": "Adverbiale Bestimmungen",
+    "image": "assets/adverbiale-bestimmungen.webp",
+    "definition": "Adverbiale Bestimmungen geben genauere Informationen zu den Umständen einer Handlung. Sie zeigen zum Beispiel Ort, Zeit, Grund oder Art und Weise.",
+    "easy": "Typische Fragen sind: Wo? Wann? Warum? Wie?",
+    "deep": [
+      "Lokal: Ort oder Richtung.",
+      "Temporal: Zeit, Dauer oder Häufigkeit.",
+      "Kausal: Grund oder Ursache.",
+      "Modal: Art und Weise oder Mittel."
+    ],
+    "examples": [
+      "Die Kinder spielen auf dem Schulhof.",
+      "Wir schreiben morgen einen Test.",
+      "Tom arbeitet sehr sorgfältig."
+    ],
+    "mistake": "Nicht jede Präpositionalgruppe ist automatisch eine adverbiale Bestimmung. Manchmal ist sie ein Präpositionalobjekt.",
+    "memory": "Adverbiale Bestimmungen geben an, wo, wann, warum oder wie etwas geschieht.",
+    "videoLinks": [
+      [
+        "ivi education: Adverbiale Bestimmungen",
+        "https://ivi-education.de/video/adverbiale-bestimmungen/"
+      ],
+      [
+        "ivi education: Präpositionalobjekt",
+        "https://ivi-education.de/video/praepositionalobjekt/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welche adverbiale Bestimmung ist temporal?",
+        [
+          "auf dem Schulhof",
+          "morgen",
+          "wegen des Regens",
+          "sorgfältig"
+        ],
+        "morgen"
+      ],
+      "cloze": [
+        "Eine lokale adverbiale Bestimmung antwortet oft auf",
+        [
+          "Wo?",
+          "Wann?",
+          "Wessen?",
+          "Wem?"
+        ],
+        "Wo?"
+      ],
+      "match": [
+        [
+          "lokal",
+          "auf dem Schulhof"
+        ],
+        [
+          "temporal",
+          "morgen"
+        ],
+        [
+          "kausal",
+          "wegen des Regens"
+        ],
+        [
+          "modal",
+          "sehr sorgfältig"
+        ]
+      ],
+      "extra": {
+        "type": "multi",
+        "title": "Aussagen prüfen",
+        "prompt": "Wähle alle richtigen Aussagen aus.",
+        "options": [
+          [
+            "Adverbiale Bestimmungen geben Umstände genauer an.",
+            true
+          ],
+          [
+            "Sie sind immer Objekte.",
+            false
+          ],
+          [
+            "Sie können Ort, Zeit, Grund oder Art und Weise angeben.",
+            true
+          ],
+          [
+            "Ein Satz kann mehrere adverbiale Bestimmungen enthalten.",
+            true
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "attribute",
+    "chapter": "satzglieder",
+    "title": "Attribute",
+    "image": "assets/attribute.webp",
+    "definition": "Attribute beschreiben ein Nomen genauer. Sie sind keine eigenen Satzglieder, sondern Teile eines Satzglieds.",
+    "easy": "Attribute beantworten oft Fragen wie: Was für ein? Welche? Wessen?",
+    "deep": [
+      "Adjektivattribut: der kleine Hund.",
+      "Genitivattribut: das Fahrrad meines Bruders.",
+      "Präpositionalattribut: die Schülerin mit dem roten Rucksack.",
+      "Attributsatz: Das Buch, das ich lese, ist spannend."
+    ],
+    "examples": [
+      "der kleine Hund",
+      "das Fahrrad meines Bruders",
+      "die Schülerin mit dem roten Rucksack",
+      "das Buch, das ich lese"
+    ],
+    "mistake": "Attribute gehören zu einem Bezugswort. Sie sind nicht selbstständig als Satzglied zu bestimmen.",
+    "memory": "Attribute beschreiben ein Nomen genauer und gehören zu einem Satzglied.",
+    "videoLinks": [
+      [
+        "ivi education: Grundwissen Satzglieder",
+        "https://ivi-education.de/video/grundwissen-satzglieder/"
+      ],
+      [
+        "ivi education: Adjektive",
+        "https://ivi-education.de/video/adjektive/"
+      ],
+      [
+        "ivi education: Umstellprobe",
+        "https://ivi-education.de/video/umstellprobe/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welches Attribut steckt in „der kleine Hund“?",
+        [
+          "der",
+          "kleine",
+          "Hund",
+          "kein Attribut"
+        ],
+        "kleine"
+      ],
+      "cloze": [
+        "Attribute beschreiben ein",
+        [
+          "Nomen",
+          "Verb",
+          "Adverb",
+          "Prädikat"
+        ],
+        "Nomen"
+      ],
+      "match": [
+        [
+          "Adjektivattribut",
+          "kleine"
+        ],
+        [
+          "Genitivattribut",
+          "meines Bruders"
+        ],
+        [
+          "Präpositionalattribut",
+          "mit dem roten Rucksack"
+        ]
+      ],
+      "extra": {
+        "type": "explain",
+        "title": "Kurz erklären",
+        "prompt": "Erkläre kurz den Unterschied zwischen Attribut und Satzglied.",
+        "sample": "Ein Satzglied kann im Satz umgestellt werden. Ein Attribut ist nur Teil eines Satzglieds und beschreibt ein Nomen genauer."
+      }
+    }
+  },
+  {
+    "id": "hauptsatz",
+    "chapter": "satzarten",
+    "title": "Hauptsatz",
+    "image": "assets/hauptsatz.webp",
+    "definition": "Ein Hauptsatz ist ein selbstständiger Satz. Er kann meistens allein stehen und enthält in der Regel Subjekt und Prädikat.",
+    "easy": "Im Aussagesatz steht das finite Verb im Hauptsatz meist an zweiter Stelle.",
+    "deep": [
+      "Ein Hauptsatz ergibt allein Sinn.",
+      "Er braucht kein Einleitewort.",
+      "Mehrteilige Prädikate können eine Satzklammer bilden."
+    ],
+    "examples": [
+      "Mia liest ein Buch.",
+      "Heute schreibt die Klasse einen Test.",
+      "Tom hat seine Hausaufgaben vergessen."
+    ],
+    "mistake": "Nicht jeder Satzteil mit Verb ist automatisch ein Hauptsatz. Prüfe, ob der Satz allein stehen kann.",
+    "memory": "Ein Hauptsatz kann allein stehen.",
+    "videoLinks": [
+      [
+        "ivi education: Haupt- und Nebensätze",
+        "https://ivi-education.de/video/haupt-und-nebensaetze-grundwissen/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welcher Satz ist ein Hauptsatz?",
+        [
+          "weil Mia liest",
+          "dass Tom kommt",
+          "Mia liest ein Buch.",
+          "obwohl es regnet"
+        ],
+        "Mia liest ein Buch."
+      ],
+      "cloze": [
+        "Im Aussagesatz steht das finite Verb im Hauptsatz meist an",
+        [
+          "zweiter Stelle",
+          "letzter Stelle",
+          "keiner Stelle"
+        ],
+        "zweiter Stelle"
+      ],
+      "match": [
+        [
+          "Mia liest ein Buch.",
+          "Hauptsatz"
+        ],
+        [
+          "weil Mia krank ist",
+          "kein Hauptsatz"
+        ],
+        [
+          "Heute beginnt der Unterricht.",
+          "Hauptsatz"
+        ]
+      ],
+      "extra": {
+        "type": "mark",
+        "title": "Finites Verb markieren",
+        "prompt": "Markiere das finite Verb.",
+        "words": [
+          [
+            "Heute",
+            false
+          ],
+          [
+            "schreibt",
+            true
+          ],
+          [
+            "die Klasse",
+            false
+          ],
+          [
+            "einen Test.",
+            false
+          ]
+        ],
+        "solution": "schreibt"
+      }
+    }
+  },
+  {
+    "id": "nebensatz",
+    "chapter": "satzarten",
+    "title": "Nebensatz",
+    "image": "assets/nebensatz.webp",
+    "definition": "Ein Nebensatz ist ein abhängiger Satz. Er kann meistens nicht allein stehen und hängt von einem Hauptsatz ab.",
+    "easy": "Nebensätze beginnen oft mit einem Einleitewort wie weil, dass, wenn oder obwohl.",
+    "deep": [
+      "Das finite Verb steht im Nebensatz meistens am Ende.",
+      "Nebensätze werden durch Komma abgetrennt.",
+      "Ein Nebensatz braucht meistens einen Hauptsatz."
+    ],
+    "examples": [
+      "weil Mia krank ist",
+      "dass Tom später kommt",
+      "wenn der Bus kommt"
+    ],
+    "mistake": "Im Nebensatz steht das finite Verb meist am Ende: weil ich krank bin.",
+    "memory": "Ein Nebensatz hängt von einem Hauptsatz ab.",
+    "videoLinks": [
+      [
+        "ivi education: Haupt- und Nebensätze",
+        "https://ivi-education.de/video/haupt-und-nebensaetze-grundwissen/"
+      ],
+      [
+        "ivi education: Adverbialsätze",
+        "https://ivi-education.de/video/adverbialsaetze/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welcher Satzteil ist ein Nebensatz?",
+        [
+          "Mia liest.",
+          "weil Tom müde ist",
+          "Der Hund schläft.",
+          "Heute beginnt die Schule."
+        ],
+        "weil Tom müde ist"
+      ],
+      "cloze": [
+        "Im Nebensatz steht das finite Verb meistens am",
+        [
+          "Ende",
+          "Anfang",
+          "zweiten Platz"
+        ],
+        "Ende"
+      ],
+      "match": [
+        [
+          "weil",
+          "Einleitewort"
+        ],
+        [
+          "dass Tom kommt",
+          "Nebensatz"
+        ],
+        [
+          "Mia liest.",
+          "Hauptsatz"
+        ]
+      ],
+      "extra": {
+        "type": "correct",
+        "title": "Fehler korrigieren",
+        "prompt": "Korrigiere die Verbposition.",
+        "wrong": "Ich bleibe zu Hause, weil ich bin krank.",
+        "answers": [
+          "Ich bleibe zu Hause, weil ich krank bin."
+        ],
+        "solution": "Ich bleibe zu Hause, weil ich krank bin."
+      }
+    }
+  },
+  {
+    "id": "satzreihe",
+    "chapter": "satzarten",
+    "title": "Satzreihe",
+    "image": "assets/satzreihe.webp",
+    "definition": "Eine Satzreihe verbindet mindestens zwei gleichrangige Hauptsätze. Beide Teile können meistens allein stehen.",
+    "easy": "Satzreihe bedeutet: Hauptsatz + Hauptsatz.",
+    "deep": [
+      "Die Hauptsätze können durch Komma oder Konjunktionen verbunden sein.",
+      "Typische Verbindungen sind und, oder, aber und denn.",
+      "Es gibt keine Unterordnung wie beim Nebensatz."
+    ],
+    "examples": [
+      "Mia liest, Tom schreibt.",
+      "Der Hund bellt und die Katze schläft.",
+      "Ich bleibe zu Hause, denn ich bin krank."
+    ],
+    "mistake": "Nach denn folgt ein Hauptsatz. Nach weil folgt ein Nebensatz.",
+    "memory": "Eine Satzreihe verbindet gleichrangige Hauptsätze.",
+    "videoLinks": [
+      [
+        "ivi education: Haupt- und Nebensätze",
+        "https://ivi-education.de/video/haupt-und-nebensaetze-grundwissen/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welche Verbindung ist eine Satzreihe?",
+        [
+          "Mia liest, weil sie übt.",
+          "Mia liest und Tom schreibt.",
+          "Wenn es regnet, bleiben wir drinnen.",
+          "dass Tom kommt"
+        ],
+        "Mia liest und Tom schreibt."
+      ],
+      "cloze": [
+        "Eine Satzreihe verbindet mindestens zwei",
+        [
+          "Hauptsätze",
+          "Nebensätze",
+          "Attribute"
+        ],
+        "Hauptsätze"
+      ],
+      "match": [
+        [
+          "und",
+          "verbindet gleichrangig"
+        ],
+        [
+          "aber",
+          "Gegensatz"
+        ],
+        [
+          "denn",
+          "Grund im Hauptsatz"
+        ]
+      ],
+      "extra": {
+        "type": "multi",
+        "title": "Aussagen prüfen",
+        "prompt": "Wähle alle richtigen Aussagen zur Satzreihe aus.",
+        "options": [
+          [
+            "Sie besteht aus Hauptsatz + Hauptsatz.",
+            true
+          ],
+          [
+            "Beide Teile sind gleichrangig.",
+            true
+          ],
+          [
+            "Sie beginnt immer mit weil.",
+            false
+          ],
+          [
+            "Sie kann mit und verbunden sein.",
+            true
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "satzgefuege",
+    "chapter": "satzarten",
+    "title": "Satzgefüge",
+    "image": "assets/satzgefuege.webp",
+    "definition": "Ein Satzgefüge besteht aus mindestens einem Hauptsatz und einem Nebensatz. Der Nebensatz ist dem Hauptsatz untergeordnet.",
+    "easy": "Satzgefüge bedeutet: Hauptsatz + Nebensatz.",
+    "deep": [
+      "Der Hauptsatz kann meistens allein stehen.",
+      "Der Nebensatz hängt vom Hauptsatz ab.",
+      "Ein Komma trennt die Satzteile."
+    ],
+    "examples": [
+      "Mia bleibt zu Hause, weil sie krank ist.",
+      "Obwohl es regnet, spielen wir draußen.",
+      "Der Junge, der neben mir sitzt, ist neu."
+    ],
+    "mistake": "Denn und weil nicht verwechseln: denn leitet einen Hauptsatz ein, weil einen Nebensatz.",
+    "memory": "Ein Satzgefüge besteht aus Hauptsatz und Nebensatz.",
+    "videoLinks": [
+      [
+        "ivi education: Haupt- und Nebensätze",
+        "https://ivi-education.de/video/haupt-und-nebensaetze-grundwissen/"
+      ],
+      [
+        "ivi education: Adverbialsätze",
+        "https://ivi-education.de/video/adverbialsaetze/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welcher Satz ist ein Satzgefüge?",
+        [
+          "Mia liest und Tom schreibt.",
+          "Mia liest, weil sie üben möchte.",
+          "Tom kommt, Lina geht.",
+          "Der Hund bellt."
+        ],
+        "Mia liest, weil sie üben möchte."
+      ],
+      "cloze": [
+        "Im Satzgefüge hängt der Nebensatz vom",
+        [
+          "Hauptsatz",
+          "Attribut",
+          "Prädikat"
+        ],
+        "Hauptsatz"
+      ],
+      "match": [
+        [
+          "Hauptsatz + Nebensatz",
+          "Mia bleibt zu Hause, weil sie krank ist."
+        ],
+        [
+          "Nebensatz + Hauptsatz",
+          "Weil sie krank ist, bleibt Mia zu Hause."
+        ],
+        [
+          "eingeschobener Nebensatz",
+          "Mia, die krank ist, bleibt zu Hause."
+        ]
+      ],
+      "extra": {
+        "type": "wordtype",
+        "title": "Satzart bestimmen",
+        "prompt": "Bestimme die Satzverbindung.",
+        "sentence": "Ich lerne, <strong>weil morgen ein Test ist</strong>.",
+        "options": [
+          "Satzreihe",
+          "Satzgefüge",
+          "Hauptsatz ohne Nebensatz",
+          "Infinitivgruppe"
+        ],
+        "answer": "Satzgefüge"
+      }
+    }
+  },
+  {
+    "id": "infinitivgruppe",
+    "chapter": "satzarten",
+    "title": "Infinitivgruppe",
+    "image": "assets/infinitivgruppe.webp",
+    "definition": "Eine Infinitivgruppe enthält ein Verb in der Grundform, meistens mit zu. Sie hat kein eigenes finites Verb.",
+    "easy": "Typische Formen sind um ... zu, ohne ... zu und statt ... zu.",
+    "deep": [
+      "Infinitivgruppen können eine Ergänzung zum Verb sein.",
+      "Sie können Ziel, Begleitumstand oder Ersatzhandlung ausdrücken.",
+      "Längere Infinitivgruppen werden oft durch Komma abgetrennt."
+    ],
+    "examples": [
+      "den Text zu lesen",
+      "um den Test zu bestehen",
+      "ohne sich zu verabschieden",
+      "statt zu schlafen"
+    ],
+    "mistake": "Nicht nur zu markieren. Die ganze Gruppe gehört dazu: den Text zu verstehen.",
+    "memory": "Eine Infinitivgruppe enthält meist zu + Infinitiv und kein finites Verb.",
+    "videoLinks": [
+      [
+        "ivi education: Verb Grundwissen",
+        "https://ivi-education.de/video/verb-grundwissen/"
+      ],
+      [
+        "ivi education: Haupt- und Nebensätze",
+        "https://ivi-education.de/video/haupt-und-nebensaetze-grundwissen/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welche Wortgruppe ist eine Infinitivgruppe?",
+        [
+          "weil Mia liest",
+          "Tom schreibt",
+          "den Text zu verstehen",
+          "Mia hat gelesen"
+        ],
+        "den Text zu verstehen"
+      ],
+      "cloze": [
+        "Eine Infinitivgruppe enthält kein eigenes",
+        [
+          "finites Verb",
+          "Nomen",
+          "Adjektiv"
+        ],
+        "finites Verb"
+      ],
+      "match": [
+        [
+          "um ... zu",
+          "Ziel / Zweck"
+        ],
+        [
+          "ohne ... zu",
+          "etwas geschieht nicht"
+        ],
+        [
+          "statt ... zu",
+          "Ersatzhandlung"
+        ]
+      ],
+      "extra": {
+        "type": "correct",
+        "title": "Fehler korrigieren",
+        "prompt": "Korrigiere die Markierung.",
+        "wrong": "Mia versucht, den Text [zu] verstehen.",
+        "answers": [
+          "Mia versucht, [den Text zu verstehen].",
+          "den Text zu verstehen"
+        ],
+        "solution": "Richtig ist die ganze Gruppe: den Text zu verstehen."
+      }
+    }
+  },
+  {
+    "id": "partizipgruppe",
+    "chapter": "satzarten",
+    "title": "Partizipialgruppe",
+    "image": "assets/partizipgruppe.webp",
+    "definition": "Eine Partizipialgruppe enthält ein Partizip. Sie hat kein eigenes finites Verb und kann Nebensätze verkürzen oder Nomen genauer beschreiben.",
+    "easy": "Partizip I: lachend. Partizip II: geöffnet.",
+    "deep": [
+      "Partizip I beschreibt oft etwas Gleichzeitiges.",
+      "Partizip II beschreibt oft etwas Abgeschlossenes oder einen Zustand.",
+      "Partizipialgruppen brauchen ein klares Bezugswort."
+    ],
+    "examples": [
+      "Lachend betrat Mia den Raum.",
+      "Vom Regen überrascht, liefen wir nach Hause.",
+      "der wartende Schüler"
+    ],
+    "mistake": "Unklare Bezüge vermeiden: Lachend fiel das Buch vom Tisch klingt so, als lache das Buch.",
+    "memory": "Partizipialgruppen enthalten ein Partizip und verkürzen oft Nebensätze.",
+    "videoLinks": [
+      [
+        "ivi education: Partizip 2",
+        "https://ivi-education.de/video/partizip-2/"
+      ],
+      [
+        "ivi education: Verb Grundwissen",
+        "https://ivi-education.de/video/verb-grundwissen/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welches Wort ist ein Partizip I?",
+        [
+          "gelacht",
+          "geschrieben",
+          "lachend",
+          "geöffnet"
+        ],
+        "lachend"
+      ],
+      "cloze": [
+        "Eine Partizipialgruppe enthält ein",
+        [
+          "Partizip",
+          "finites Verb",
+          "Subjekt"
+        ],
+        "Partizip"
+      ],
+      "match": [
+        [
+          "Partizip I",
+          "lachend"
+        ],
+        [
+          "Partizip II",
+          "geöffnet"
+        ],
+        [
+          "Partizipialgruppe",
+          "Vom Regen überrascht"
+        ]
+      ],
+      "extra": {
+        "type": "explain",
+        "title": "Kurz erklären",
+        "prompt": "Warum ist „Lachend fiel das Buch vom Tisch.“ problematisch?",
+        "sample": "Der Bezug ist unklar. Es wirkt, als würde das Buch lachen. Besser: Lachend stieß Tom das Buch vom Tisch."
+      }
+    }
+  },
+  {
+    "id": "feldermodell",
+    "chapter": "feldermodell",
+    "title": "Feldermodell",
+    "image": "assets/feldermodell.pdf",
+    "fileType": "pdf",
+    "definition": "Das Feldermodell beschreibt, wie ein deutscher Satz aufgebaut ist. Es ordnet Satzteile in Vorfeld, linke Satzklammer, Mittelfeld, rechte Satzklammer und Nachfeld.",
+    "easy": "Das finite Verb hilft beim Erkennen der Satzklammer.",
+    "deep": [
+      "Im Hauptsatz steht das finite Verb meist in der linken Satzklammer.",
+      "Weitere Verbteile stehen oft in der rechten Satzklammer.",
+      "Das Vorfeld kann mit unterschiedlichen Satzgliedern besetzt werden.",
+      "Nebensätze haben eine andere Stellung als Hauptsätze."
+    ],
+    "examples": [
+      "Heute | hat | Mia ein spannendes Buch | gelesen.",
+      "Mia | liest | ein Buch.",
+      "weil Mia ein Buch | liest"
+    ],
+    "mistake": "Nicht nur einzelne Wörter betrachten. Im Feldermodell geht es um die Stellung von Satzteilen im Satz.",
+    "memory": "Das Feldermodell zeigt, wie Satzteile im deutschen Satz angeordnet sind.",
+    "videoLinks": [
+      [
+        "ivi education: Grundwissen Satzglieder",
+        "https://ivi-education.de/video/grundwissen-satzglieder/"
+      ],
+      [
+        "ivi education: Umstellprobe",
+        "https://ivi-education.de/video/umstellprobe/"
+      ],
+      [
+        "ivi education: Haupt- und Nebensätze",
+        "https://ivi-education.de/video/haupt-und-nebensaetze-grundwissen/"
+      ]
+    ],
+    "check": {
+      "choice": [
+        "Welcher Bereich steht im Hauptsatz oft direkt beim finiten Verb?",
+        [
+          "linke Satzklammer",
+          "Genitiv",
+          "Attributsatz",
+          "Interjektion"
+        ],
+        "linke Satzklammer"
+      ],
+      "cloze": [
+        "Im Feldermodell hilft besonders die Stellung des finiten",
+        [
+          "Verbs",
+          "Nomens",
+          "Adjektivs"
+        ],
+        "Verbs"
+      ],
+      "matchPrompt": "Ordne die Satzteile aus dem Satz zu: Heute hat Mia ein spannendes Buch gelesen.",
+      "match": [
+        [
+          "Vorfeld",
+          "Heute"
+        ],
+        [
+          "linke Satzklammer",
+          "hat"
+        ],
+        [
+          "Mittelfeld",
+          "Mia ein spannendes Buch"
+        ],
+        [
+          "rechte Satzklammer",
+          "gelesen"
+        ]
+      ],
+      "extra": {
+        "type": "wordtype",
+        "title": "Feld bestimmen",
+        "prompt": "Bestimme das Feld des fettgedruckten Wortes.",
+        "sentence": "Heute <strong>hat</strong> Mia ein spannendes Buch gelesen.",
+        "options": [
+          "Vorfeld",
+          "linke Satzklammer",
+          "Mittelfeld",
+          "Nachfeld"
+        ],
+        "answer": "linke Satzklammer"
+      }
+    }
+  }
+];
+    const deepTasks = {
+      subjekt: {
+        title: "Subjekte sicher nachweisen",
+        prompt: "Untersuche mehrere Sätze und beweise, welches Satzglied jeweils das Subjekt ist.",
+        steps: ["Schreibe fünf Sätze mit unterschiedlichen Subjekten: Nomen, Nomengruppe und Pronomen.", "Stelle zu jedem Satz die Frage Wer oder was?.", "Markiere das Subjekt und prüfe, ob es mit dem Prädikat zusammenpasst.", "Formuliere zwei Sätze, in denen das Subjekt nicht am Satzanfang steht."],
+        product: "Satzsammlung mit Frageprobe und kurzer Begründung."
+      },
+      praedikat: {
+        title: "Das Prädikat als Satzkern untersuchen",
+        prompt: "Zeige, wie einteilige und mehrteilige Prädikate den Satz zusammenhalten.",
+        steps: ["Sammle sechs Sätze mit verschiedenen Prädikaten.", "Markiere finite und infinite Verbteile.", "Unterscheide einteilige, mehrteilige und trennbare Prädikate.", "Erkläre an zwei Beispielen, warum nur ein Teil des Prädikats zu markieren ein Fehler wäre."],
+        product: "Markierte Sätze mit Prädikat-Kommentar."
+      },
+      objekte: {
+        title: "Objekte mit Fragen bestimmen",
+        prompt: "Untersuche, welche Ergänzungen ein Verb braucht und welche Objektart dabei entsteht.",
+        steps: ["Wähle fünf Verben, die ein Objekt verlangen.", "Schreibe zu jedem Verb einen vollständigen Satz.", "Bestimme Akkusativ-, Dativ-, Genitiv- oder Präpositionalobjekt mit der passenden Frage.", "Vergleiche ein Präpositionalobjekt mit einer adverbialen Bestimmung und erkläre den Unterschied."],
+        product: "Objekt-Tabelle mit Frageprobe."
+      },
+      adverbiale: {
+        title: "Umstände im Satz verschieben",
+        prompt: "Untersuche, wie adverbiale Bestimmungen Ort, Zeit, Grund und Art und Weise genauer machen.",
+        steps: ["Schreibe einen kurzen Text mit mindestens sechs adverbialen Bestimmungen.", "Ordne sie lokal, temporal, kausal oder modal zu.", "Verschiebe drei adverbiale Bestimmungen im Satz.", "Beschreibe, ob sich dadurch die Bedeutung oder nur die Betonung verändert."],
+        product: "Textanalyse mit Umstellprobe."
+      },
+      attribute: {
+        title: "Nomen genauer beschreiben",
+        prompt: "Zeige, wie Attribute ein Nomen erweitern, ohne ein eigenes Satzglied zu sein.",
+        steps: ["Wähle vier einfache Nomengruppen.", "Erweitere sie mit verschiedenen Attributarten.", "Markiere jeweils Bezugswort und Attribut.", "Führe bei zwei Beispielen die Umstellprobe durch und erkläre, warum das Attribut Teil eines Satzglieds bleibt."],
+        product: "Nomengruppen-Sammlung mit Attributanalyse."
+      },
+      hauptsatz: {
+        title: "Hauptsätze variieren",
+        prompt: "Untersuche, wie Hauptsätze allein stehen können und wie sich das Vorfeld verändern lässt.",
+        steps: ["Schreibe fünf Hauptsätze zu einem Thema.", "Stelle jeden Satz mindestens einmal um.", "Prüfe, ob das finite Verb im Aussagesatz an zweiter Stelle bleibt.", "Erkläre, warum jeder Satz auch allein verständlich ist."],
+        product: "Umstellreihe mit Verbpositionsprüfung."
+      },
+      nebensatz: {
+        title: "Nebensätze abhängig machen",
+        prompt: "Baue Nebensätze und untersuche, woran man ihre Abhängigkeit erkennt.",
+        steps: ["Schreibe vier Hauptsätze und ergänze jeweils einen Nebensatz.", "Markiere Einleitewort und finites Verb im Nebensatz.", "Setze zwei Nebensätze einmal vor und einmal hinter den Hauptsatz.", "Erkläre, warum der Nebensatz allein nicht vollständig wirkt."],
+        product: "Satzgefüge mit Markierungen und Kommaregel."
+      },
+      satzreihe: {
+        title: "Gleichrangige Hauptsätze verbinden",
+        prompt: "Untersuche, wie aus mehreren Hauptsätzen eine Satzreihe entsteht.",
+        steps: ["Notiere sechs kurze Hauptsätze.", "Verbinde sie paarweise mit Komma oder Konjunktionen wie und, aber, denn.", "Prüfe, ob beide Teile allein stehen könnten.", "Erkläre den Unterschied zu einem Satz mit weil."],
+        product: "Satzreihen-Tabelle mit Selbstständigkeitsprobe."
+      },
+      satzgefuege: {
+        title: "Hauptsatz und Nebensatz ordnen",
+        prompt: "Zeige, wie ein Satzgefüge aufgebaut ist und warum die Satzteile nicht gleichrangig sind.",
+        steps: ["Schreibe vier Satzgefüge mit unterschiedlichen Subjunktionen.", "Markiere Hauptsatz, Nebensatz, Einleitewort und finites Verb.", "Baue ein Satzgefüge mit eingeschobenem Nebensatz.", "Erkläre, wie die Kommasetzung mit der Struktur zusammenhängt."],
+        product: "Strukturanalyse mit farbigen Satzteilen."
+      },
+      infinitivgruppe: {
+        title: "Infinitivgruppen erkennen und nutzen",
+        prompt: "Untersuche Wortgruppen mit zu + Infinitiv und ihre Funktion im Satz.",
+        steps: ["Schreibe je zwei Sätze mit um ... zu, ohne ... zu und statt ... zu.", "Markiere die ganze Infinitivgruppe, nicht nur zu.", "Erkläre, welche Funktion die Gruppe im Satz erfüllt.", "Entscheide bei längeren Beispielen, wo ein Komma sinnvoll oder nötig ist."],
+        product: "Beispielsammlung mit Funktionshinweisen."
+      },
+      partizipgruppe: {
+        title: "Partizipialgruppen präzise beziehen",
+        prompt: "Untersuche, wie Partizipialgruppen Nomen genauer beschreiben oder Nebensätze verkürzen.",
+        steps: ["Forme drei Relativsätze in Partizipialgruppen um.", "Forme zwei Partizipialgruppen wieder in Nebensätze zurück.", "Markiere das Bezugswort und prüfe, ob der Bezug eindeutig ist.", "Verbessere ein missverständliches Beispiel."],
+        product: "Umformungstabelle mit Bezugsprüfung."
+      },
+      feldermodell: {
+        title: "Sätze ins Feldermodell einordnen",
+        prompt: "Nutze das Feldermodell, um den Aufbau deutscher Sätze genau zu erklären.",
+        steps: ["Analysiere drei Sätze, darunter einen mit Konjunktion am Anfang.", "Trage KO, VF, LSK, MF, RSK und NF in eine Tabelle ein.", "Markiere, welche Teile zur Satzklammer gehören.", "Erkläre, was sich verändert, wenn ein anderes Satzglied ins Vorfeld rückt."],
+        product: "Feldermodell-Tabelle mit kurzer Auswertung."
+      }
+    };
+    const testSections = [
+  {
+    "title": "Satzglieder: Subjekt, Prädikat, Objekte",
+    "from": 0,
+    "to": 17
+  },
+  {
+    "title": "Adverbiale Bestimmungen und Attribute",
+    "from": 18,
+    "to": 27
+  },
+  {
+    "title": "Hauptsatz und Nebensatz",
+    "from": 28,
+    "to": 39
+  },
+  {
+    "title": "Satzreihe und Satzgefüge",
+    "from": 40,
+    "to": 49
+  },
+  {
+    "title": "Infinitivgruppe, Partizipialgruppe und Feldermodell",
+    "from": 50,
+    "to": 59
+  }
+];
+    const testQuestions = [
+  {
+    "type": "single",
+    "topic": "Subjekt",
+    "question": "Woran erkennst du das Subjekt am sichersten?",
+    "options": [
+      "Mit der Frage Wer oder was?",
+      "Mit der Frage Wem?",
+      "Es steht immer am Satzanfang.",
+      "Es ist immer ein einzelnes Wort."
+    ],
+    "answer": 0
+  },
+  {
+    "type": "contextFill",
+    "topic": "Subjekt",
+    "question": "Analysiere: Warum ist „viele Kinder“ im Satz „Im Park spielen viele Kinder“ das Subjekt?",
+    "parts": [
+      "„Viele Kinder“ ist das Subjekt, weil man mit „",
+      " (1)?“ danach fragen kann. Es steht im ",
+      " (2) und passt im Numerus zum Prädikat „",
+      " (3)“."
+    ],
+    "answers": [
+      "Wer oder was",
+      "Nominativ",
+      "spielen"
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Subjekt",
+    "question": "Ergänze: Das Subjekt steht meistens im ______.",
+    "answers": [
+      "Nominativ"
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Subjekt",
+    "question": "Welche Aussagen zum Subjekt sind richtig?",
+    "options": [
+      "Es kann eine Wortgruppe sein.",
+      "Es passt mit dem Prädikat zusammen.",
+      "Es steht immer vorne.",
+      "Man fragt mit Wer oder was?"
+    ],
+    "answers": [
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "type": "assign",
+    "topic": "Subjekt",
+    "question": "Ordne Satz und Subjekt zu.",
+    "options": [
+      "Der Hund",
+      "die Klasse",
+      "Dass du kommst"
+    ],
+    "items": [
+      {
+        "left": "Der Hund bellt.",
+        "answer": "Der Hund"
+      },
+      {
+        "left": "Heute schreibt die Klasse.",
+        "answer": "die Klasse"
+      },
+      {
+        "left": "Dass du kommst, freut mich.",
+        "answer": "Dass du kommst"
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Prädikat",
+    "question": "Was ist das Prädikat?",
+    "options": [
+      "der Verbteil des Satzes",
+      "immer das erste Satzglied",
+      "ein Nomen mit Artikel",
+      "ein Ausruf"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "contextFill",
+    "topic": "Prädikat",
+    "question": "Analysiere das mehrteilige Prädikat im Satz „Lina hat gestern einen Text geschrieben.“",
+    "parts": [
+      "Das Prädikat lautet „",
+      " (1)“. Die linke Verbform ist „",
+      " (2)“, die rechte Verbform ist „",
+      " (3)“."
+    ],
+    "answers": [
+      "hat geschrieben",
+      "hat",
+      "geschrieben"
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Prädikat",
+    "question": "Ergänze: Bei trennbaren Verben gehören beide ______ zum Prädikat.",
+    "answers": [
+      "Teile",
+      "Verbteile"
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Prädikat",
+    "question": "Welche Prädikate sind richtig markiert?",
+    "options": [
+      "hat geschrieben",
+      "steht auf",
+      "der Hund",
+      "bellt"
+    ],
+    "answers": [
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Prädikat",
+    "question": "Welche Frage hilft beim Prädikat?",
+    "options": [
+      "Was geschieht?",
+      "Wessen?",
+      "Welche?",
+      "Wie viele?"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "topic": "Objekte",
+    "question": "Objekte ergänzen vor allem ...",
+    "options": [
+      "das Prädikat",
+      "den Artikel",
+      "das Satzzeichen",
+      "die Überschrift"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "topic": "Objekte",
+    "question": "Nach dem Dativobjekt fragt man mit ...",
+    "options": [
+      "Wem?",
+      "Wen oder was?",
+      "Wo?",
+      "Wann?"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "contextFill",
+    "topic": "Objekte",
+    "question": "Analysiere die Objekte im Satz „Mia schenkt ihrer Freundin ein Bild.“",
+    "parts": [
+      "„Ihrer Freundin“ ist das ",
+      " (1), weil man mit „",
+      " (2)?“ fragt. „Ein Bild“ ist das ",
+      " (3), weil man mit „",
+      " (4)?“ fragt."
+    ],
+    "answers": [
+      "Dativobjekt",
+      "Wem",
+      "Akkusativobjekt",
+      "Wen oder was"
+    ]
+  },
+  {
+    "type": "assign",
+    "topic": "Objekte",
+    "question": "Ordne Objektart und Beispiel zu.",
+    "options": [
+      "Akkusativobjekt",
+      "Dativobjekt",
+      "Präpositionalobjekt"
+    ],
+    "items": [
+      {
+        "left": "ein Buch",
+        "answer": "Akkusativobjekt"
+      },
+      {
+        "left": "seinem Bruder",
+        "answer": "Dativobjekt"
+      },
+      {
+        "left": "an den Ausflug",
+        "answer": "Präpositionalobjekt"
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Objekte",
+    "question": "Welche Fragen passen zu Objekten?",
+    "options": [
+      "Wem?",
+      "Wen oder was?",
+      "Wessen?",
+      "Wie spät?"
+    ],
+    "answers": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "type": "contextFill",
+    "topic": "Objekte",
+    "question": "Unterscheide Präpositionalobjekt und adverbiale Bestimmung im Kontext.",
+    "parts": [
+      "In „Ich warte auf den Bus“ ist „auf den Bus“ ein ",
+      " (1), weil das Verb „warten auf“ die Präposition verlangt. In „Ich warte an der Haltestelle“ ist „an der Haltestelle“ eine ",
+      " (2), weil die Wortgruppe die Frage „",
+      " (3)?“ beantwortet."
+    ],
+    "answers": [
+      "Präpositionalobjekt",
+      "lokale adverbiale Bestimmung",
+      "Wo"
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Objekte",
+    "question": "Ergänze: Das Verb bestimmt oft, welches ______ passt.",
+    "answers": [
+      "Objekt"
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Objekte",
+    "question": "Welcher Ausdruck ist im Akkusativ?",
+    "options": [
+      "dem Bruder",
+      "den Ball",
+      "des Hundes",
+      "mit dem Bus"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "topic": "Adverbiale Bestimmungen",
+    "question": "Adverbiale Bestimmungen geben an ...",
+    "options": [
+      "Umstände einer Handlung",
+      "nur Personen",
+      "nur Artikel",
+      "nur Satzzeichen"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "contextFill",
+    "topic": "Adverbiale Bestimmungen",
+    "question": "Analysiere die adverbialen Bestimmungen im Satz „Wir schreiben morgen wegen des Tests sehr konzentriert in der Schule.“",
+    "parts": [
+      "„Morgen“ ist ",
+      " (1), „wegen des Tests“ ist ",
+      " (2), „sehr konzentriert“ ist ",
+      " (3) und „in der Schule“ ist ",
+      " (4)."
+    ],
+    "answers": [
+      "temporal",
+      "kausal",
+      "modal",
+      "lokal"
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Adverbiale Bestimmungen",
+    "question": "Ergänze: Temporal bedeutet Angabe der ______.",
+    "answers": [
+      "Zeit"
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Adverbiale Bestimmungen",
+    "question": "Welche Fragen passen zu adverbialen Bestimmungen?",
+    "options": [
+      "Wo?",
+      "Wann?",
+      "Warum?",
+      "Wessen?"
+    ],
+    "answers": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Adverbiale Bestimmungen",
+    "question": "Welche Angabe ist modal?",
+    "options": [
+      "sehr sorgfältig",
+      "morgen",
+      "auf dem Hof",
+      "wegen des Sturms"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "topic": "Attribute",
+    "question": "Attribute beschreiben genauer ...",
+    "options": [
+      "ein Nomen",
+      "ein Satzzeichen",
+      "immer ein Verb",
+      "eine Zeitform"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "contextFill",
+    "topic": "Attribute",
+    "question": "Analysiere die Attribute im Satz „Der Schüler mit dem roten Rucksack liest ein spannendes Buch.“",
+    "parts": [
+      "„Mit dem roten Rucksack“ ist ein ",
+      " (1) zu „Schüler“. „Spannendes“ ist ein ",
+      " (2) zu „Buch“. Attribute beschreiben immer ein ",
+      " (3) genauer."
+    ],
+    "answers": [
+      "Präpositionalattribut",
+      "Adjektivattribut",
+      "Nomen"
+    ]
+  },
+  {
+    "type": "assign",
+    "topic": "Attribute",
+    "question": "Ordne Attributart und Beispiel zu.",
+    "options": [
+      "Adjektivattribut",
+      "Genitivattribut",
+      "Präpositionalattribut"
+    ],
+    "items": [
+      {
+        "left": "kleine",
+        "answer": "Adjektivattribut"
+      },
+      {
+        "left": "meines Bruders",
+        "answer": "Genitivattribut"
+      },
+      {
+        "left": "mit dem roten Rucksack",
+        "answer": "Präpositionalattribut"
+      }
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Attribute",
+    "question": "Welche Fragen helfen bei Attributen?",
+    "options": [
+      "Welche?",
+      "Was für ein?",
+      "Wessen?",
+      "Was geschieht?"
+    ],
+    "answers": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Attribute",
+    "question": "Was ist „kleine“ in „der kleine Hund“?",
+    "options": [
+      "Attribut",
+      "Prädikat",
+      "Subjekt",
+      "Nebensatz"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "topic": "Hauptsatz",
+    "question": "Woran erkennst du einen Hauptsatz?",
+    "options": [
+      "Er kann meistens allein stehen.",
+      "Er beginnt immer mit weil.",
+      "Das Verb steht immer am Ende.",
+      "Er hat nie ein Subjekt."
+    ],
+    "answer": 0
+  },
+  {
+    "type": "contextFill",
+    "topic": "Hauptsatz",
+    "question": "Analysiere die Verbposition im Hauptsatz „Heute liest Mia ein Buch.“",
+    "parts": [
+      "Das finite Verb ist „",
+      " (1)“. Es steht im Aussagesatz an ",
+      " (2) Stelle. Das Vorfeld ist mit „",
+      " (3)“ besetzt."
+    ],
+    "answers": [
+      "liest",
+      "zweiter",
+      "Heute"
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Hauptsatz",
+    "question": "Ergänze: Im Aussagesatz steht das finite Verb meist an ______ Stelle.",
+    "answers": [
+      "zweiter",
+      "zweiten",
+      "2.",
+      "zweite"
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Hauptsatz",
+    "question": "Welche Aussagen zum Hauptsatz sind richtig?",
+    "options": [
+      "Er kann allein stehen.",
+      "Er kann ein mehrteiliges Prädikat haben.",
+      "Er beginnt immer mit einer Subjunktion.",
+      "Im Aussagesatz steht das finite Verb meist an zweiter Stelle."
+    ],
+    "answers": [
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Nebensatz",
+    "question": "Woran erkennst du einen Nebensatz häufig?",
+    "options": [
+      "Verb oft am Ende",
+      "kann immer allein stehen",
+      "beginnt immer mit und",
+      "enthält kein Verb"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "contextFill",
+    "topic": "Nebensatz",
+    "question": "Analysiere den Satzteil „weil Tom später kommt“.",
+    "parts": [
+      "Der Satzteil ist ein ",
+      " (1), weil er mit der Subjunktion „",
+      " (2)“ eingeleitet wird und das finite Verb am ",
+      " (3) steht."
+    ],
+    "answers": [
+      "Nebensatz",
+      "weil",
+      "Ende"
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Nebensatz",
+    "question": "Ergänze: Nebensätze werden meist mit ______ abgetrennt.",
+    "answers": [
+      "Komma",
+      "Kommas"
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Nebensatz",
+    "question": "Welche Wörter können Nebensätze einleiten?",
+    "options": [
+      "weil",
+      "dass",
+      "obwohl",
+      "und",
+      "wenn"
+    ],
+    "answers": [
+      0,
+      1,
+      2,
+      4
+    ]
+  },
+  {
+    "type": "contextFill",
+    "topic": "Nebensatz",
+    "question": "Korrigiere und begründe den Fehler: „weil ich bin krank“.",
+    "parts": [
+      "Die korrekte Form lautet: „weil ich krank ",
+      " (1)“. Der Fehler entsteht, weil im Nebensatz das finite Verb am ",
+      " (2) steht."
+    ],
+    "answers": [
+      "bin",
+      "Ende"
+    ]
+  },
+  {
+    "type": "assign",
+    "topic": "Hauptsatz und Nebensatz",
+    "question": "Ordne zu.",
+    "options": [
+      "Hauptsatz",
+      "Nebensatz"
+    ],
+    "items": [
+      {
+        "left": "Tom lacht.",
+        "answer": "Hauptsatz"
+      },
+      {
+        "left": "dass Lina kommt",
+        "answer": "Nebensatz"
+      },
+      {
+        "left": "obwohl es regnet",
+        "answer": "Nebensatz"
+      },
+      {
+        "left": "Die Klasse arbeitet.",
+        "answer": "Hauptsatz"
+      }
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Nebensatz",
+    "question": "Setze das Verb richtig ein: Ich freue mich, dass du morgen ______. Verb: kommen",
+    "answers": [
+      "kommst"
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Nebensatz",
+    "question": "Welche Aussage stimmt?",
+    "options": [
+      "Nebensätze hängen meistens von einem Hauptsatz ab.",
+      "Nebensätze enthalten kein Verb.",
+      "Nebensätze sind immer Fragen.",
+      "Nebensätze haben nie ein Komma."
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "topic": "Satzreihe",
+    "question": "Eine Satzreihe besteht aus ...",
+    "options": [
+      "Hauptsatz + Nebensatz",
+      "Nebensatz + Nebensatz",
+      "Hauptsatz + Hauptsatz",
+      "nur einem Satzglied"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "contextFill",
+    "topic": "Satzreihe",
+    "question": "Analysiere, warum „Mia liest und Tom schreibt“ eine Satzreihe ist.",
+    "parts": [
+      "Der Satz besteht aus zwei ",
+      " (1), die gleichrangig verbunden sind. Das Verbindungswort „",
+      " (2)“ ist hier eine nebenordnende ",
+      " (3)."
+    ],
+    "answers": [
+      "Hauptsätzen",
+      "und",
+      "Konjunktion"
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Satzreihe",
+    "question": "Welche Wörter können Hauptsätze verbinden?",
+    "options": [
+      "und",
+      "oder",
+      "aber",
+      "denn",
+      "weil"
+    ],
+    "answers": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Satzreihe",
+    "question": "Ergänze: Eine Satzreihe verbindet mindestens zwei ______.",
+    "answers": [
+      "Hauptsätze",
+      "Hauptsaetze"
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Satzgefüge",
+    "question": "Ein Satzgefüge besteht aus ...",
+    "options": [
+      "Hauptsatz + Nebensatz",
+      "Hauptsatz + Hauptsatz",
+      "nur einem Prädikat",
+      "nur einem Nebensatz"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "contextFill",
+    "topic": "Satzgefüge",
+    "question": "Analysiere das Satzgefüge „Mia liest, weil sie üben möchte.“",
+    "parts": [
+      "„Mia liest“ ist der ",
+      " (1). „Weil sie üben möchte“ ist der ",
+      " (2), denn er wird durch „",
+      " (3)“ eingeleitet."
+    ],
+    "answers": [
+      "Hauptsatz",
+      "Nebensatz",
+      "weil"
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Satzgefüge",
+    "question": "Welche Aussagen zum Satzgefüge sind richtig?",
+    "options": [
+      "Es enthält mindestens einen Hauptsatz.",
+      "Es enthält mindestens einen Nebensatz.",
+      "Alle Teilsätze sind gleichrangig.",
+      "Hauptsatz und Nebensatz werden oft durch Komma getrennt."
+    ],
+    "answers": [
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Satzgefüge",
+    "question": "Ergänze: Im Satzgefüge hängt der Nebensatz vom ______ ab.",
+    "answers": [
+      "Hauptsatz"
+    ]
+  },
+  {
+    "type": "assign",
+    "topic": "Satzreihe oder Satzgefüge",
+    "question": "Ordne zu.",
+    "options": [
+      "Satzreihe",
+      "Satzgefüge"
+    ],
+    "items": [
+      {
+        "left": "Ich lerne, weil morgen ein Test ist.",
+        "answer": "Satzgefüge"
+      },
+      {
+        "left": "Ich lerne, denn morgen ist ein Test.",
+        "answer": "Satzreihe"
+      },
+      {
+        "left": "Tom spielt und Lina liest.",
+        "answer": "Satzreihe"
+      },
+      {
+        "left": "Wenn der Bus kommt, steigen wir ein.",
+        "answer": "Satzgefüge"
+      }
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Satzgefüge",
+    "question": "Welche Verbindung leitet einen Nebensatz ein?",
+    "options": [
+      "denn",
+      "aber",
+      "weil",
+      "und"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "topic": "Infinitivgruppe",
+    "question": "Woraus besteht eine typische Infinitivgruppe?",
+    "options": [
+      "aus einem finiten Verb",
+      "aus einem Infinitiv mit zu",
+      "aus Hauptsatz + Hauptsatz",
+      "aus einem Fragewort"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "contextFill",
+    "topic": "Infinitivgruppe",
+    "question": "Analysiere die Infinitivgruppe in „Mia versucht, den Text zu verstehen.“",
+    "parts": [
+      "Die Infinitivgruppe lautet „",
+      " (1)“. Man erkennt sie an „",
+      " (2)“ und dem Infinitiv „",
+      " (3)“."
+    ],
+    "answers": [
+      "den Text zu verstehen",
+      "zu",
+      "verstehen"
+    ]
+  },
+  {
+    "type": "multiple",
+    "topic": "Infinitivgruppe",
+    "question": "Welche typischen Formen gehören zu Infinitivgruppen?",
+    "options": [
+      "um ... zu",
+      "ohne ... zu",
+      "statt ... zu",
+      "weil ... ist"
+    ],
+    "answers": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "type": "fill",
+    "topic": "Infinitivgruppe",
+    "question": "Ergänze: Eine Infinitivgruppe enthält kein eigenes ______ Verb.",
+    "answers": [
+      "finites",
+      "finite"
+    ]
+  },
+  {
+    "type": "contextFill",
+    "topic": "Partizipialgruppe",
+    "question": "Analysiere die Partizipialgruppe im Satz „Lachend betrat Mia den Raum.“",
+    "parts": [
+      "„Lachend“ ist ein ",
+      " (1). Die Gruppe hat kein eigenes ",
+      " (2) Verb und kann einen Nebensatz ",
+      " (3)."
+    ],
+    "answers": [
+      "Partizip I",
+      "finites",
+      "verkürzen"
+    ]
+  },
+  {
+    "type": "single",
+    "topic": "Partizipialgruppe",
+    "question": "Welches Wort ist ein Partizip I?",
+    "options": [
+      "gelacht",
+      "geschrieben",
+      "lachend",
+      "geöffnet"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "topic": "Partizipialgruppe",
+    "question": "Welches Wort ist ein Partizip II?",
+    "options": [
+      "laufend",
+      "wartend",
+      "spielend",
+      "geöffnet"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "contextFill",
+    "topic": "Partizipialgruppe",
+    "question": "Korrigiere den unklaren Bezug: „Lachend fiel das Buch vom Tisch.“",
+    "parts": [
+      "Der Satz ist unklar, weil scheinbar das ",
+      " (1) lacht. Sinnvoller ist: „Lachend stieß ",
+      " (2) das Buch vom Tisch.“ So ist der Bezug auf eine ",
+      " (3) klar."
+    ],
+    "answers": [
+      "Buch",
+      "Tom",
+      "Person"
+    ]
+  },
+  {
+    "type": "assign",
+    "topic": "Partizipialgruppe und Feldermodell",
+    "question": "Ordne zu.",
+    "options": [
+      "Partizip I",
+      "Partizip II",
+      "Vorfeld",
+      "linke Satzklammer"
+    ],
+    "items": [
+      {
+        "left": "lachend",
+        "answer": "Partizip I"
+      },
+      {
+        "left": "geöffnet",
+        "answer": "Partizip II"
+      },
+      {
+        "left": "Heute",
+        "answer": "Vorfeld"
+      },
+      {
+        "left": "hat",
+        "answer": "linke Satzklammer"
+      }
+    ]
+  },
+  {
+    "type": "contextFill",
+    "topic": "Feldermodell",
+    "question": "Analysiere den Satz im Feldermodell: „Heute hat Mia ein spannendes Buch gelesen.“",
+    "parts": [
+      "Das Vorfeld ist „",
+      " (1)“. Die linke Satzklammer ist „",
+      " (2)“. Die rechte Satzklammer ist „",
+      " (3)“."
+    ],
+    "answers": [
+      "Heute",
+      "hat",
+      "gelesen"
+    ]
+  }
+];
+    const VIDEO_URL = "https://ivi-education.de/videos/deutsch/";
+    const completed = new Set(JSON.parse(localStorage.getItem("satzgliederDone") || "[]"));
+    let activeTopic = topics[0];
+    let activeView = "overview";
+
+    const nav = document.querySelector("#topicNav");
+    const topicArea = document.querySelector("#topicArea");
+    const currentPath = document.querySelector("#currentPath");
+    const overview = document.querySelector("#overview");
+    const testSection = document.querySelector("#testSection");
+    const progressText = document.querySelector("#progressText");
+    const progressBar = document.querySelector("#progressBar");
+    const progressFeedback = document.querySelector("#progressFeedback");
+    const resetProgressBtn = document.querySelector("#resetProgressBtn");
+    const completeBtn = document.querySelector("#completeBtn");
+    const overviewBtn = document.querySelector("#overviewBtn");
+
+    const progressFeedbackMessages = {
+      0: "Startpunkt: Schau dir zuerst die Übersicht an und wähle ein Thema, das du dir in Ruhe erschließen möchtest.",
+      10: "Guter Einstieg: Du hast die ersten Schritte gemacht. Bleib neugierig und nutze die Beispiele zum Vergleichen.",
+      20: "Du kommst ins Arbeiten: Wiederhole kurz, was du bereits sicher erkennst, bevor du weitergehst.",
+      30: "Solider Aufbau: Mehrere Grundlagen sitzen schon. Kleine Fehler sind jetzt hilfreiche Hinweise.",
+      40: "Du bist gut unterwegs: Verbinde die Infografiken mit den Mini-Checks, dann wird dein Wissen stabiler.",
+      50: "Halbzeit: Du hast schon viel geschafft. Nimm dir bei unsicheren Themen bewusst noch einmal Zeit.",
+      60: "Starker Lernweg: Du erkennst immer mehr Zusammenhänge. Achte jetzt auf feine Unterschiede.",
+      70: "Sehr ordentlich: Die meisten Themen sind bearbeitet. Prüfe gezielt, wo du noch schwankst.",
+      80: "Fast sicher: Dein Überblick wird deutlich. Nutze die Aufgaben, um letzte Lücken zu schließen.",
+      90: "Sehr stark: Du bist kurz vor dem Ziel. Wiederhole noch die schwierigen Begriffe und Beispiele.",
+      100: "Geschafft: Du hast alle Themen abgeschlossen. Jetzt kannst du dein Wissen im Abschlusstest festigen."
+    };
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function normalizeAnswer(value) {
+      return String(value).trim().replace(/\s+/g, " ").replace(/[.!?]+$/g, "").toLowerCase();
+    }
+
+    function renderNav() {
+      let html = "";
+      Object.entries(chapters).forEach(([chapterId, label]) => {
+        html += '<section class="nav-group"><h2>' + escapeHtml(label) + '</h2>';
+        topics.filter(topic => topic.chapter === chapterId).forEach(topic => {
+          const active = activeView === "topic" && topic.id === activeTopic.id ? " active" : "";
+          const done = completed.has(topic.id) ? " done" : "";
+          html += '<button class="topic-button' + active + done + '" data-id="' + escapeHtml(topic.id) + '" type="button">';
+          html += '<span class="dot" aria-hidden="true"></span><span>' + escapeHtml(topic.title) + '</span><span class="done-mark">OK</span></button>';
+        });
+        html += "</section>";
+      });
+      html += '<section class="nav-group"><h2>Kapitel 4: Teste dein Wissen</h2>';
+      html += '<button class="topic-button' + (activeView === "quiz" ? " active" : "") + '" id="quizNavButton" type="button">';
+      html += '<span class="dot" aria-hidden="true"></span><span>Abschlusstest</span><span class="done-mark" aria-hidden="true">OK</span></button></section>';
+      nav.innerHTML = html;
+      nav.querySelectorAll("[data-id]").forEach(button => {
+        button.addEventListener("click", () => showTopic(button.dataset.id));
+      });
+      document.querySelector("#quizNavButton").addEventListener("click", showQuiz);
+    }
+
+    function renderMedia(topic) {
+      if (topic.fileType === "pdf") {
+        return '<object class="pdf-frame" data="' + escapeHtml(topic.image) + '" type="application/pdf"><p>Das PDF kann hier geöffnet werden: <a href="' + escapeHtml(topic.image) + '" target="_blank" rel="noopener">Feldermodell öffnen</a></p></object>';
+      }
+      return '<img src="' + escapeHtml(topic.image) + '" alt="Infografik: ' + escapeHtml(topic.title) + '">';
+    }
+
+    function renderDiscovery(topic, ruleId) {
+      const discovery = topicDiscoveries[topic.id];
+      if (!discovery) return "";
+      return '<section class="discovery"><h3>Beobachte und entdecke</h3><p>' + escapeHtml(discovery.text) + '</p><ul>' +
+        discovery.items.map(item => '<li>' + item + '</li>').join("") +
+        '</ul><p><em>' + escapeHtml(discovery.question) + '</em></p><button class="reveal-btn" type="button" onclick="document.getElementById(\'' + escapeHtml(ruleId) + '\').style.display=\'block\'; this.style.display=\'none\'">Regel anzeigen</button></section>';
+    }
+
+    function renderFieldModelTable(topic) {
+      if (topic.id !== "feldermodell") return "";
+      return '<section class="field-table-box"><h3>Die Felder im Überblick</h3><table class="field-table"><thead><tr><th>Feld</th><th>Abkürzung</th><th>Was steht hier?</th><th>Beispiel</th></tr></thead><tbody>' +
+        fieldModelRows.map(row => '<tr>' + row.map(cell => '<td>' + escapeHtml(cell) + '</td>').join("") + '</tr>').join("") +
+        '</tbody></table></section>';
+    }
+
+    function renderTopic(topic) {
+      const chapterLabel = chapters[topic.chapter];
+      const ruleId = "rule-" + topic.id;
+      const hasDiscovery = !!topicDiscoveries[topic.id];
+      const introHtml = topicIntroTexts[topic.id] ? '<section class="info-box intro-box"><h3>Zum Einstieg</h3><p>' + escapeHtml(topicIntroTexts[topic.id]) + '</p></section>' : "";
+      let html = '<aside class="visual-panel">';
+      html += renderMedia(topic);
+      html += '<section class="video-card"><h3>Passende Erklärvideos</h3><div class="video-links">';
+      const videoLinks = topic.videoLinks && topic.videoLinks.length ? topic.videoLinks : [["ivi education: Deutsch", VIDEO_URL]];
+      videoLinks.forEach(([label, url]) => {
+        html += '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + escapeHtml(label) + '</a>';
+      });
+      if (topic.fileType === "pdf") html += '<a href="' + escapeHtml(topic.image) + '" target="_blank" rel="noopener">PDF öffnen</a>';
+      html += '</div></section></aside>';
+      html += '<article class="topic-card"><header class="topic-head" data-chapter="' + escapeHtml(topic.chapter) + '">';
+      html += '<p>' + escapeHtml(chapterLabel) + '</p><h2>' + escapeHtml(topic.title) + '</h2></header>';
+      html += '<div class="topic-body">' + introHtml + renderDiscovery(topic, ruleId) + renderFieldModelTable(topic) + '<div class="definition" id="' + escapeHtml(ruleId) + '"' + (hasDiscovery ? ' style="display:none;"' : '') + '>' + escapeHtml(topic.definition) + '</div>';
+      html += '<div class="memory-box"><strong>Merksatz</strong><span>' + escapeHtml(topic.memory) + '</span></div>';
+      html += '<div class="info-grid">';
+      html += '<section class="info-box"><h3>Einfach erklärt</h3><p>' + escapeHtml(topic.easy) + '</p></section>';
+      html += '<section class="info-box"><h3>Genauer erklärt</h3><ul>' + topic.deep.map(item => '<li>' + escapeHtml(item) + '</li>').join("") + '</ul></section>';
+      html += '<section class="info-box"><h3>Beispiele</h3><ul>' + topic.examples.map(item => '<li>' + escapeHtml(item) + '</li>').join("") + '</ul></section>';
+      html += '<section class="notice"><strong>Achtung</strong> <span>' + escapeHtml(topic.mistake) + '</span></section>';
+      html += '</div><section class="checks" id="checks">';
+      html += renderChoice(topic) + renderCloze(topic) + renderMatch(topic) + renderExtraCheck(topic);
+      html += '</section>' + renderDeepTask(topic) + '</div></article>';
+      topicArea.innerHTML = html;
+      wireChecks(topic);
+    }
+
+    function renderDeepTask(topic) {
+      const task = deepTasks[topic.id];
+      if (!task) return "";
+      return '<section class="deep-task"><div class="deep-task-label">Vertiefungsauftrag</div><h3>' + escapeHtml(task.title) + '</h3><p>' + escapeHtml(task.prompt) + '</p><ol>' +
+        task.steps.map(step => '<li>' + escapeHtml(step) + '</li>').join("") +
+        '</ol><div class="task-output"><strong>Ergebnis:</strong> ' + escapeHtml(task.product) + '</div></section>';
+    }
+
+    function renderChoice(topic) {
+      const [question, options, answer] = topic.check.choice;
+      return '<section class="check-card" data-check="choice"><h3>Mini-Check 1: Auswählen</h3><p>' + escapeHtml(question) + '</p><div class="choice-grid">' +
+        options.map(option => '<button class="choice" data-answer="' + escapeHtml(option) + '" data-correct="' + escapeHtml(answer) + '" type="button">' + escapeHtml(option) + '</button>').join("") +
+        '</div><div class="feedback"></div></section>';
+    }
+
+    function renderCloze(topic) {
+      const [start, options, answer] = topic.check.cloze;
+      return '<section class="check-card" data-check="cloze"><h3>Mini-Check 2: Lückentext</h3><div class="cloze-row"><span>' + escapeHtml(start) + '</span><select data-correct="' + escapeHtml(answer) + '"><option value="">auswählen</option>' +
+        options.map(option => '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>').join("") +
+        '</select></div><div class="feedback"></div></section>';
+    }
+
+    function renderMatch(topic) {
+      const pairs = topic.check.match;
+      const tokens = pairs.map(pair => pair[1]).sort(() => Math.random() - .5);
+      const prompt = topic.check.matchPrompt ? '<p>' + escapeHtml(topic.check.matchPrompt) + '</p>' : "";
+      return '<section class="check-card" data-check="match"><h3>Mini-Check 3: Zuordnen</h3>' + prompt + '<div class="match-wrap"><div class="match-bank" aria-label="Antworten">' +
+        tokens.map(token => '<div class="drag-token" draggable="true" data-value="' + escapeHtml(token) + '">' + escapeHtml(token) + '</div>').join("") +
+        '</div><div class="match-targets" aria-label="Zuordnungen">' +
+        pairs.map(pair => '<div class="drop-slot" data-correct="' + escapeHtml(pair[1]) + '"><strong>' + escapeHtml(pair[0]) + '</strong></div>').join("") +
+        '</div></div><div class="feedback"></div></section>';
+    }
+
+    function encodeData(value) {
+      return encodeURIComponent(JSON.stringify(value));
+    }
+
+    function renderExtraCheck(topic) {
+      const check = topic.check.extra;
+      if (!check) return "";
+      if (check.type === "mark") {
+        return '<section class="check-card" data-check="extra" data-type="mark"><h3>Mini-Check 4: ' + escapeHtml(check.title) + '</h3><p>' + escapeHtml(check.prompt) + '</p><div class="mark-sentence">' +
+          check.words.map(([word, isCorrect]) => '<button class="mark-token" data-correct="' + isCorrect + '" type="button">' + escapeHtml(word) + '</button>').join("") +
+          '</div><div class="extra-actions"><button class="extra-check-btn" type="button">Prüfen</button></div><div class="feedback" data-solution="' + escapeHtml(check.solution) + '"></div></section>';
+      }
+      if (check.type === "wordtype") {
+        return '<section class="check-card" data-check="extra" data-type="wordtype"><h3>Mini-Check 4: ' + escapeHtml(check.title) + '</h3><p>' + escapeHtml(check.prompt) + '</p><p>' + check.sentence + '</p><div class="choice-grid">' +
+          check.options.map(option => '<button class="extra-choice" data-answer="' + escapeHtml(option) + '" data-correct="' + escapeHtml(check.answer) + '" type="button">' + escapeHtml(option) + '</button>').join("") +
+          '</div><div class="feedback"></div></section>';
+      }
+      if (check.type === "correct") {
+        return '<section class="check-card" data-check="extra" data-type="correct" data-answers="' + encodeData(check.answers) + '"><h3>Mini-Check 4: ' + escapeHtml(check.title) + '</h3><p>' + escapeHtml(check.prompt) + '</p><p><strong>Fehler:</strong> ' + escapeHtml(check.wrong) + '</p><input class="extra-input" type="text" placeholder="Antwort eingeben"><div class="extra-actions"><button class="extra-check-btn" type="button">Prüfen</button></div><div class="feedback" data-solution="' + escapeHtml(check.solution) + '"></div></section>';
+      }
+      if (check.type === "multi") {
+        return '<section class="check-card" data-check="extra" data-type="multi"><h3>Mini-Check 4: ' + escapeHtml(check.title) + '</h3><p>' + escapeHtml(check.prompt) + '</p><div class="choice-grid">' +
+          check.options.map(([option, isCorrect]) => '<button class="extra-choice" data-correct="' + isCorrect + '" type="button">' + escapeHtml(option) + '</button>').join("") +
+          '</div><div class="extra-actions"><button class="extra-check-btn" type="button">Prüfen</button></div><div class="feedback"></div></section>';
+      }
+      if (check.type === "explain") {
+        return '<section class="check-card" data-check="extra" data-type="explain"><h3>Mini-Check 4: ' + escapeHtml(check.title) + '</h3><p>' + escapeHtml(check.prompt) + '</p><textarea class="extra-textarea" placeholder="Schreibe deine Erklärung in 1-2 Sätzen."></textarea><div class="extra-actions"><button class="extra-check-btn" type="button">Beispielantwort anzeigen</button></div><div class="feedback" data-solution="' + escapeHtml(check.sample) + '"></div></section>';
+      }
+      return "";
+    }
+
+    function wireChecks(topic) {
+      topicArea.querySelectorAll(".choice").forEach(choice => {
+        choice.addEventListener("click", () => {
+          const card = choice.closest(".check-card");
+          card.querySelectorAll(".choice").forEach(button => button.classList.remove("correct", "wrong"));
+          const ok = choice.dataset.answer === choice.dataset.correct;
+          choice.classList.add(ok ? "correct" : "wrong");
+          card.querySelector(".feedback").textContent = ok ? "Richtig." : "Noch nicht. Richtig ist: " + choice.dataset.correct;
+          checkTopicDone(topic.id);
+        });
+      });
+      topicArea.querySelectorAll("select").forEach(select => {
+        select.addEventListener("change", () => {
+          const card = select.closest(".check-card");
+          const ok = select.value === select.dataset.correct;
+          card.querySelector(".feedback").textContent = ok ? "Richtig." : (select.value ? "Noch nicht. Richtig ist: " + select.dataset.correct : "");
+          card.dataset.solved = ok ? "true" : "false";
+          checkTopicDone(topic.id);
+        });
+      });
+      topicArea.querySelectorAll(".drag-token").forEach(token => {
+        token.addEventListener("dragstart", event => event.dataTransfer.setData("text/plain", token.dataset.value));
+        token.addEventListener("click", () => {
+          topicArea.querySelectorAll(".drag-token").forEach(item => item.classList.remove("selected"));
+          token.classList.add("selected");
+        });
+      });
+      topicArea.querySelectorAll(".drop-slot").forEach(slot => {
+        slot.addEventListener("click", () => {
+          const selected = topicArea.querySelector(".drag-token.selected");
+          if (selected) placeTokenInSlot(selected.dataset.value, slot, topic.id);
+        });
+        slot.addEventListener("dragover", event => { event.preventDefault(); slot.classList.add("over"); });
+        slot.addEventListener("dragleave", () => slot.classList.remove("over"));
+        slot.addEventListener("drop", event => { event.preventDefault(); placeTokenInSlot(event.dataTransfer.getData("text/plain"), slot, topic.id); });
+      });
+      topicArea.querySelectorAll(".mark-token").forEach(token => token.addEventListener("click", () => token.classList.toggle("selected")));
+      topicArea.querySelectorAll(".extra-choice").forEach(choice => {
+        choice.addEventListener("click", () => {
+          const card = choice.closest(".check-card");
+          if (card.dataset.type === "wordtype") {
+            card.querySelectorAll(".extra-choice").forEach(button => button.classList.remove("selected", "correct", "wrong"));
+            const ok = choice.dataset.answer === choice.dataset.correct;
+            choice.classList.add(ok ? "correct" : "wrong");
+            card.dataset.solved = ok ? "true" : "false";
+            card.querySelector(".feedback").textContent = ok ? "Richtig." : "Noch nicht. Richtig ist: " + choice.dataset.correct;
+            checkTopicDone(topic.id);
+            return;
+          }
+          choice.classList.toggle("selected");
+        });
+      });
+      topicArea.querySelectorAll(".extra-check-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          evaluateExtraCheck(button.closest(".check-card"));
+          checkTopicDone(topic.id);
+        });
+      });
+    }
+
+    function placeTokenInSlot(value, slot, topicId) {
+      slot.classList.remove("over", "correct", "wrong");
+      const existing = slot.querySelector(".drag-token");
+      if (existing) document.querySelector(".match-bank").appendChild(existing);
+      const token = [...topicArea.querySelectorAll(".drag-token")].find(item => item.dataset.value === value);
+      if (token) {
+        token.classList.remove("selected");
+        slot.appendChild(token);
+        slot.classList.add(value === slot.dataset.correct ? "correct" : "wrong");
+      }
+      updateMatchFeedback(slot.closest(".check-card"));
+      checkTopicDone(topicId);
+    }
+
+    function updateMatchFeedback(card) {
+      const slots = [...card.querySelectorAll(".drop-slot")];
+      const filled = slots.filter(slot => slot.querySelector(".drag-token"));
+      const correct = slots.filter(slot => slot.classList.contains("correct"));
+      if (correct.length === slots.length) {
+        card.querySelector(".feedback").textContent = "Alles richtig zugeordnet.";
+        card.dataset.solved = "true";
+      } else if (filled.length) {
+        card.querySelector(".feedback").textContent = correct.length + " von " + slots.length + " Zuordnungen stimmen.";
+        card.dataset.solved = "false";
+      }
+    }
+
+    function evaluateExtraCheck(card) {
+      const type = card.dataset.type;
+      const feedback = card.querySelector(".feedback");
+      if (type === "mark") {
+        let ok = true;
+        card.querySelectorAll(".mark-token").forEach(token => {
+          token.classList.remove("correct", "wrong");
+          const selected = token.classList.contains("selected");
+          const shouldSelect = token.dataset.correct === "true";
+          if (selected && shouldSelect) token.classList.add("correct");
+          if (selected && !shouldSelect) token.classList.add("wrong");
+          if (selected !== shouldSelect) ok = false;
+        });
+        card.dataset.solved = ok ? "true" : "false";
+        feedback.textContent = ok ? "Richtig markiert." : "Noch nicht. Richtige Lösung: " + feedback.dataset.solution;
+      }
+      if (type === "correct") {
+        const answers = JSON.parse(decodeURIComponent(card.dataset.answers));
+        const input = card.querySelector(".extra-input");
+        const ok = answers.some(answer => normalizeAnswer(answer) === normalizeAnswer(input.value));
+        card.dataset.solved = ok ? "true" : "false";
+        feedback.textContent = ok ? "Richtig korrigiert." : "Noch nicht. Beispiel: " + feedback.dataset.solution;
+      }
+      if (type === "explain") {
+        const text = card.querySelector(".extra-textarea").value.trim();
+        const ok = text.length >= 25;
+        card.dataset.solved = ok ? "true" : "false";
+        feedback.textContent = ok ? "Gute Arbeitsgrundlage. Beispielantwort: " + feedback.dataset.solution : "Schreibe noch mindestens einen kurzen Erklärungssatz.";
+      }
+      if (type === "multi") {
+        let ok = true;
+        card.querySelectorAll(".extra-choice").forEach(choice => {
+          choice.classList.remove("correct", "wrong");
+          const selected = choice.classList.contains("selected");
+          const shouldSelect = choice.dataset.correct === "true";
+          if (selected && shouldSelect) choice.classList.add("correct");
+          if (selected && !shouldSelect) choice.classList.add("wrong");
+          if (selected !== shouldSelect) ok = false;
+        });
+        card.dataset.solved = ok ? "true" : "false";
+        feedback.textContent = ok ? "Alle richtigen Aussagen ausgewählt." : "Noch nicht. Prüfe die Aussagen noch einmal.";
+      }
+    }
+
+    function checkTopicDone(topicId) {
+      const choiceOk = !!topicArea.querySelector('[data-check="choice"] .choice.correct');
+      const clozeOk = topicArea.querySelector('[data-check="cloze"]')?.dataset.solved === "true";
+      const matchOk = topicArea.querySelector('[data-check="match"]')?.dataset.solved === "true";
+      const extraCard = topicArea.querySelector('[data-check="extra"]');
+      const extraOk = !extraCard || extraCard.dataset.solved === "true";
+      if (choiceOk && clozeOk && matchOk && extraOk) {
+        completed.add(topicId);
+        saveProgress();
+        renderNav();
+      }
+      updateProgress();
+    }
+
+    function saveProgress() {
+      localStorage.setItem("satzgliederDone", JSON.stringify([...completed]));
+    }
+
+    function updateProgress() {
+      const progressPercent = Math.round((completed.size / topics.length) * 100);
+      const feedbackStep = Math.min(100, Math.max(0, Math.round(progressPercent / 10) * 10));
+      progressText.textContent = completed.size + " von " + topics.length;
+      progressBar.style.width = progressPercent + "%";
+      if (progressFeedback) {
+        progressFeedback.dataset.step = String(feedbackStep);
+        progressFeedback.innerHTML = "<strong>Lernfeedback " + feedbackStep + "%</strong>" + progressFeedbackMessages[feedbackStep];
+      }
+      completeBtn.textContent = completed.has(activeTopic.id) ? "Thema verstanden" : "Ich habe das Thema verstanden";
+    }
+
+    function hideQuiz() { testSection.style.display = "none"; }
+
+    function showTopic(topicId) {
+      activeTopic = topics.find(topic => topic.id === topicId) || topics[0];
+      activeView = "topic";
+      overview.style.display = "none";
+      hideQuiz();
+      completeBtn.style.display = "inline-flex";
+      currentPath.textContent = chapters[activeTopic.chapter] + " / " + activeTopic.title;
+      renderTopic(activeTopic);
+      renderNav();
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showQuiz() {
+      activeView = "quiz";
+      overview.style.display = "none";
+      topicArea.innerHTML = "";
+      testSection.style.display = "block";
+      completeBtn.style.display = "none";
+      currentPath.textContent = "Kapitel 4: Teste dein Wissen";
+      renderNav();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    overviewBtn.addEventListener("click", () => {
+      activeView = "overview";
+      overview.style.display = "";
+      topicArea.innerHTML = "";
+      hideQuiz();
+      completeBtn.style.display = "none";
+      currentPath.textContent = "Überblick";
+      renderNav();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    completeBtn.addEventListener("click", () => {
+      completed.add(activeTopic.id);
+      saveProgress();
+      renderNav();
+      updateProgress();
+    });
+
+    resetProgressBtn.addEventListener("click", () => {
+      completed.clear();
+      localStorage.removeItem("satzgliederDone");
+      renderNav();
+      updateProgress();
+    });
+
+    function renderQuiz() {
+      const container = document.querySelector("#quizContainer");
+      container.innerHTML = "";
+      testSections.forEach((section, sectionIndex) => {
+        const sectionElement = document.createElement("section");
+        sectionElement.className = "quiz-section";
+        sectionElement.dataset.section = sectionIndex;
+        sectionElement.innerHTML = '<div class="quiz-section-header"><h3>' + escapeHtml(section.title) + '</h3><span class="quiz-section-score">Noch nicht ausgewertet</span></div>';
+        for (let index = section.from; index <= section.to; index++) {
+          const q = testQuestions[index];
+          const card = document.createElement("article");
+          card.className = "quiz-card";
+          card.dataset.index = index;
+          let html = '<div class="question-title">' + escapeHtml((index + 1) + ". " + q.question) + '</div>';
+          if (q.type === "single") {
+            q.options.forEach((option, optionIndex) => {
+              html += '<label><input type="radio" name="q_' + index + '" value="' + optionIndex + '"> ' + escapeHtml(option) + '</label>';
+            });
+          }
+          if (q.type === "multiple") {
+            q.options.forEach((option, optionIndex) => {
+              html += '<label><input type="checkbox" name="q_' + index + '" value="' + optionIndex + '"> ' + escapeHtml(option) + '</label>';
+            });
+            html += '<div class="hint">Mehrere Antworten können richtig sein.</div>';
+          }
+          if (q.type === "fill") {
+            html += '<input type="text" name="q_' + index + '" placeholder="Antwort eingeben">';
+          }
+          if (q.type === "contextFill") {
+            html += '<div class="context-fill-line">';
+            q.parts.forEach((part, partIndex) => {
+              html += escapeHtml(part);
+              if (partIndex < q.answers.length) {
+                html += '<input type="text" name="q_' + index + '_' + partIndex + '" aria-label="Lücke ' + (partIndex + 1) + ' zu Aufgabe ' + (index + 1) + '">';
+              }
+            });
+            html += '</div>';
+          }
+          if (q.type === "assign") {
+            q.items.forEach((item, itemIndex) => {
+              html += '<div class="assign-row"><div class="word">' + escapeHtml(item.left) + '</div><select name="q_' + index + '_' + itemIndex + '"><option value="">Bitte auswählen</option>' + q.options.map(option => '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>').join("") + '</select></div>';
+            });
+          }
+          html += '<div class="feedback"></div>';
+          card.innerHTML = html;
+          sectionElement.appendChild(card);
+        }
+        container.appendChild(sectionElement);
+      });
+    }
+
+    function scoreQuizQuestion(card) {
+      const index = Number(card.dataset.index);
+      const q = testQuestions[index];
+      let isCorrect = false;
+      let solution = "";
+      if (q.type === "single") {
+        const checked = card.querySelector('input[name="q_' + index + '"]:checked');
+        isCorrect = !!checked && Number(checked.value) === q.answer;
+        solution = q.options[q.answer];
+      }
+      if (q.type === "multiple") {
+        const selected = [...card.querySelectorAll('input[name="q_' + index + '"]:checked')].map(input => Number(input.value)).sort((a,b) => a-b);
+        const answers = [...q.answers].sort((a,b) => a-b);
+        isCorrect = selected.length === answers.length && selected.every((value, i) => value === answers[i]);
+        solution = q.answers.map(i => q.options[i]).join(", ");
+      }
+      if (q.type === "fill") {
+        const input = card.querySelector('input[name="q_' + index + '"]');
+        const userAnswer = normalizeAnswer(input.value).replaceAll("ä", "ae").replaceAll("ö", "oe").replaceAll("ü", "ue").replaceAll("ß", "ss");
+        isCorrect = q.answers.some(answer => normalizeAnswer(answer).replaceAll("ä", "ae").replaceAll("ö", "oe").replaceAll("ü", "ue").replaceAll("ß", "ss") === userAnswer);
+        solution = q.answers[0];
+      }
+      if (q.type === "contextFill") {
+        isCorrect = q.answers.every((answer, answerIndex) => {
+          const input = card.querySelector('input[name="q_' + index + '_' + answerIndex + '"]');
+          const userAnswer = normalizeAnswer(input?.value || "").replaceAll("ä", "ae").replaceAll("ö", "oe").replaceAll("ü", "ue").replaceAll("ß", "ss");
+          const expected = normalizeAnswer(answer).replaceAll("ä", "ae").replaceAll("ö", "oe").replaceAll("ü", "ue").replaceAll("ß", "ss");
+          return userAnswer === expected;
+        });
+        solution = q.answers.map((answer, answerIndex) => "Lücke " + (answerIndex + 1) + ": " + answer).join("; ");
+      }
+      if (q.type === "assign") {
+        isCorrect = q.items.every((item, itemIndex) => {
+          const select = card.querySelector('select[name="q_' + index + '_' + itemIndex + '"]');
+          return select.value === item.answer;
+        });
+        solution = q.items.map(item => item.left + " = " + item.answer).join("; ");
+      }
+      return { isCorrect, solution };
+    }
+
+    function checkQuiz() {
+      let correctCount = 0;
+      document.querySelectorAll("#testSection .quiz-card").forEach(card => {
+        const result = scoreQuizQuestion(card);
+        const feedback = card.querySelector(".feedback");
+        card.classList.remove("correct", "wrong");
+        if (result.isCorrect) {
+          correctCount++;
+          card.classList.add("correct");
+          feedback.innerHTML = '<span class="correct-text">Richtig.</span>';
+        } else {
+          card.classList.add("wrong");
+          feedback.innerHTML = '<span class="wrong-text">Noch nicht richtig.</span><br>Lösung: ' + escapeHtml(result.solution);
+        }
+      });
+      document.querySelectorAll("#testSection .quiz-section").forEach(section => {
+        const cards = [...section.querySelectorAll(".quiz-card")];
+        const sectionCorrect = cards.filter(card => card.classList.contains("correct")).length;
+        section.querySelector(".quiz-section-score").textContent = "Zwischenergebnis: " + sectionCorrect + " von " + cards.length;
+      });
+      const secureText = correctCount >= 45 ? "Du bist sicher unterwegs." : "Ab 45 Punkten bist du sicher.";
+      document.querySelector("#quizScore").innerHTML = "Gesamtpunktzahl: " + correctCount + " von " + testQuestions.length + " Punkten<br><span class=\"hint\">" + secureText + "</span>";
+    }
+
+    function resetQuiz() {
+      document.querySelectorAll("#testSection input").forEach(input => {
+        if (input.type === "radio" || input.type === "checkbox") input.checked = false;
+        if (input.type === "text") input.value = "";
+      });
+      document.querySelectorAll("#testSection select").forEach(select => select.value = "");
+      document.querySelectorAll("#testSection .quiz-card").forEach(card => {
+        card.classList.remove("correct", "wrong");
+        card.querySelector(".feedback").innerHTML = "";
+      });
+      document.querySelectorAll("#testSection .quiz-section-score").forEach(score => {
+        score.textContent = "Noch nicht ausgewertet";
+      });
+      document.querySelector("#quizScore").innerHTML = "";
+    }
+
+    document.querySelector("#quizCheckBtn").addEventListener("click", checkQuiz);
+    document.querySelector("#quizResetBtn").addEventListener("click", resetQuiz);
+
+    renderNav();
+    renderQuiz();
+    hideQuiz();
+    topicArea.innerHTML = "";
+    completeBtn.style.display = "none";
+    currentPath.textContent = "Überblick";
+    updateProgress();
+  </script>
+</body>
+</html>

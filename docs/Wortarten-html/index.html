@@ -1,0 +1,3635 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deutsch Sprachwissen I (Wortarten) 8/9/10</title>
+  <style>
+    :root {
+      --ink: #262626;
+      --muted: #626262;
+      --line: #d6d6d6;
+      --paper: #ffffff;
+      --blue-soft: #f5f5f5;
+      --green-soft: #f2f2f2;
+      --orange-soft: #fff1f2;
+      --teal-soft: #f7f7f7;
+      --green: #9d1f2f;
+      --orange: #b7343f;
+      --teal: #6b6b6b;
+      --blue: #9d1f2f;
+      --accent: #9d1f2f;
+      --accent-dark: #741622;
+      --worksheet-gray: #eeeeee;
+      --danger: #b3261e;
+      --success: #226c3f;
+      --shadow: 0 16px 34px rgba(45, 45, 45, 0.13);
+      --radius: 8px;
+      --nom: #2563eb;
+      --akk: #16a34a;
+      --dat: #d97706;
+      --gen: #7c3aed;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+      background:
+        radial-gradient(circle at 9% 260px, rgba(255, 198, 78, 0.24) 0 76px, transparent 77px),
+        radial-gradient(circle at 91% 330px, rgba(121, 185, 177, 0.22) 0 90px, transparent 91px),
+        radial-gradient(circle at 72% 120px, rgba(255, 255, 255, 0.28) 0 54px, transparent 55px),
+        linear-gradient(180deg, rgba(157, 31, 47, 0.96) 0, rgba(157, 31, 47, 0.96) 155px, transparent 155px),
+        linear-gradient(180deg, #f2f2f2 0%, #ffffff 42%, #f4f4f4 100%);
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .side {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      padding: 22px 18px;
+      background: #fff;
+      border-right: 1px solid var(--line);
+    }
+
+    .brand {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 2px solid rgba(157, 31, 47, 0.25);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: inset 0 0 0 6px #f3f3f3;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .brand p,
+    .footer-note {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .progress-box {
+      margin: 18px 0 14px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .progress-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-weight: 750;
+      font-size: 0.92rem;
+    }
+
+    .bar {
+      height: 10px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #5f5f5f);
+      transition: width 0.25s ease;
+    }
+
+    .progress-feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid rgba(157, 31, 47, 0.18);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #fff, #fff7f8);
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    .progress-feedback strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .reset-progress-button {
+      width: 100%;
+      min-height: 36px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border: 1px solid rgba(157, 31, 47, 0.35);
+      border-radius: var(--radius);
+      background: #fff7f8;
+      color: var(--accent-dark);
+      font: inherit;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .reset-progress-button:hover,
+    .reset-progress-button:focus {
+      background: #fff1f2;
+      outline: none;
+    }
+
+    .nav-group {
+      margin-top: 16px;
+    }
+
+    .nav-group h2 {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .topic-button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 12px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      margin: 5px 0;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .topic-button:hover,
+    .topic-button:focus {
+      border-color: rgba(157, 31, 47, 0.32);
+      background: #fff7f8;
+      outline: none;
+    }
+
+    .topic-button.active {
+      border-color: rgba(157, 31, 47, 0.55);
+      background: #fff1f2;
+      box-shadow: inset 4px 0 0 var(--accent);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .topic-button[data-chapter="wortarten"] .dot {
+      background: var(--green);
+    }
+
+    .topic-button[data-chapter="verben"] .dot {
+      background: var(--orange);
+    }
+
+    .topic-button[data-chapter="nomen"] .dot {
+      background: var(--teal);
+    }
+
+    .topic-button[data-chapter="test"] .dot {
+      background: var(--accent-dark);
+    }
+
+    .done-mark {
+      color: var(--success);
+      font-weight: 800;
+      visibility: hidden;
+    }
+
+    .topic-button.done .done-mark {
+      visibility: visible;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 24px;
+      background: rgba(157, 31, 47, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(116, 22, 34, 0.6);
+      color: #fff;
+    }
+
+    .topbar-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex-wrap: wrap;
+    }
+
+    .subject-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      max-width: 100%;
+      line-height: 1.2;
+      white-space: normal;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .grammar-icon {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #eee;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    .action,
+    .video-links a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border: 1px solid #cfcfcf;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font-weight: 750;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .action.primary {
+      border-color: #5f5f5f;
+      background: #5f5f5f;
+      color: #fff;
+    }
+
+    .content {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 24px 28px;
+    }
+
+    .overview-band {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.82fr) minmax(320px, 1.18fr);
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 34px;
+      padding: 24px;
+      border: 2px solid rgba(157, 31, 47, 0.16);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255, 199, 78, 0.18), transparent 28%),
+        radial-gradient(circle at 86% 12%, rgba(35, 103, 199, 0.10), transparent 24%),
+        #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .overview-copy h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .overview-copy p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .chapter-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chapter-chip {
+      position: relative;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      font-weight: 750;
+      box-shadow: 0 8px 18px rgba(38, 38, 38, 0.08);
+    }
+
+    .chapter-chip::before {
+      content: attr(data-icon);
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      margin: 0 8px 6px 0;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--accent-dark);
+      font-weight: 900;
+    }
+
+    .chapter-chip:nth-child(1) {
+      border-color: rgba(41, 146, 71, 0.35);
+      background: linear-gradient(180deg, #effaf0, #fff);
+    }
+
+    .chapter-chip:nth-child(2) {
+      border-color: rgba(255, 124, 34, 0.4);
+      background: linear-gradient(180deg, #fff2e6, #fff);
+    }
+
+    .chapter-chip:nth-child(3) {
+      border-color: rgba(0, 132, 144, 0.36);
+      background: linear-gradient(180deg, #eafafb, #fff);
+    }
+
+    .chapter-chip:nth-child(4) {
+      border-color: rgba(157, 31, 47, 0.35);
+      background: linear-gradient(180deg, #fff1f2, #fff);
+    }
+
+    .chapter-chip span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .overview-icons {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .overview-icon-tile {
+      min-height: 74px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      padding: 8px 6px;
+      border: 1px solid rgba(157, 31, 47, 0.16);
+      border-radius: var(--radius);
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(38, 38, 38, 0.07);
+    }
+
+    .overview-icon-tile strong {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .overview-icon-tile span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .learning-goals {
+      grid-column: 1 / -1;
+      padding: 18px;
+      border: 1px solid rgba(157, 31, 47, 0.24);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 12% 15%, rgba(255, 222, 89, 0.18), transparent 26%),
+        linear-gradient(135deg, #ffffff 0%, #fff6f7 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .learning-goals h3 {
+      margin: 0 0 12px;
+      color: var(--accent-dark);
+      font-size: 1.25rem;
+    }
+
+    .learning-goals ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .learning-goals li {
+      position: relative;
+      padding: 10px 12px 10px 36px;
+      border: 1px solid rgba(157, 31, 47, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--ink);
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    .learning-goals li::before {
+      content: "✓";
+      position: absolute;
+      top: 11px;
+      left: 12px;
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .overview-img,
+    .visual-panel img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .overview-img {
+      max-height: 520px;
+      object-fit: contain;
+    }
+
+    .topic-layout {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1.1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .visual-panel {
+      position: sticky;
+      top: 82px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .visual-panel img,
+    .topic-card,
+    .check-card,
+    .video-card {
+      box-shadow: 0 12px 28px rgba(16, 37, 90, 0.08);
+    }
+
+    .topic-card,
+    .check-card,
+    .video-card,
+    .footer-note {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .topic-card {
+      overflow: hidden;
+    }
+
+    .topic-head {
+      padding: 18px;
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .topic-head[data-chapter="wortarten"] {
+      background: var(--accent);
+    }
+
+    .topic-head[data-chapter="verben"] {
+      background: var(--accent);
+    }
+
+    .topic-head[data-chapter="nomen"] {
+      background: var(--accent);
+    }
+
+    .topic-head p,
+    .topic-head h2 {
+      margin: 0;
+    }
+
+    .topic-head h2 {
+      margin-top: 6px;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .topic-body {
+      display: grid;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .definition {
+      padding: 14px;
+      border-left: 6px solid var(--accent);
+      border-radius: var(--radius);
+      background: #fff7f8;
+      font-size: 1.06rem;
+      font-weight: 650;
+    }
+
+    .memory-box {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border: 2px solid #f0b33b;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff8e5, #fff);
+      box-shadow: 0 10px 22px rgba(157, 31, 47, 0.07);
+    }
+
+    .memory-box strong {
+      display: inline-grid;
+      place-items: center;
+      min-width: 74px;
+      min-height: 38px;
+      border-radius: 8px;
+      background: #ffd05a;
+      color: #4d3410;
+      font-weight: 900;
+    }
+
+    .memory-box span {
+      color: #4a3210;
+      font-weight: 750;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .info-box,
+    .notice {
+      padding: 13px;
+      border-radius: var(--radius);
+    }
+
+    .info-box {
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .notice {
+      border: 1px solid #f0c16d;
+      background: #fff5f5;
+    }
+
+    .info-box h3,
+    .notice strong,
+    .video-card h3,
+    .check-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: 0;
+    }
+
+    .info-box p,
+    .notice span {
+      margin: 0;
+      color: #27365f;
+    }
+
+    .info-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .info-box li + li {
+      margin-top: 4px;
+    }
+
+    .intro-box {
+      margin-bottom: 12px;
+      border-color: rgba(157, 31, 47, 0.22);
+      background: linear-gradient(180deg, #fff7f7, #fff);
+    }
+
+    .video-card {
+      padding: 14px;
+      background: #f2f2f2;
+    }
+
+    .video-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .video-links a {
+      border-color: #79b9b1;
+    }
+
+    .checks {
+      display: grid;
+      gap: 16px;
+    }
+
+    .check-card {
+      padding: 14px;
+    }
+
+    .deep-task {
+      margin-top: 16px;
+      padding: 16px;
+      border: 2px solid #79b9b1;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #eefafa, #fff);
+      box-shadow: 0 12px 28px rgba(16, 37, 90, 0.08);
+    }
+
+    .deep-task-label {
+      display: inline-grid;
+      place-items: center;
+      min-height: 34px;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .deep-task h3 {
+      margin: 0 0 8px;
+      color: var(--teal);
+      font-size: 1.08rem;
+    }
+
+    .deep-task p {
+      margin: 0 0 10px;
+      color: #27365f;
+    }
+
+    .deep-task ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .deep-task li + li {
+      margin-top: 6px;
+    }
+
+    .task-output {
+      margin-top: 12px;
+      padding: 10px;
+      border-left: 5px solid var(--orange);
+      border-radius: 8px;
+      background: #fff8e5;
+      color: #4a3210;
+    }
+
+    .choice-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .choice {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 11px;
+      border: 1px solid #c9d7eb;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .choice.correct,
+    .drop-slot.correct {
+      border-color: #72b788;
+      background: #edf8f1;
+      color: var(--success);
+      font-weight: 750;
+    }
+
+    .choice.wrong,
+    .drop-slot.wrong {
+      border-color: #e0a09a;
+      background: #fff1ef;
+      color: var(--danger);
+    }
+
+    .feedback {
+      min-height: 26px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .cloze-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+    }
+
+    .cloze-row select {
+      min-width: 150px;
+      min-height: 38px;
+      border: 1px solid #c4d2e5;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      padding: 6px 8px;
+    }
+
+    .match-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .match-bank,
+    .match-targets {
+      display: grid;
+      gap: 8px;
+    }
+
+    .drag-token {
+      min-height: 40px;
+      padding: 8px 10px;
+      border: 1px solid #c7d4e6;
+      border-radius: var(--radius);
+      background: #fff;
+      cursor: grab;
+      font-weight: 750;
+      user-select: none;
+    }
+
+    .drag-token.selected {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+      box-shadow: inset 0 0 0 2px rgba(35, 103, 199, 0.18);
+    }
+
+    .drop-slot {
+      min-height: 56px;
+      padding: 8px;
+      border: 2px dashed #bfd0e7;
+      border-radius: var(--radius);
+      background: #f8fbff;
+    }
+
+    .drop-slot strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .drop-slot.over {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .mark-sentence {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+    }
+
+    .mark-token,
+    .extra-choice {
+      min-height: 38px;
+      padding: 7px 10px;
+      border: 1px solid #c9d7eb;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+    }
+
+    .mark-token.selected,
+    .extra-choice.selected {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+      font-weight: 750;
+    }
+
+    .extra-choice.correct,
+    .mark-token.correct {
+      border-color: #72b788;
+      background: #edf8f1;
+      color: var(--success);
+      font-weight: 750;
+    }
+
+    .extra-choice.wrong,
+    .mark-token.wrong {
+      border-color: #e0a09a;
+      background: #fff1ef;
+      color: var(--danger);
+    }
+
+    .extra-input,
+    .extra-textarea {
+      width: 100%;
+      border: 1px solid #c4d2e5;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .extra-input {
+      min-height: 40px;
+      padding: 8px 10px;
+    }
+
+    .extra-textarea {
+      min-height: 92px;
+      padding: 10px;
+      resize: vertical;
+    }
+
+    .extra-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .extra-check-btn {
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: #fff;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      padding: 14px;
+    }
+
+    /* === Neue didaktische Komponenten === */
+    .discovery {
+      padding: 14px;
+      border: 2px solid #f0c16d;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff8e5, #fff);
+    }
+
+    .discovery ul { margin: 8px 0; padding-left: 20px; }
+    .discovery li { margin: 6px 0; }
+
+    .story-box {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+      line-height: 1.9;
+    }
+
+    .story-box p { margin: 0; line-height: 1.9; font-size: 1.05rem; }
+    .story-box .w {
+      padding: 2px 4px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background .15s;
+      font-weight: 700;
+    }
+
+    .story-box .w:hover { background: rgba(0,0,0,.06); }
+    .story-box .w.nom { color: var(--nom); border-bottom: 3px solid var(--nom); }
+    .story-box .w.akk { color: var(--akk); border-bottom: 3px solid var(--akk); }
+    .story-box .w.dat { color: var(--dat); border-bottom: 3px solid var(--dat); }
+    .story-box .w.gen { color: var(--gen); border-bottom: 3px solid var(--gen); }
+
+    .story-box .w .anno {
+      display: none;
+      margin-top: 6px;
+      font-size: .92rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .story-box .w.active .anno { display: block; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .legend span {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 750;
+    }
+
+    .legend .nom { background: #eff6ff; color: var(--nom); }
+    .legend .akk { background: #f0fdf4; color: var(--akk); }
+    .legend .dat { background: #fffbeb; color: var(--dat); }
+    .legend .gen { background: #f5f3ff; color: var(--gen); }
+
+    .minimal-pairs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .minimal-pairs .pair {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .minimal-pairs .pair strong { display: block; margin-bottom: 4px; font-size: 1.1rem; }
+    .minimal-pairs .pair em { color: var(--muted); font-size: .9rem; }
+
+    .error-text {
+      padding: 12px;
+      border: 1px solid #c9d7eb;
+      border-radius: var(--radius);
+      background: #fbfdff;
+      line-height: 1.8;
+    }
+
+    .error-text .err {
+      cursor: pointer;
+      padding: 2px 2px;
+      border-bottom: 2px dashed #b3261e;
+    }
+
+    .error-text .err.fixed {
+      border-bottom: 2px solid #16a34a;
+      background: #f0fdf4;
+      cursor: default;
+    }
+
+    .transform-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #dbe7f3;
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .transform-row select {
+      min-height: 38px;
+      padding: 6px 8px;
+      border: 1px solid #b8cadc;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    .anno-task {
+      padding: 12px;
+      border: 1px solid #c9d7eb;
+      border-radius: var(--radius);
+      background: #fbfdff;
+      line-height: 2;
+    }
+
+    .anno-task .token {
+      padding: 3px 6px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .anno-task .token:hover { background: #f3f4f6; }
+    .anno-task .token.ok { border-color: #16a34a; background: #f0fdf4; }
+    .anno-task .token.bad { border-color: #b3261e; background: #fff1ef; }
+
+    .cloze-context {
+      padding: 12px;
+      border: 1px solid #dbe7f3;
+      border-radius: var(--radius);
+      background: #fff;
+      line-height: 1.8;
+    }
+
+    .cloze-context .blank { display: inline-block; margin: 0 4px; }
+
+    @media (max-width: 1040px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .side {
+        position: static;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-group {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px 10px;
+      }
+
+      .nav-group h2 {
+        grid-column: 1 / -1;
+      }
+
+      .topic-layout,
+      .overview-band {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 12px;
+      }
+
+      .content {
+        padding: 14px;
+      }
+
+      .nav-group,
+      .chapter-strip,
+      .overview-icons,
+      .learning-goals ul,
+      .info-grid,
+      .match-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+
+    .school-logo {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+    }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 24px auto 0;
+      padding: 12px 0 4px;
+      border-top: 2px solid var(--accent);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    #wortartenQuiz60 {
+      border-color: rgba(157, 31, 47, 0.32) !important;
+      background: #f7f7f7 !important;
+    }
+
+    #wortartenQuiz60 h2,
+    #wortartenQuiz60 .score {
+      color: var(--accent-dark) !important;
+    }
+
+    #wortartenQuiz60 .check-btn {
+      background: var(--accent) !important;
+    }
+
+    #wortartenQuiz60 .quiz-card {
+      border-color: #d6d6d6 !important;
+    }
+</style>
+</head>
+<body>
+  <div class="app">
+    <aside class="side" aria-label="Themennavigation">
+      <section class="brand">
+        <h1>Deutsch Sprachwissen I (Wortarten) 8/9/10</h1>
+        <p>Grammatik-Lernpaket für Lernpartnerinnen und Lernpartner</p>
+      </section>
+
+      <section class="progress-box" aria-label="Fortschritt">
+        <div class="progress-title">
+          <span>Mini-Checks</span>
+          <span id="progressText">0 von 17</span>
+        </div>
+        <div class="bar" aria-hidden="true"><span id="progressBar"></span></div>
+        <div class="progress-feedback" id="progressFeedback" aria-live="polite"></div>
+        <button class="reset-progress-button" id="resetProgressBtn" type="button">Fortschritt zurücksetzen</button>
+      </section>
+
+      <nav id="topicNav"></nav>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div class="topbar-title">
+          <strong id="currentPath">Überblick</strong>
+          <span class="subject-label">Deutsch Sprachwissen I (Wortarten) 8/9/10</span>
+        </div>
+        <div class="actions">
+          <img class="school-logo" src="assets/asw-logo.png" alt="Alemannenschule Wutöschingen Logo">
+          <img class="grammar-icon" src="assets/grammatik-icon.png" alt="Grammatik-Icon: Subjekt Prädikat Objekt">
+          <button class="action" id="overviewBtn" type="button">Überblick</button>
+          <button class="action primary" id="completeBtn" type="button">Ich habe das Thema verstanden</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="overview-band" id="overview">
+          <div class="overview-copy">
+            <h2>Wortarten, Verbformen und Nomen sicher bestimmen</h2>
+            <p>Diese Lernumgebung führt Schritt für Schritt durch die wichtigsten Grundlagen. Jede Einheit verbindet eine Infografik, kurze Erklärungen, Beispiele und einen Mini-Check.</p>
+            <div class="chapter-strip">
+              <div class="chapter-chip" data-icon="1">Wortarten<span>erkennen und unterscheiden</span></div>
+              <div class="chapter-chip" data-icon="2">Verben<span>genauer betrachten</span></div>
+              <div class="chapter-chip" data-icon="3">Nomen und Nomengruppen<span>bestimmen</span></div>
+              <div class="chapter-chip" data-icon="4">Teste dein Wissen<span>Wissen im Abschlusstest überprüfen</span></div>
+            </div>
+            <div class="overview-icons" aria-label="Schnelle Orientierung">
+              <div class="overview-icon-tile"><strong>N</strong><span>Nomen</span></div>
+              <div class="overview-icon-tile"><strong>V</strong><span>Verben</span></div>
+              <div class="overview-icon-tile"><strong>A</strong><span>Adjektive</span></div>
+              <div class="overview-icon-tile"><strong>Z</strong><span>Zeitformen</span></div>
+              <div class="overview-icon-tile"><strong>F</strong><span>Fälle</span></div>
+            </div>
+          </div>
+          <img class="overview-img" src="assets/wortarten-im-ueberblick.webp" alt="Übersicht über die Grammatik-Kapitel">
+          <section class="learning-goals" aria-labelledby="learningGoalsTitle">
+            <h3 id="learningGoalsTitle">Teillernziele</h3>
+            <ul>
+              <li>Ich kann die wichtigsten Wortarten benennen und voneinander unterscheiden.</li>
+              <li>Ich kann Nomen erkennen und mithilfe von Artikelprobe, Großschreibung und Bedeutung bestimmen.</li>
+              <li>Ich kann Verben als Tätigkeits-, Vorgangs- oder Zustandswörter erkennen.</li>
+              <li>Ich kann Adjektive erkennen und ihre Funktion als Eigenschaftswörter erklären.</li>
+              <li>Ich kann Pronomen als Stellvertreter oder Begleiter von Nomen bestimmen.</li>
+              <li>Ich kann Adverbien nach Ort, Zeit, Grund und Art und Weise unterscheiden.</li>
+              <li>Ich kann Numerale/Zahlwörter erkennen und einfachen Gruppen wie Kardinalzahl, Ordinalzahl oder Bruchzahl zuordnen.</li>
+              <li>Ich kann Präpositionen erkennen und erklären, dass sie häufig einen bestimmten Kasus verlangen.</li>
+              <li>Ich kann Konjunktionen und Subjunktionen unterscheiden und ihre Funktion beim Verbinden von Sätzen erklären.</li>
+              <li>Ich kann mein Wissen zu den Wortarten mithilfe interaktiver Aufgaben selbstständig überprüfen und verbessern.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section class="topic-layout" id="topicArea" aria-live="polite"></section>
+
+        <p class="footer-note">Die Video-Schaltfläche führt direkt zu den ivi-education-Videos zum Thema Wortarten.</p>
+
+        <section id="wortartenQuiz60" style="display: none;">
+          <style>
+            #wortartenQuiz60 {
+              font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+              max-width: 1050px;
+              margin: 30px auto 0;
+              padding: 24px;
+              background: #f7fbff;
+              border: 2px solid #d7e8ff;
+              border-radius: 8px;
+              color: #14213d;
+            }
+        
+            #wortartenQuiz60 h2 {
+              margin: 0 0 8px;
+              font-size: 2rem;
+              color: #063970;
+            }
+        
+            #wortartenQuiz60 .intro {
+              margin: 0 0 22px;
+              color: #41546b;
+              font-size: 1rem;
+            }
+        
+            #wortartenQuiz60 .quiz-card {
+              background: white;
+              border: 1px solid #dbe7f3;
+              border-radius: 8px;
+              padding: 18px;
+              margin-bottom: 16px;
+              box-shadow: 0 3px 10px rgba(15, 60, 110, 0.06);
+            }
+        
+            #wortartenQuiz60 .quiz-card.correct {
+              border-color: #2e9d50;
+              background: #f2fff5;
+            }
+        
+            #wortartenQuiz60 .quiz-card.wrong {
+              border-color: #d65a31;
+              background: #fff7f2;
+            }
+        
+            #wortartenQuiz60 .question-title {
+              font-weight: 750;
+              margin-bottom: 12px;
+              color: #0b3d72;
+            }
+        
+            #wortartenQuiz60 label {
+              display: block;
+              margin: 8px 0;
+              cursor: pointer;
+            }
+        
+            #wortartenQuiz60 input[type="text"],
+            #wortartenQuiz60 select {
+              padding: 8px 10px;
+              border: 1px solid #b8cadc;
+              border-radius: 8px;
+              font-size: 1rem;
+              min-width: 220px;
+              background: #fff;
+            }
+        
+            #wortartenQuiz60 .assign-row {
+              display: grid;
+              grid-template-columns: minmax(150px, 1fr) minmax(220px, 1fr);
+              gap: 12px;
+              align-items: center;
+              margin: 8px 0;
+            }
+        
+            #wortartenQuiz60 .word {
+              font-weight: 700;
+              background: #eef6ff;
+              padding: 8px 10px;
+              border-radius: 8px;
+            }
+        
+            #wortartenQuiz60 .feedback {
+              margin-top: 12px;
+              font-weight: 700;
+            }
+        
+            #wortartenQuiz60 .correct-text {
+              color: #247a3d;
+            }
+        
+            #wortartenQuiz60 .wrong-text {
+              color: #b8401f;
+            }
+        
+            #wortartenQuiz60 .controls {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 12px;
+              align-items: center;
+              margin-top: 22px;
+              position: sticky;
+              bottom: 0;
+              background: #f7fbff;
+              padding: 14px 0 0;
+            }
+        
+            #wortartenQuiz60 button {
+              border: 0;
+              border-radius: 8px;
+              padding: 12px 18px;
+              font-weight: 750;
+              font-size: 1rem;
+              cursor: pointer;
+            }
+        
+            #wortartenQuiz60 .check-btn {
+              background: #063970;
+              color: white;
+            }
+        
+            #wortartenQuiz60 .reset-btn {
+              background: #e7eef7;
+              color: #063970;
+            }
+        
+            #wortartenQuiz60 .score {
+              font-size: 1.1rem;
+              font-weight: 800;
+              color: #063970;
+            }
+
+            #wortartenQuiz60 .quiz-section {
+              margin: 22px 0;
+              padding: 16px;
+              border: 1px solid #dbe7f3;
+              border-radius: 8px;
+              background: #ffffff;
+              box-shadow: 0 5px 18px rgba(15, 60, 110, 0.06);
+            }
+
+            #wortartenQuiz60 .quiz-section-header {
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-between;
+              gap: 10px;
+              margin-bottom: 14px;
+              padding-bottom: 10px;
+              border-bottom: 2px solid #edf3fb;
+            }
+
+            #wortartenQuiz60 .quiz-section-header h3 {
+              margin: 0;
+              color: #063970;
+              font-size: 1.25rem;
+            }
+
+            #wortartenQuiz60 .quiz-section-score {
+              min-height: 34px;
+              display: inline-flex;
+              align-items: center;
+              padding: 6px 10px;
+              border-radius: 8px;
+              background: #fff7f8;
+              color: var(--accent-dark);
+              font-weight: 800;
+            }
+
+            #wortartenQuiz60 .quiz-card {
+              box-shadow: none;
+            }
+
+            #wortartenQuiz60 .quiz-card:last-child {
+              margin-bottom: 0;
+            }
+        
+            #wortartenQuiz60 .hint {
+              font-size: 0.92rem;
+              color: #566b80;
+              margin-top: 6px;
+            }
+
+            #wortartenQuiz60 .context-fill-line {
+              line-height: 2.25;
+              background: #f9fbff;
+              border: 1px dashed #b8cadc;
+              border-radius: 8px;
+              padding: 12px;
+            }
+
+            #wortartenQuiz60 .context-fill-line input[type="text"] {
+              width: 150px;
+              min-width: 120px;
+              margin: 0 5px;
+              background: #fff;
+            }
+        
+            @media (max-width: 700px) {
+              #wortartenQuiz60 {
+                padding: 16px;
+              }
+        
+              #wortartenQuiz60 .assign-row {
+                grid-template-columns: 1fr;
+              }
+            }
+          </style>
+        
+          <h2>Teste dein Wissen: Wortarten</h2>
+          <p class="intro">
+            60 interaktive Aufgaben zu Nomen, Verben, Adjektiven, Pronomen, Adverbien,
+            Numeralien, Präpositionen, Konjunktionen/Subjunktionen und Interjektionen.
+            Ab 45 Punkten bist du sicher.
+          </p>
+        
+          <div id="quizContainer60"></div>
+        
+          <div class="controls">
+            <button class="check-btn" type="button" onclick="checkWortartenQuiz60()">Auswerten</button>
+            <button class="reset-btn" type="button" onclick="resetWortartenQuiz60()">Zurücksetzen</button>
+            <span id="quizScore60" class="score"></span>
+          </div>
+        
+          <script>
+            const wortartenQuestions60 = [
+              {
+                type: "mc",
+                question: "1. Welches Wort ist ein Nomen?",
+                options: ["schnell", "Freude", "laufen", "weil"],
+                answer: "Freude"
+              },
+              {
+                type: "contextFill",
+                question: "2. Analysiere und begründe: Warum ist „Freude“ ein Nomen?",
+                parts: ["Das Wort „Freude“ ist ein Nomen, weil es im Deutschen ", " (1) geschrieben wird und mit einem ", " (2) wie „die“ verwendet werden kann. Zudem ist es ein ", " (3), weil man es nicht anfassen kann."],
+                answers: ["groß", "Artikel", "abstraktes Nomen"]
+              },
+              {
+                type: "mc",
+                question: "3. Welche Probe hilft besonders beim Erkennen von Nomen?",
+                options: ["Artikelprobe", "Steigerungsprobe", "Ausrufeprobe", "Verbprobe"],
+                answer: "Artikelprobe"
+              },
+              {
+                type: "multi",
+                question: "4. Welche Wörter sind Nomen?",
+                options: ["Schule", "denken", "Hoffnung", "blau", "Berlin"],
+                answers: ["Schule", "Hoffnung", "Berlin"]
+              },
+              {
+                type: "assign",
+                question: "5. Ordne die Nomenart zu.",
+                options: ["konkretes Nomen", "abstraktes Nomen", "Eigenname"],
+                items: [
+                  { left: "Tisch", answer: "konkretes Nomen" },
+                  { left: "Mut", answer: "abstraktes Nomen" },
+                  { left: "Hamburg", answer: "Eigenname" }
+                ]
+              },
+              {
+                type: "mc",
+                question: "6. Was ist eine Nominalisierung?",
+                options: [
+                  "Ein Verb oder Adjektiv wird wie ein Nomen gebraucht.",
+                  "Ein Nomen wird kleingeschrieben.",
+                  "Ein Verb wird gesteigert.",
+                  "Ein Adverb wird konjugiert."
+                ],
+                answer: "Ein Verb oder Adjektiv wird wie ein Nomen gebraucht."
+              },
+              {
+                type: "contextFill",
+                question: "7. Analysiere die Nominalisierung im Kontext:",
+                parts: ["Im Satz „Das Lernen fällt mir leicht“ wird „Lernen“ großgeschrieben, weil ein ", " (1) wie ein Nomen gebraucht wird. Man erkennt es auch am Artikel ", " (2). Die Grundform des Wortes ist ", " (3)."],
+                answers: ["Verb", "das", "lernen"]
+              },
+              {
+                type: "mc",
+                question: "8. Was beschreibt ein Verb meistens?",
+                options: ["eine Zahl", "eine Handlung, einen Vorgang oder Zustand", "einen Ausruf", "ein Verhältnis"],
+                answer: "eine Handlung, einen Vorgang oder Zustand"
+              },
+              {
+                type: "mc",
+                question: "9. Welche Funktion hat „habe“ im Satz: Ich habe gelernt?",
+                options: ["Vollverb", "Hilfsverb", "Adjektiv", "Interjektion"],
+                answer: "Hilfsverb"
+              },
+              {
+                type: "mc",
+                question: "10. Welches Wort ist ein Modalverb?",
+                options: ["müssen", "morgen", "schön", "unter"],
+                answer: "müssen"
+              },
+              {
+                type: "contextFill",
+                question: "11. Analysiere die Verbformen im Satz:",
+                parts: ["Im Satz „Ich habe lange geschlafen“ ist „habe“ ein ", " (1), „geschlafen“ ein ", " (2) und die Verbform „geschlafen“ nennt man ", " (3)."],
+                answers: ["Hilfsverb", "Vollverb", "Partizip II"]
+              },
+              {
+                type: "assign",
+                question: "12. Ordne die Verbformen zu.",
+                options: ["Infinitiv", "finite Verbform", "Partizip II"],
+                items: [
+                  { left: "gehen", answer: "Infinitiv" },
+                  { left: "du gehst", answer: "finite Verbform" },
+                  { left: "gegangen", answer: "Partizip II" }
+                ]
+              },
+              {
+                type: "multi",
+                question: "13. Welche Wörter sind Verben?",
+                options: ["liest", "heute", "springen", "mein", "geschrieben"],
+                answers: ["liest", "springen", "geschrieben"]
+              },
+              {
+                type: "mc",
+                question: "14. Welche Aussage passt zu Hilfsverben?",
+                options: [
+                  "Sie helfen bei der Bildung von Zeitformen oder Passiv.",
+                  "Sie stehen immer vor Nomen.",
+                  "Sie drücken nur Gefühle aus.",
+                  "Sie geben immer eine Reihenfolge an."
+                ],
+                answer: "Sie helfen bei der Bildung von Zeitformen oder Passiv."
+              },
+              {
+                type: "contextFill",
+                question: "15. Analysiere die Adjektivverwendung im Kontext:",
+                parts: ["Im Satz „Der kleine Hund rennt schnell“ ist „kleine“ ein Adjektiv im ", " (1), während „schnell“ hier ", " (2) verwendet wird."],
+                answers: ["Attribut", "adverbial"]
+              },
+              {
+                type: "assign",
+                question: "16. Ordne die Steigerungsformen zu.",
+                options: ["Positiv", "Komparativ", "Superlativ"],
+                items: [
+                  { left: "klug", answer: "Positiv" },
+                  { left: "klüger", answer: "Komparativ" },
+                  { left: "am klügsten", answer: "Superlativ" }
+                ]
+              },
+              {
+                type: "mc",
+                question: "17. Bestimme „schnell“ im Satz: Der Hund rennt schnell.",
+                options: ["Nomen", "Artikel", "adverbial gebrauchtes Adjektiv", "Konjunktion"],
+                answer: "adverbial gebrauchtes Adjektiv"
+              },
+              {
+                type: "multi",
+                question: "18. Welche Wörter sind Adjektive?",
+                options: ["freundlich", "unter", "spannend", "laufen", "laut"],
+                answers: ["freundlich", "spannend", "laut"]
+              },
+              {
+                type: "fill",
+                question: "19. Ergänze die Vergleichsstufe: schön – ____ – am schönsten.",
+                answers: ["schöner", "schoener", "schoner"]
+              },
+              {
+                type: "mc",
+                question: "20. Was ist „rote“ im Ausdruck „das rote Fahrrad“?",
+                options: ["Adjektivattribut", "Vollverb", "Präposition", "Interjektion"],
+                answer: "Adjektivattribut"
+              },
+              {
+                type: "mc",
+                question: "21. Welche Funktion haben Pronomen?",
+                options: [
+                  "Sie ersetzen oder begleiten Nomen.",
+                  "Sie zeigen immer eine Zeitform.",
+                  "Sie stehen immer am Satzende.",
+                  "Sie sind immer Ausrufe."
+                ],
+                answer: "Sie ersetzen oder begleiten Nomen."
+              },
+              {
+                type: "assign",
+                question: "22. Ordne die Pronomenarten zu.",
+                options: [
+                  "Personalpronomen",
+                  "Possessivpronomen",
+                  "Reflexivpronomen",
+                  "Demonstrativpronomen",
+                  "Interrogativpronomen",
+                  "Indefinitivpronomen",
+                  "Relativpronomen"
+                ],
+                items: [
+                  { left: "ich", answer: "Personalpronomen" },
+                  { left: "mein", answer: "Possessivpronomen" },
+                  { left: "sich", answer: "Reflexivpronomen" },
+                  { left: "dieser", answer: "Demonstrativpronomen" },
+                  { left: "wer", answer: "Interrogativpronomen" },
+                  { left: "niemand", answer: "Indefinitivpronomen" },
+                  { left: "das Buch, das ...", answer: "Relativpronomen" }
+                ]
+              },
+              {
+                type: "mc",
+                question: "23. Welches Wort ist ein Indefinitivpronomen?",
+                options: ["jemand", "morgen", "laut", "zwischen"],
+                answer: "jemand"
+              },
+              {
+                type: "contextFill",
+                question: "24. Analysiere das Reflexivpronomen im Satz:",
+                parts: ["Er freut ", " (1) über die Note. Das Wort „sich“ ist hier ein ", " (2), weil es sich auf das ", " (3) des Satzes bezieht."],
+                answers: ["sich", "Reflexivpronomen", "Subjekt"]
+              },
+              {
+                type: "mc",
+                question: "25. Welches Wort ist ein Interrogativpronomen?",
+                options: ["wo", "wann", "wer", "warum"],
+                answer: "wer"
+              },
+              {
+                type: "contextFill",
+                question: "26. Analysiere das Personalpronomen im Kontext:",
+                parts: ["Im Satz „Ich helfe ihr“ ist „ihr“ ein Personalpronomen im ", " (1), weil es die Frage ", " (2) beantwortet und ", " (3) Nomen ersetzt."],
+                answers: ["Dativ", "Wem", "ein"]
+              },
+              {
+                type: "contextFill",
+                question: "27. Analysiere das Possessivpronomen im Kontext:",
+                parts: ["Im Satz „Ich sehe ihr Heft“ ist „ihr“ ein ", " (1), weil es das Nomen ", " (2) begleitet und eine ", " (3) ausdrückt."],
+                answers: ["Possessivpronomen", "Heft", "Zugehörigkeit"]
+              },
+              {
+                type: "multi",
+                question: "28. Welche Wörter sind Personalpronomen?",
+                options: ["ich", "du", "dieser", "wir", "mein"],
+                answers: ["ich", "du", "wir"]
+              },
+              {
+                type: "fill",
+                question: "29. Ergänze ein passendes Relativpronomen: Das ist das Buch, ____ ich gesucht habe.",
+                answers: ["das"]
+              },
+              {
+                type: "mc",
+                question: "30. Was ist „dieses“ in „dieses Buch“?",
+                options: ["Demonstrativpronomen", "Interjektion", "Vollverb", "Lokaladverb"],
+                answer: "Demonstrativpronomen"
+              },
+              {
+                type: "mc",
+                question: "31. Zu welcher Adverbgruppe gehört „gestern“?",
+                options: ["Lokaladverb", "Temporaladverb", "Modaladverb", "Kausaladverb"],
+                answer: "Temporaladverb"
+              },
+              {
+                type: "contextFill",
+                question: "32. Analysiere die Adverbien im Kontext und begründe:",
+                parts: ["Heute ist ein schöner Tag. „Heute“ ist ein ", " (1), weil es die Frage ", " (2) beantwortet. „Dort“ ist ein ", " (3), weil es auf einen ", " (4) verweist."],
+                answers: ["Temporaladverb", "Wann", "Lokaladverb", "Ort"]
+              },
+              {
+                type: "mc",
+                question: "33. Welche Frage passt zu Lokaladverbien?",
+                options: ["Wo?", "Wann?", "Warum?", "Wie viele?"],
+                answer: "Wo?"
+              },
+              {
+                type: "mc",
+                question: "34. Welche Frage passt zu Temporaladverbien?",
+                options: ["Wann?", "Wer?", "Wessen?", "Wen oder was?"],
+                answer: "Wann?"
+              },
+              {
+                type: "multi",
+                question: "35. Welche Wörter sind Adverbien?",
+                options: ["heute", "dort", "deshalb", "Hund", "unter"],
+                answers: ["heute", "dort", "deshalb"]
+              },
+              {
+                type: "fill",
+                question: "36. Ergänze ein Kausaladverb: Es regnet, ____ bleiben wir drinnen.",
+                answers: ["deshalb", "daher", "darum"]
+              },
+              {
+                type: "mc",
+                question: "37. Was ist richtig?",
+                options: [
+                  "Ein Adverb ist eine Wortart, eine adverbiale Bestimmung ist ein Satzglied.",
+                  "Adverbien sind immer Nomen.",
+                  "Adverbien werden immer konjugiert.",
+                  "Adverbien stehen immer vor Artikeln."
+                ],
+                answer: "Ein Adverb ist eine Wortart, eine adverbiale Bestimmung ist ein Satzglied."
+              },
+              {
+                type: "mc",
+                question: "38. Was ist „dritte“ in „die dritte Aufgabe“?",
+                options: ["Kardinalzahl", "Ordinalzahl", "Bruchzahl", "Interjektion"],
+                answer: "Ordinalzahl"
+              },
+              {
+                type: "assign",
+                question: "39. Ordne die Numeralien zu.",
+                options: ["Kardinalzahl", "Ordinalzahl", "Bruchzahl", "unbestimmtes Zahlwort"],
+                items: [
+                  { left: "fünf", answer: "Kardinalzahl" },
+                  { left: "zweite", answer: "Ordinalzahl" },
+                  { left: "halb", answer: "Bruchzahl" },
+                  { left: "viele", answer: "unbestimmtes Zahlwort" }
+                ]
+              },
+              {
+                type: "mc",
+                question: "40. Welche Frage passt zu Kardinalzahlen?",
+                options: ["Wie viele?", "Wessen?", "Warum?", "Woher?"],
+                answer: "Wie viele?"
+              },
+              {
+                type: "multi",
+                question: "41. Welche Wörter sind Numeralien?",
+                options: ["drei", "mehrere", "laufen", "Viertel", "weil"],
+                answers: ["drei", "mehrere", "Viertel"]
+              },
+              {
+                type: "contextFill",
+                question: "42. Analysiere die Numerale im Kontext:",
+                parts: ["Beim ", " (1) Mal waren ", " (2) Kinder da. Die Zahl „zweite“ ist eine ", " (3), weil sie eine ", " (4) angibt."],
+                answers: ["zweiten", "zwölf", "Ordinalzahl", "Reihenfolge"]
+              },
+              {
+                type: "mc",
+                question: "43. Welches Wort ist eine Präposition?",
+                options: ["mit", "aber", "juhu", "mein"],
+                answer: "mit"
+              },
+              {
+                type: "assign",
+                question: "44. Ordne die Präposition dem passenden Kasus zu.",
+                options: ["Dativ", "Akkusativ", "Genitiv"],
+                items: [
+                  { left: "mit", answer: "Dativ" },
+                  { left: "für", answer: "Akkusativ" },
+                  { left: "wegen", answer: "Genitiv" },
+                  { left: "durch", answer: "Akkusativ" }
+                ]
+              },
+              {
+                type: "contextFill",
+                question: "45. Analysiere die Wechselpräposition im Kontext:",
+                parts: ["Die Wechselpräposition „in“ verlangt beim Fragewort „Wo?“ den ", " (1) und bei „Wohin?“ den ", " (2). Beispiel: „Ich bin ", " (3) der Schule“ (Wo?) und „Ich gehe ", " (4) die Schule“ (Wohin?)."],
+                answers: ["Dativ", "Akkusativ", "in", "in"]
+              },
+              {
+                type: "multi",
+                question: "46. Welche Wörter sind Präpositionen?",
+                options: ["unter", "wegen", "für", "denn", "Aua"],
+                answers: ["unter", "wegen", "für"]
+              },
+              {
+                type: "contextFill",
+                question: "47. Analysiere die Präposition im Kontext:",
+                parts: ["Ich fahre mit dem Fahrrad. Die Präposition „mit“ verlangt den ", " (1), weil sie die Frage ", " (2) beantwortet. Das Nomen „Fahrrad“ steht hier im ", " (3)."],
+                answers: ["Dativ", "Womit", "Dativ"]
+              },
+              {
+                type: "mc",
+                question: "48. Welche Wortgruppe steht im Akkusativ?",
+                options: ["mit dem Bus", "für den Schüler", "wegen des Regens", "bei der Schule"],
+                answer: "für den Schüler"
+              },
+              {
+                type: "contextFill",
+                question: "49. Analysiere die Präpositionalgruppe:",
+                parts: ["Die Wortgruppe „auf dem Tisch“ ist eine ", " (1). Sie besteht aus der Präposition „auf“ und dem Nomen „Tisch“ im ", " (2). Hier steht der Dativ, weil die Wortgruppe auf die Frage ", " (3) antwortet."],
+                answers: ["Präpositionalgruppe", "Dativ", "Wo"]
+              },
+              {
+                type: "mc",
+                question: "50. Was ist „weil“?",
+                options: ["nebenordnende Konjunktion", "Subjunktion", "Interjektion", "Numerale"],
+                answer: "Subjunktion"
+              },
+              {
+                type: "assign",
+                question: "51. Ordne zu: Konjunktion oder Subjunktion?",
+                options: ["Konjunktion", "Subjunktion"],
+                items: [
+                  { left: "und", answer: "Konjunktion" },
+                  { left: "aber", answer: "Konjunktion" },
+                  { left: "denn", answer: "Konjunktion" },
+                  { left: "weil", answer: "Subjunktion" },
+                  { left: "dass", answer: "Subjunktion" },
+                  { left: "obwohl", answer: "Subjunktion" }
+                ]
+              },
+              {
+                type: "contextFill",
+                question: "52. Analysiere den Nebensatz und begründe die Wortstellung:",
+                parts: ["Im Nebensatz steht das finite Verb meist am Ende, weil die ", " (1) den Satz dem Hauptsatz ", " (2). Beispiel: „Ich lerne, weil ich die Prüfung ", " (3) bestehen möchte.“"],
+                answers: ["Subjunktion", "unterordnet", "bestehen"]
+              },
+              {
+                type: "multi",
+                question: "53. Welche Wörter sind nebenordnende Konjunktionen?",
+                options: ["und", "aber", "weil", "oder", "dass"],
+                answers: ["und", "aber", "oder"]
+              },
+              {
+                type: "fill",
+                question: "54. Ergänze eine passende Subjunktion: Ich lerne, ____ ich morgen einen Test schreibe.",
+                answers: ["weil"]
+              },
+              {
+                type: "mc",
+                question: "55. Was entsteht meist aus Hauptsatz + Hauptsatz?",
+                options: ["Satzreihe", "Satzgefüge", "Nominalisierung", "Interjektion"],
+                answer: "Satzreihe"
+              },
+              {
+                type: "contextFill",
+                question: "56. Analysiere den Aufbau des Satzgefüges:",
+                parts: ["Ein Satzgefüge besteht aus einem ", " (1) und mindestens einem ", " (2). Man erkennt das Satzgefüge daran, dass eine ", " (3) einen Nebensatz einleitet und das finite Verb dann am ", " (4) steht."],
+                answers: ["Hauptsatz", "Nebensatz", "Subjunktion", "Ende"]
+              },
+              {
+                type: "mc",
+                question: "57. Welche Aussage zu Interjektionen stimmt?",
+                options: [
+                  "Sie drücken oft spontane Reaktionen oder Gefühle aus.",
+                  "Sie werden immer konjugiert.",
+                  "Sie zeigen den Kasus an.",
+                  "Sie ersetzen Nomen."
+                ],
+                answer: "Sie drücken oft spontane Reaktionen oder Gefühle aus."
+              },
+              {
+                type: "multi",
+                question: "58. Welche Aussagen stimmen?",
+                options: [
+                  "Nomen schreibt man im Deutschen groß.",
+                  "Verben können konjugiert werden.",
+                  "Adverbien stehen immer mit Artikel.",
+                  "Präpositionen verlangen oft einen bestimmten Kasus.",
+                  "Interjektionen werden dekliniert."
+                ],
+                answers: [
+                  "Nomen schreibt man im Deutschen groß.",
+                  "Verben können konjugiert werden.",
+                  "Präpositionen verlangen oft einen bestimmten Kasus."
+                ]
+              },
+              {
+                type: "assign",
+                question: "59. Ordne die Wörter der passenden Wortart zu.",
+                options: ["Nomen", "Verb", "Adjektiv", "Adverb", "Präposition", "Interjektion"],
+                items: [
+                  { left: "Freude", answer: "Nomen" },
+                  { left: "laufen", answer: "Verb" },
+                  { left: "freundlich", answer: "Adjektiv" },
+                  { left: "heute", answer: "Adverb" },
+                  { left: "wegen", answer: "Präposition" },
+                  { left: "Aua!", answer: "Interjektion" }
+                ]
+              },
+              {
+                type: "contextFill",
+                question: "60. Analysiere die Funktion von Kasus, Genus und Numerus:",
+                parts: ["Kasus, Genus und Numerus helfen beim Bestimmen von ", " (1) und Nomengruppen. Der Kasus zeigt die ", " (2) im Satz, das Genus das grammatische ", " (3) und der Numerus die ", " (4)."],
+                answers: ["Nomen", "Rolle", "Geschlecht", "Anzahl"]
+              }
+            ];
+
+            const wortartenSections60 = [
+              { title: "Nomen, Verben, Adjektive", from: 0, to: 19 },
+              { title: "Pronomen und Adverbien", from: 20, to: 36 },
+              { title: "Numerale und Präpositionen", from: 37, to: 48 },
+              { title: "Konjunktionen/Subjunktionen und Interjektionen", from: 49, to: 56 },
+              { title: "Gemischte Wiederholung", from: 57, to: 59 }
+            ];
+        
+            function normalizeWortarten60(value) {
+              return String(value)
+                .trim()
+                .toLowerCase()
+                .replaceAll("ß", "ss")
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "");
+            }
+        
+            function escapeWortarten60(value) {
+              return String(value)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;");
+            }
+        
+            function renderWortartenQuiz60() {
+              const container = document.getElementById("quizContainer60");
+              container.innerHTML = "";
+
+              wortartenSections60.forEach((section, sectionIndex) => {
+                const sectionElement = document.createElement("section");
+                sectionElement.className = "quiz-section";
+                sectionElement.dataset.section = sectionIndex;
+                sectionElement.innerHTML = `
+                  <div class="quiz-section-header">
+                    <h3>${escapeWortarten60(section.title)}</h3>
+                    <span class="quiz-section-score">Noch nicht ausgewertet</span>
+                  </div>
+                `;
+
+                for (let index = section.from; index <= section.to; index++) {
+                  const q = wortartenQuestions60[index];
+                  const card = document.createElement("article");
+                  card.className = "quiz-card";
+                  card.dataset.index = index;
+
+                  let html = `<div class="question-title">${escapeWortarten60(q.question)}</div>`;
+
+                  if (q.type === "mc") {
+                    q.options.forEach((option) => {
+                      html += `
+                        <label>
+                          <input type="radio" name="q60_${index}" value="${escapeWortarten60(option)}">
+                          ${escapeWortarten60(option)}
+                        </label>
+                      `;
+                    });
+                  }
+
+                  if (q.type === "multi") {
+                    q.options.forEach((option) => {
+                      html += `
+                        <label>
+                          <input type="checkbox" name="q60_${index}" value="${escapeWortarten60(option)}">
+                          ${escapeWortarten60(option)}
+                        </label>
+                      `;
+                    });
+                    html += `<div class="hint">Mehrere Antworten können richtig sein.</div>`;
+                  }
+
+                  if (q.type === "fill") {
+                    html += `<input type="text" name="q60_${index}" placeholder="Antwort eingeben">`;
+                  }
+
+                  if (q.type === "contextFill") {
+                    html += `<div class="context-fill-line">`;
+                    q.parts.forEach((part, partIndex) => {
+                      html += `${escapeWortarten60(part)}`;
+                      if (partIndex < q.answers.length) {
+                        html += `<input type="text" name="q60_${index}_${partIndex}" aria-label="Lücke ${partIndex + 1} zu Aufgabe ${index + 1}">`;
+                      }
+                    });
+                    html += `</div>`;
+                  }
+
+                  if (q.type === "assign") {
+                    q.items.forEach((item, itemIndex) => {
+                      html += `
+                        <div class="assign-row">
+                          <div class="word">${escapeWortarten60(item.left)}</div>
+                          <select name="q60_${index}_${itemIndex}">
+                            <option value="">Bitte auswählen</option>
+                            ${q.options.map(option => `<option value="${escapeWortarten60(option)}">${escapeWortarten60(option)}</option>`).join("")}
+                          </select>
+                        </div>
+                      `;
+                    });
+                  }
+
+                  html += `<div class="feedback"></div>`;
+                  card.innerHTML = html;
+                  sectionElement.appendChild(card);
+                }
+
+                container.appendChild(sectionElement);
+              });
+            }
+        
+            function checkWortartenQuiz60() {
+              let correctCount = 0;
+        
+              document.querySelectorAll("#wortartenQuiz60 .quiz-card").forEach((card) => {
+                const index = Number(card.dataset.index);
+                const q = wortartenQuestions60[index];
+                const feedback = card.querySelector(".feedback");
+        
+                let isCorrect = false;
+                let solution = "";
+        
+                if (q.type === "mc") {
+                  const checked = card.querySelector(`input[name="q60_${index}"]:checked`);
+                  isCorrect = checked && checked.value === q.answer;
+                  solution = q.answer;
+                }
+        
+                if (q.type === "multi") {
+                  const selected = [...card.querySelectorAll(`input[name="q60_${index}"]:checked`)]
+                    .map(input => input.value)
+                    .sort();
+        
+                  const answers = [...q.answers].sort();
+        
+                  isCorrect =
+                    selected.length === answers.length &&
+                    selected.every((value, i) => value === answers[i]);
+        
+                  solution = q.answers.join(", ");
+                }
+        
+                if (q.type === "fill") {
+                  const input = card.querySelector(`input[name="q60_${index}"]`);
+                  const userAnswer = normalizeWortarten60(input.value);
+        
+                  isCorrect = q.answers.some(answer => normalizeWortarten60(answer) === userAnswer);
+                  solution = q.answers[0];
+                }
+
+                if (q.type === "contextFill") {
+                  isCorrect = q.answers.every((answer, answerIndex) => {
+                    const input = card.querySelector(`input[name="q60_${index}_${answerIndex}"]`);
+                    return normalizeWortarten60(input?.value || "") === normalizeWortarten60(answer);
+                  });
+
+                  solution = q.answers.map((answer, answerIndex) => `Lücke ${answerIndex + 1}: ${answer}`).join("; ");
+                }
+        
+                if (q.type === "assign") {
+                  isCorrect = q.items.every((item, itemIndex) => {
+                    const select = card.querySelector(`select[name="q60_${index}_${itemIndex}"]`);
+                    return select.value === item.answer;
+                  });
+        
+                  solution = q.items.map(item => `${item.left} = ${item.answer}`).join("; ");
+                }
+        
+                card.classList.remove("correct", "wrong");
+        
+                if (isCorrect) {
+                  correctCount++;
+                  card.classList.add("correct");
+                  feedback.innerHTML = `<span class="correct-text">Richtig.</span>`;
+                } else {
+                  card.classList.add("wrong");
+                  feedback.innerHTML = `<span class="wrong-text">Noch nicht richtig.</span><br>Lösung: ${escapeWortarten60(solution)}`;
+                }
+              });
+
+              document.querySelectorAll("#wortartenQuiz60 .quiz-section").forEach(section => {
+                const cards = [...section.querySelectorAll(".quiz-card")];
+                const sectionCorrect = cards.filter(card => card.classList.contains("correct")).length;
+                section.querySelector(".quiz-section-score").textContent =
+                  `Zwischenergebnis: ${sectionCorrect} von ${cards.length}`;
+              });
+
+              const sicherText = correctCount >= 45
+                ? "Du bist sicher unterwegs."
+                : "Ab 45 Punkten bist du sicher.";
+
+              document.getElementById("quizScore60").innerHTML =
+                `Gesamtpunktzahl: ${correctCount} von ${wortartenQuestions60.length} Punkten<br><span class="hint">${sicherText}</span>`;
+            }
+        
+            function resetWortartenQuiz60() {
+              document.querySelectorAll("#wortartenQuiz60 input").forEach(input => {
+                if (input.type === "radio" || input.type === "checkbox") input.checked = false;
+                if (input.type === "text") input.value = "";
+              });
+        
+              document.querySelectorAll("#wortartenQuiz60 select").forEach(select => {
+                select.value = "";
+              });
+        
+              document.querySelectorAll("#wortartenQuiz60 .quiz-card").forEach(card => {
+                card.classList.remove("correct", "wrong");
+                card.querySelector(".feedback").innerHTML = "";
+              });
+
+              document.querySelectorAll("#wortartenQuiz60 .quiz-section-score").forEach(score => {
+                score.textContent = "Noch nicht ausgewertet";
+              });
+        
+              document.getElementById("quizScore60").innerHTML = "";
+            }
+        
+            renderWortartenQuiz60();
+          </script>
+        </section>
+
+        <footer class="site-footer">
+          <span>Alemannenschule Wutöschingen</span>
+          <span>Autor: Christian Schwend</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const IVI_VIDEO_URL = "https://ivi-education.de/videos/deutsch/";
+    const topicVideos = {
+      nomen: [
+        ["ivi education: Nomen", "https://ivi-education.de/video/nomen/"],
+        ["ivi education: Artikel", "https://ivi-education.de/video/artikel/"],
+        ["ivi education: Deklination / Kasus", "https://ivi-education.de/video/deklination-der-kasus-der-deutschen-sprache/"]
+      ],
+      verben: [
+        ["ivi education: Verb Grundwissen", "https://ivi-education.de/video/verb-grundwissen/"],
+        ["ivi education: Unregelmäßige Verben", "https://ivi-education.de/video/unregelmaessige-verben/"],
+        ["ivi education: Partizip 2", "https://ivi-education.de/video/partizip-2/"]
+      ],
+      adjektive: [
+        ["ivi education: Adjektive", "https://ivi-education.de/video/adjektive/"],
+        ["ivi education: Wortarten erkennen", "https://ivi-education.de/video/wortarten-erkennen-grundwissen/"]
+      ],
+      pronomen: [
+        ["ivi education: Pronomen", "https://ivi-education.de/video/pronomen/"],
+        ["ivi education: Wortarten erkennen", "https://ivi-education.de/video/wortarten-erkennen-grundwissen/"]
+      ],
+      adverbien: [
+        ["ivi education: Adverb", "https://ivi-education.de/video/adverb/"],
+        ["ivi education: Unveränderbare Wortarten", "https://ivi-education.de/video/unveraenderbare-wortarten/"]
+      ],
+      numerale: [
+        ["ivi education: Wortarten erkennen", "https://ivi-education.de/video/wortarten-erkennen-grundwissen/"],
+        ["ivi education: Wortarten Übersicht", "https://ivi-education.de/videos/deutsch/wortarten/"]
+      ],
+      praepositionen: [
+        ["ivi education: Präposition", "https://ivi-education.de/video/praeposition/"],
+        ["ivi education: Unveränderbare Wortarten", "https://ivi-education.de/video/unveraenderbare-wortarten/"],
+        ["ivi education: Deklination / Kasus", "https://ivi-education.de/video/deklination-der-kasus-der-deutschen-sprache/"]
+      ],
+      bindewoerter: [
+        ["ivi education: Haupt- und Nebensätze", "https://ivi-education.de/video/haupt-und-nebensaetze-grundwissen/"],
+        ["ivi education: Adverbialsätze", "https://ivi-education.de/video/adverbialsaetze/"]
+      ],
+      interjektionen: [
+        ["ivi education: Wortarten Übersicht", "https://ivi-education.de/videos/deutsch/wortarten/"]
+      ],
+      konjugation: [
+        ["ivi education: Verb Grundwissen", "https://ivi-education.de/video/verb-grundwissen/"],
+        ["ivi education: Unregelmäßige Verben", "https://ivi-education.de/video/unregelmaessige-verben/"]
+      ],
+      zeitformen: [
+        ["ivi education: Zeitformen Überblick", "https://ivi-education.de/video/zeitformen-ueberblick/"],
+        ["ivi education: Präsens", "https://ivi-education.de/video/praesens/"],
+        ["ivi education: Perfekt", "https://ivi-education.de/video/perfekt/"],
+        ["ivi education: Präteritum", "https://ivi-education.de/video/praeteritum/"],
+        ["ivi education: Plusquamperfekt", "https://ivi-education.de/video/plusquamperfekt/"],
+        ["ivi education: Futur 1", "https://ivi-education.de/video/futur-1/"],
+        ["ivi education: Futur 2", "https://ivi-education.de/video/futur-2/"]
+      ],
+      modus: [
+        ["ivi education: Modus des Verbs", "https://ivi-education.de/videos/deutsch/modus-des-verbs/"],
+        ["ivi education: Imperativ", "https://ivi-education.de/video/der-modus-imperativ/"],
+        ["ivi education: Indikativ", "https://ivi-education.de/video/der-modus-indikativ-2/"],
+        ["ivi education: Konjunktiv 1", "https://ivi-education.de/video/konjunktiv-1-indirekte-rede/"],
+        ["ivi education: Konjunktiv 2", "https://ivi-education.de/video/konjunktiv-2-2/"]
+      ],
+      "aktiv-passiv": [
+        ["ivi education: Aktiv/Passiv", "https://ivi-education.de/videos/deutsch/aktivpassiv/"],
+        ["ivi education: Aktiv/Passiv (Vorgangspassiv)", "https://ivi-education.de/video/aktivpassiv-vorgangspassiv/"],
+        ["ivi education: Partizip 2", "https://ivi-education.de/video/partizip-2/"]
+      ],
+      kasus: [
+        ["ivi education: Deklination / Kasus", "https://ivi-education.de/video/deklination-der-kasus-der-deutschen-sprache/"],
+        ["ivi education: Artikel", "https://ivi-education.de/video/artikel/"]
+      ],
+      genus: [
+        ["ivi education: Artikel", "https://ivi-education.de/video/artikel/"],
+        ["ivi education: Nomen", "https://ivi-education.de/video/nomen/"],
+        ["ivi education: Wortarten erkennen", "https://ivi-education.de/video/wortarten-erkennen-grundwissen/"]
+      ],
+      numerus: [
+        ["ivi education: Nomen", "https://ivi-education.de/video/nomen/"],
+        ["ivi education: Wortarten erkennen", "https://ivi-education.de/video/wortarten-erkennen-grundwissen/"]
+      ],
+      deklination: [
+        ["ivi education: Deklination / Kasus", "https://ivi-education.de/video/deklination-der-kasus-der-deutschen-sprache/"],
+        ["ivi education: Artikel", "https://ivi-education.de/video/artikel/"],
+        ["ivi education: Adjektive", "https://ivi-education.de/video/adjektive/"]
+      ]
+    };
+
+    const chapters = {
+      wortarten: "Kapitel 1: Wortarten",
+      verben: "Kapitel 2: Verben genauer betrachten",
+      nomen: "Kapitel 3: Nomen genauer betrachten"
+    };
+
+    const topicIntroTexts = {
+      nomen: `Im Deutschen begegnen dir ständig Wörter, die Dinge, Personen, Orte oder Gefühle benennen. Diese Wörter nennt man Nomen, oft auch Hauptwörter. Du erkennst sie meist daran, dass sie großgeschrieben werden und dass du vor sie einen Artikel wie „der“, „die“ oder „das“ setzen kannst. Nomen sind die Bausteine, mit denen wir über die Welt sprechen. Ohne sie könnten wir weder einen Tisch beschreiben noch von Freude erzählen. In diesem Abschnitt lernst du, Nomen sicher zu erkennen und von anderen Wortarten zu unterscheiden.`,
+      verben: `Wenn du eine Handlung beschreibst, einen Zustand ausdrückst oder etwas Geschehen lässt, brauchst du ein Verb. Verben sind die Wörter, die einem Satz Leben einhauchen, denn sie zeigen, was jemand tut oder was geschieht. Wörter wie „laufen“, „denken“ oder „sein“ sind Verben. Besonders spannend ist, dass sich Verben verändern können: Sie passen sich an die Person und die Zeit an. Hier lernst du, wie Verben funktionieren und welche Rollen sie im Satz übernehmen.`,
+      adjektive: `Wie ist etwas? Wie sieht jemand aus? Auf diese Fragen antworten Adjektive. Sie sind die Wörter, die Dinge und Personen genauer beschreiben. Ein Hund kann groß, klein, freundlich oder schnell sein. Adjektive können sogar gesteigert werden: von „schnell“ über „schneller“ bis hin zu „am schnellsten“. In diesem Kapitel erfährst du, wie du Adjektive erkennst und worin sich ihre verschiedenen Verwendungen im Satz unterscheiden.`,
+      pronomen: `Stell dir vor, du müsstest in jedem Satz den Namen einer Person wiederholen - das wäre sehr umständlich. Hier helfen Pronomen, auch Fürwörter genannt. Sie treten an die Stelle von Nomen oder begleiten sie. Wörter wie „ich“, „du“, „er“, „sie“ oder „mein“ sind Pronomen. Sie machen unsere Sprache flüssiger und vermeiden lästige Wiederholungen. In diesem Teil lernst du die verschiedenen Pronomenarten kennen und übst, sie richtig einzusetzen.`,
+      adverbien: `Wann? Wo? Wie? Warum? Wenn du diese Fragen stellst, bist du schon mitten im Thema Adverbien. Adverbien nennt man auch Umstandswörter, weil sie genauere Umstände zu einer Handlung oder einem Ereignis angeben. Sie sagen uns, wann etwas geschieht, wo es passiert oder aus welchem Grund. Wörter wie „heute“, „dort“, „gern“ oder „deshalb“ gehören dazu. Hier erfährst du, wie du Adverbien erkennst und von Adjektiven unterscheidest.`,
+      numerale: `Zahlen begleiten uns im Alltag: Wir zählen Dinge, nennen Reihenfolgen oder teilen etwas auf. Alle diese Wörter gehören zu den Numeralien oder Zahlwörtern. Sie zeigen, wie viele Dinge gemeint sind, an welcher Stelle etwas steht oder welcher Teil von etwas gemeint ist. „Drei“, „zweite“ und „halb“ sind allesamt Numerale. In diesem Abschnitt lernst du die verschiedenen Arten von Zahlwörtern kennen und übst, sie im Satz zu erkennen.`,
+      praepositionen: `Wörter wie „in“, „auf“, „mit“ oder „wegen“ sind klein, aber ungemein wichtig. Sie nennt man Präpositionen oder Verhältniswörter. Sie zeigen, in welchem Verhältnis Wörter zueinander stehen, und sie verlangen oft einen bestimmten Kasus. Präpositionen helfen dir, Orte, Zeiten und Zusammenhänge genauer zu beschreiben. In diesem Teil erfährst du, welche Präpositionen es gibt und worauf du beim Gebrauch achten musst.`,
+      bindewoerter: `Damit Sätze nicht nur aneinandergereiht werden, brauchen wir Verbindungswörter. Konjunktionen und Subjunktionen sind diese „Kleber“ der deutschen Sprache. Während Konjunktionen gleichrangige Teile verbinden, leiten Subjunktionen einen Nebensatz ein. Wörter wie „und“, „aber“, „weil“ oder „dass“ sind Beispiele dafür. Hier lernst du, wie Satzreihen und Satzgefüge entstehen und woran man sie erkennt.`,
+      interjektionen: `Manchmal reicht ein einziges Wort, um eine Gefühlsregung auszudrücken: „Hurra!“, „Aua!“ oder „Igitt!“ Diese Ausrufe nennt man Interjektionen. Sie stehen oft außerhalb des eigentlichen Satzbaus und werden weder konjugiert noch dekliniert. Interjektionen machen unsere Sprache lebendig und emotional. In diesem kurzen Abschnitt lernst du, sie als eigenständige Wortart zu erkennen.`,
+      konjugation: `Wenn du einen Satz bildest, passt sich das Verb automatisch an das Subjekt an. Aus „ich gehe“ wird „du gehst“ oder „wir gehen“. Diese Anpassung nennt man Konjugation. Dabei verändert sich das Verb in seiner Form, je nachdem, wer handelt und ob wir von einer oder mehreren Personen sprechen. In diesem Kapitel schaust du dir genauer an, wie die Konjugation im Deutschen funktioniert und welche Endungen dabei wichtig sind.`,
+      zeitformen: `Wann ist etwas geschehen? Geschieht es gerade, war es vorher oder wird es erst noch passieren? Verben können alle diese Zeitstufen ausdrücken. Das nennt man Zeitformen. Im Deutschen gibt es sechs wichtige Zeitformen, von denen einige ganz einfach und andere zusammengesetzt sind. Hier erfährst du, wie du die Zeitformen erkennst und selbst sicher bildest.`,
+      modus: `Nicht jede Aussage ist gleich gemeint. Manchmal stellen wir eine Tatsache dar, manchmal geben wir einen Befehl oder wir übernehmen die Aussage eines anderen. Diese verschiedenen Aussageweisen nennt man Modi. Indikativ, Imperativ, Konjunktiv I und Konjunktiv II sind die wichtigsten Modi im Deutschen. In diesem Abschnitt lernst du, wie du die Modi erkennst und worin sie sich unterscheiden.`,
+      "aktiv-passiv": `In einem Satz kann der Fokus entweder auf dem Handelnden oder auf dem Geschehen liegen. Aktiv und Passiv sind zwei unterschiedliche Formen, um das auszudrücken. Im Aktiv erfahren wir, wer etwas tut. Im Passiv steht dagegen im Mittelpunkt, was geschieht. Manchmal interessiert uns auch nur das Ergebnis einer Handlung. Hier lernst du, wie du Aktiv und Passiv unterscheidest und ineinander umwandelst.`,
+      kasus: `In einem Satz hat jedes Nomen eine bestimmte Rolle: Es kann etwas tun, etwas erleiden oder zu etwas gehören. Diese Rolle nennt man Kasus oder Fall. Im Deutschen unterscheiden wir vier Fälle: Nominativ, Genitiv, Dativ und Akkusativ. Jeder Fall hat seine eigene Frage und verändert oft die Form des Artikels. In diesem Kapitel lernst du, die vier Fälle zu erkennen und anzuwenden.`,
+      genus: `Jedes Nomen im Deutschen hat ein grammatisches Geschlecht: Es ist entweder männlich, weiblich oder sächlich. Man nennt dieses Geschlecht Genus. Es wird meist durch den Artikel angezeigt: „der Tisch“ ist männlich, „die Lampe“ weiblich und „das Buch“ sächlich. Das Genus muss nicht immer mit dem natürlichen Geschlecht übereinstimmen. Hier lernst du, wie du das Genus erkennst und dich dabei an bestimmten Merkmalen orientieren kannst.`,
+      numerus: `Spricht man von einem einzelnen Hund oder von mehreren Hunden? Die Unterscheidung zwischen Einzahl und Mehrzahl nennt man Numerus. Der Singular bezeichnet die Einzahl, der Plural die Mehrzahl. Im Plural verändert sich oft die Form des Nomens, und auch der Artikel sieht anders aus. In diesem Abschnitt lernst du, wie der Numerus gebildet wird und woran du Singular und Plural erkennst.`,
+      deklination: `Wenn sich ein Nomen in seinem Kasus oder Numerus verändert, spricht man von Deklination. Dabei verändern sich nicht nur das Nomen selbst, sondern oft auch der dazugehörige Artikel und das Adjektiv. „Der kleine Hund“ wird im Akkusativ zu „den kleinen Hund“. Diese Veränderungen folgen bestimmten Regeln. Hier lernst du, wie die Deklination funktioniert und wie du Nomengruppen sicher analysierst.`
+    };
+
+    const topics = [
+      {
+        id: "nomen",
+        chapter: "wortarten",
+        title: "Nomen",
+        image: "assets/nomen.webp",
+        contextStory: `<p>Der <span class="w" data-type="nomen" onclick="this.classList.toggle('active')"><strong>Schüler</strong><span class="anno">Nomen: Person</span></span> öffnet die <span class="w" data-type="nomen" onclick="this.classList.toggle('active')"><strong>Tür</strong><span class="anno">Nomen: Ding</span></span>. Er sieht seine <span class="w" data-type="nomen" onclick="this.classList.toggle('active')"><strong>Lehrerin</strong><span class="anno">Nomen: Person</span></span>. In der <span class="w" data-type="nomen" onclick="this.classList.toggle('active')"><strong>Tasche</strong><span class="anno">Nomen: Ding</span></span> ist ein <span class="w" data-type="nomen" onclick="this.classList.toggle('active')"><strong>Buch</strong><span class="anno">Nomen: Ding</span></span>. <span class="w" data-type="nomen" onclick="this.classList.toggle('active')"><strong>Freude</strong><span class="anno">Nomen: Gefühl</span></span> macht das <span class="w" data-type="nomen" onclick="this.classList.toggle('active')"><strong>Lernen</strong><span class="anno">Nominalisierung</span></span>.</p>`,
+        definition: "Nomen nennt man auch Namenwörter oder Hauptwörter. Sie bezeichnen Menschen, Tiere, Dinge, Orte, Gefühle, Gedanken oder Eigennamen. Im Deutschen werden Nomen großgeschrieben und können meist mit einem Artikel verbunden werden. Außerdem kann man sie nach Kasus, Genus und Numerus bestimmen.",
+        easy: "Ein Artikel wie der, die oder das kann oft vor einem Nomen stehen. Nomen schreibt man immer groß.",
+        deep: ["Kasus zeigt die Rolle im Satz.", "Genus meint das grammatische Geschlecht.", "Numerus zeigt Einzahl oder Mehrzahl."],
+        examples: ["Der Schüler öffnet die Tür.", "Er sieht seine Lehrerin.", "In der Tasche ist ein Buch.", "Freude macht das Lernen.", "Wir fahren nach Berlin."],
+        mistake: "Nicht nur sichtbare Dinge sind Nomen. Auch Gefühle, Gedanken und Namen gehören dazu. Merke: Nomen sind immer groß!",
+        discovery: {
+          text: "Lies die Sätze und achte auf die fettgedruckten Wörter. Was fällt dir auf?",
+          items: ["Der <strong>Schüler</strong> liest.", "Die <strong>Freude</strong> ist groß.", "Wir fahren nach <strong>Berlin</strong>.", "In der <strong>Tasche</strong> ist ein <strong>Buch</strong>."],
+          question: "Was haben diese Wörter gemeinsam? Woran erkennst du sie?"
+        },
+        minimalPairs: [
+          { left: "der Tisch", right: "die Tisch", hint: "Nomen haben ein grammatisches Geschlecht (Genus)." },
+          { left: "das Buch", right: "die Bücher", hint: "Nomen stehen im Singular oder Plural (Numerus)." }
+        ],
+        check: {
+          choice: ["Welches Wort ist ein Nomen?", ["schnell", "Freude", "laufen", "weil"], "Freude"],
+          cloze: ["Nomen schreibt man im Deutschen immer", ["klein", "groß", "gar nicht"], "groß"],
+          match: [["Kasus", "Fall"], ["Genus", "grammatisches Geschlecht"], ["Numerus", "Einzahl oder Mehrzahl"]]
+        },
+        extra: { type: "errorSearch", text: "Finde und klicke die drei Fehler an.", html: "Der <span class='err' data-fix='Schüler'>schüler</span> liest ein <span class='err' data-fix='Buch'>buch</span>. Er hat <span class='err' data-fix='Freude'>freude</span> daran." }
+      },
+      {
+        id: "verben",
+        chapter: "wortarten",
+        title: "Verben",
+        image: "assets/verben.webp",
+        contextStory: `<p><span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Mia schreibt</strong><span class="anno">Verb: Handlung</span></span> einen Brief. Sie <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>hat</strong><span class="anno">Hilfsverb</span></span> das Papier schon <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>besorgt</strong><span class="anno">Vollverb (Partizip)</span></span> und <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>kann</strong><span class="anno">Modalverb</span></span> ihn heute <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>abschicken</strong><span class="anno">Infinitiv</span></span>.</p>`,
+        definition: "Verben nennt man auch Tätigkeitswörter oder Zeitwörter. Sie zeigen, was jemand tut, was geschieht oder in welchem Zustand sich jemand oder etwas befindet. Verben können ihre Form verändern. Diese Veränderung nennt man Konjugation. Dabei passen sie sich an Person, Numerus, Zeitform und Modus an.",
+        easy: "Verben kann man oft mit ich, du, er, sie, es verbinden: ich laufe, du schreibst, er schläft.",
+        deep: ["Vollverben tragen die Hauptbedeutung.", "Hilfsverben bilden Zeitformen.", "Modalverben zeigen Möglichkeiten, Wünsche oder Pflichten."],
+        examples: ["Mia schreibt einen Brief.", "Sie hat das Papier besorgt.", "Sie kann ihn abschicken.", "Wir müssen lernen.", "Er ist gekommen."],
+        mistake: "Bei zusammengesetzten Prädikaten gehören Hilfsverb und Vollverb zusammen. Achte auf den Infinitiv bei Modalverben.",
+        discovery: {
+          text: "Vergleiche die fettgedruckten Wörter. Was ändert sich?",
+          items: ["<strong>schreiben</strong> (Grundform)", "<strong>schreibt</strong> (3. Person Singular)", "<strong>geschrieben</strong> (Partizip II)", "<strong>schreiben</strong> (Infinitiv nach Modalverb)"],
+          question: "Was ist die Grundform? Wie verändert sich das Verb im Satz?"
+        },
+        minimalPairs: [
+          { left: "ich gehe", right: "du gehst", hint: "Endung ändert sich bei der Konjugation." },
+          { left: "laufen", right: "läuft", hint: "Vokalwechsel bei unregelmäßigen Verben." }
+        ],
+        check: {
+          choice: ["Welche Form ist ein Verb?", ["schnell", "Tisch", "lernen", "unter"], "lernen"],
+          cloze: ["Die Grundform eines Verbs nennt man", ["Infinitiv", "Artikel", "Kasus"], "Infinitiv"],
+          match: [["Vollverb", "lesen"], ["Hilfsverb", "haben"], ["Modalverb", "können"]]
+        },
+        extra: { type: "transform", title: "Transformation: Hilfsverb + Vollverb", rows: [
+          { text: "Mia schreibt einen Brief. → Mia ", inputs: [["hat","ist","wird"],"hat"], middle: " einen Brief ", inputs2: [["geschrieben","schreiben","schreibt"],"geschrieben"], suffix: "." },
+          { text: "Er kommt. → Er ", inputs: [["kann","muss","darf"],"muss"], middle: " ", inputs2: [["kommt","kommen","kam"],"kommen"], suffix: "." }
+        ]}
+      },
+      {
+        id: "adjektive",
+        chapter: "wortarten",
+        title: "Adjektive",
+        image: "assets/adjektive.webp",
+        contextStory: `<p>Der <span class="w" data-type="adj" onclick="this.classList.toggle('active')"><strong>neue</strong><span class="anno">Adjektivattribut</span></span> <span class="w" data-type="nomen" onclick="this.classList.toggle('active')"><strong>Schüler</strong></span> ist <span class="w" data-type="adj" onclick="this.classList.toggle('active')"><strong>freundlich</strong><span class="anno">prädikativ</span></span>. Er fährt ein <span class="w" data-type="adj" onclick="this.classList.toggle('active')"><strong>rotes</strong><span class="anno">Adjektivattribut</span></span> Fahrrad und fährt <span class="w" data-type="adj" onclick="this.classList.toggle('active')"><strong>schnell</strong><span class="anno">adverbial</span></span>.</p>`,
+        definition: "Adjektive nennt man auch Eigenschaftswörter. Sie beschreiben genauer, wie jemand oder etwas ist. Sie können ein Nomen näher bestimmen, nach Verben wie „sein“ stehen oder eine Handlung genauer beschreiben. Viele Adjektive lassen sich steigern.",
+        easy: "Du fragst oft: Wie ist jemand oder etwas? Adjektive können gesteigert werden: schön – schöner – am schönsten.",
+        deep: ["Attributiv: der schnelle Hund.", "Prädikativ: Der Hund ist schnell.", "Adverbial gebraucht: Er rennt schnell."],
+        examples: ["Der neue Schüler ist freundlich.", "Er fährt ein rotes Fahrrad.", "Er fährt schnell.", "Das schwere Heft liegt auf dem Tisch.", "Der Hund ist am schnellsten."],
+        mistake: "Dasselbe Wort kann ein Adjektiv sein oder adverbial gebraucht werden. Im Satz 'Der Hund ist schnell' ist es prädikativ, in 'Er rennt schnell' adverbial.",
+        discovery: {
+          text: "Beobachte, wie das Wort 'schnell' verwendet wird.",
+          items: ["Der <strong>schnelle</strong> Hund. (Wie ist der Hund?)", "Der Hund ist <strong>schnell</strong>. (Wie ist er?)", "Er rennt <strong>schnell</strong>. (Wie rennt er?)"],
+          question: "Worin unterscheiden sich die drei Verwendungen?"
+        },
+        minimalPairs: [
+          { left: "der schnelle Hund", right: "Der Hund ist schnell.", hint: "attributiv vs. prädikativ" },
+          { left: "schön", right: "am schönsten", hint: "Positiv vs. Superlativ" }
+        ],
+        check: {
+          choice: ["Welches Wort ist ein Adjektiv?", ["Hund", "schön", "weil", "drei"], "schön"],
+          cloze: ["schön – schöner – am", ["schönsten", "schönte", "schönem"], "schönsten"],
+          match: [["attributiv", "der schnelle Hund"], ["prädikativ", "Der Hund ist schnell."], ["adverbial", "Er rennt schnell."]]
+        },
+        extra: { type: "transformAdj", title: "Transformation: attributiv → prädikativ → adverbial", rows: [
+          { text: "Der <strong>schnelle</strong> Hund. → Der Hund ist ", input: "schnell", check: "schnell" },
+          { text: "Der Hund ist schnell. → Er rennt ", input: "schnell", check: "schnell" }
+        ]}
+      },
+      {
+        id: "pronomen",
+        chapter: "wortarten",
+        title: "Pronomen",
+        image: "assets/pronomen.webp",
+        contextStory: `<p><span class="w" data-type="pron" onclick="this.classList.toggle('active')"><strong>Mia</strong><span class="anno">Eigenname</span></span> hat einen Hund. <span class="w" data-type="pron" onclick="this.classList.toggle('active')"><strong>Sie</strong><span class="anno">Personalpronomen (ersetzt Mia)</span></span> füttert <span class="w" data-type="pron" onclick="this.classList.toggle('active')"><strong>ihn</strong><span class="anno">Personalpronomen (ersetzt den Hund)</span></span> jeden Tag. <span class="w" data-type="pron" onclick="this.classList.toggle('active')"><strong>Ihr</strong><span class="anno">Possessivpronomen</span></span> Hund ist <span class="w" data-type="pron" onclick="this.classList.toggle('active')"><strong>sehr</strong><span class="anno">Adverb (nicht Pronomen)</span></span> süß.</p>`,
+        definition: "Pronomen nennt man auch Fürwörter. Sie können Nomen ersetzen oder begleiten und helfen dabei, Wiederholungen zu vermeiden. Pronomen passen sich häufig an Person, Numerus, Kasus und manchmal auch an das Genus an. Es gibt verschiedene Arten von Pronomen, zum Beispiel Personalpronomen, Possessivpronomen oder Reflexivpronomen.",
+        easy: "Aus 'Mia liest. Mia läuft.' kannst du 'Mia liest. Sie läuft.' machen. Sie steht dann für Mia.",
+        deep: ["Personalpronomen: ich, du, er.", "Possessivpronomen: mein, dein.", "Indefinitivpronomen: jemand, niemand, alle."],
+        examples: ["Mia hat einen Hund. Sie füttert ihn.", "Ihr Hund ist sehr süß.", "Jemand hat das Fenster geöffnet.", "Wer hat das gemacht?", "Das Kind, das lacht, ist mein Bruder."],
+        mistake: "Manche Wörter können Artikel oder Pronomen sein. Entscheidend ist ihre Funktion im Satz. 'Mein' vor einem Nomen ist Possessivpronomen, allein stehend Possessivpronomen.",
+        discovery: {
+          text: "Vergleiche die Sätze.",
+          items: ["Mia hat einen Hund. <strong>Sie</strong> füttert <strong>ihn</strong>.", "Mia hat einen Hund. <strong>Ihr</strong> Hund ist süß.", "Wer hat das gemacht?"],
+          question: "Was tun die fettgedruckten Wörter? Was würde passieren, wenn man sie wegließe?"
+        },
+        minimalPairs: [
+          { left: "ich sehe ihn", right: "ich sehe seinen Hund", hint: "Personalpronomen ersetzt vs. Possessivpronomen begleitet" },
+          { left: "jemand", right: "niemand", hint: "Indefinitivpronomen: bejaht vs. verneint" }
+        ],
+        check: {
+          choice: ["Welches Wort ist ein Pronomen?", ["Haus", "unter", "wir", "schnell"], "wir"],
+          cloze: ["Pronomen können Nomen ersetzen oder", ["begleiten", "steigern", "konjugieren"], "begleiten"],
+          match: [["Personalpronomen", "ich"], ["Possessivpronomen", "mein"], ["Reflexivpronomen", "sich"]]
+        },
+        extra: { type: "contextCloze", title: "Lückentext: Pronomen im Kontext", text: "Mia hat einen Hund. <select data-ans='Sie'><option>...</option><option>Sie</option><option>Er</option><option>Es</option></select> füttert <select data-ans='ihn'><option>...</option><option>ihn</option><option>es</option><option>ihr</option></select> jeden Tag. <select data-ans='Ihr'><option>...</option><option>Ihr</option><option>Sein</option><option>Ihrem</option></select> Hund ist süß." }
+      },
+      {
+        id: "adverbien",
+        chapter: "wortarten",
+        title: "Adverbien",
+        image: "assets/adverbien.webp",
+        contextStory: `<p><span class="w" data-type="adv" onclick="this.classList.toggle('active')"><strong>Heute</strong><span class="anno">Temporaladverb</span></span> ist <span class="w" data-type="adv" onclick="this.classList.toggle('active')"><strong>hier</strong><span class="anno">Lokaladverb</span></span> ein Fest. <span class="w" data-type="adv" onclick="this.classList.toggle('active')"><strong>Deshalb</strong><span class="anno">Kausaladverb</span></span> feiern alle <span class="w" data-type="adv" onclick="this.classList.toggle('active')"><strong>sehr</strong><span class="anno">Modaladverb</span></span> fröhlich.</p>`,
+        definition: "Adverbien nennt man auch Umstandswörter. Sie geben genauere Informationen zu Ort, Zeit, Grund oder Art und Weise. Adverbien beziehen sich oft auf ein Verb, ein Adjektiv oder den ganzen Satz. Im Gegensatz zu vielen anderen Wortarten bleiben sie meistens unverändert.",
+        easy: "Sie antworten oft auf Fragen wie wo, wann, wie oder warum. Adverbien werden nicht gesteigert und haben keinen Artikel.",
+        deep: ["Lokaladverbien: dort, hier.", "Temporaladverbien: heute, gestern.", "Modaladverbien: gern, sehr.", "Kausaladverbien: deshalb, daher."],
+        examples: ["Heute ist hier ein Fest.", "Deshalb feiern alle sehr fröhlich.", "Er kommt gern zur Schule.", "Dort steht ein Baum."],
+        mistake: "Adverbien sind meist unveränderbar. Adjektive können dagegen oft gesteigert oder dekliniert werden. 'Sehr' ist ein Adverb, nicht ein Adjektiv.",
+        discovery: {
+          text: "Finde die Umstandswörter.",
+          items: ["<strong>Heute</strong> ist ein Fest. (Wann?)", "Die Party ist <strong>hier</strong>. (Wo?)", "Wir feiern, <strong>deshalb</strong> sind alle da. (Warum?)", "Er tanzt <strong>gern</strong>. (Wie?)"],
+          question: "Welche Fragen werden beantwortet? Was fällt dir an der Form der Wörter auf?"
+        },
+        minimalPairs: [
+          { left: "schnell (Adjektiv)", right: "sehr schnell (Adverb)", hint: "Adjektiv beschreibt Nomen, Adverb beschreibt Verb/Adjektiv" },
+          { left: "hier", right: "dort", hint: "Lokaladverbien: Gegenpol" }
+        ],
+        check: {
+          choice: ["Welches Wort ist ein Adverb?", ["dort", "der", "Haus", "schöne"], "dort"],
+          cloze: ["Adverbien antworten oft auf: wo, wann, wie oder", ["warum", "wessen", "welcher"], "warum"],
+          match: [["Lokaladverb", "hier"], ["Temporaladverb", "gestern"], ["Kausaladverb", "deshalb"]]
+        },
+        extra: { type: "annotate", title: "Annotationsaufgabe: Finde die Adverbien", text: "Heute fährt Tom <span class='token' data-ok='true'>gern</span> mit dem Bus. Er ist <span class='token' data-ok='false'>pünktlich</span> dort. <span class='token' data-ok='true'>Deshalb</span> hat er keinen Stress." }
+      },
+      {
+        id: "numerale",
+        chapter: "wortarten",
+        title: "Numerale",
+        image: "assets/numerale.webp",
+        contextStory: `<p>Beim <span class="w" data-type="num" onclick="this.classList.toggle('active')"><strong>zweiten</strong><span class="anno">Ordinalzahl</span></span> Klassenausflug waren <span class="w" data-type="num" onclick="this.classList.toggle('active')"><strong>vierundzwanzig</strong><span class="anno">Kardinalzahl</span></span> Schüler dabei. <span class="w" data-type="num" onclick="this.classList.toggle('active')"><strong>Die Hälfte</strong><span class="anno">Bruchzahl</span></span> fuhr mit dem Bus, <span class="w" data-type="num" onclick="this.classList.toggle('active')"><strong>viele</strong><span class="anno">unbestimmtes Zahlwort</span></span> mit dem Fahrrad.</p>`,
+        definition: "Numerale nennt man auch Zahlwörter. Sie geben an, wie viele Dinge oder Personen gemeint sind, an welcher Stelle etwas steht oder welcher Teil eines Ganzen bezeichnet wird. Numerale können genaue Zahlen, Reihenfolgen, Bruchteile oder unbestimmte Mengen ausdrücken.",
+        easy: "Sie beantworten Fragen wie wie viele, der wievielte oder welcher Teil.",
+        deep: ["Kardinalzahlen: drei.", "Ordinalzahlen: zweite.", "Bruchzahlen: halb.", "Unbestimmte Zahlwörter: viele, mehrere."],
+        examples: ["Beim zweiten Klassenausflug waren vierundzwanzig Schüler dabei.", "Die Hälfte fuhr mit dem Bus.", "Viele kamen mit dem Fahrrad.", "Das ist das erste Mal."],
+        mistake: "Nicht jedes Zahlwort ist eine genaue Zahl. Viele und mehrere sind unbestimmte Zahlwörter. 'Erste' und 'zweite' sind Ordinalzahlen, nicht Kardinalzahlen.",
+        discovery: {
+          text: "Sortiere die fettgedruckten Wörter nach ihrer Funktion.",
+          items: ["<strong>vierundzwanzig</strong> Schüler (Wie viele?)", "das <strong>erste</strong> Mal (Der wievielte?)", "Die <strong>Hälfte</strong> (Welcher Teil?)", "<strong>viele</strong> (Unbestimmte Menge)"],
+          question: "Welche Frage passt zu welchem Wort?"
+        },
+        minimalPairs: [
+          { left: "drei (Kardinalzahl)", right: "dritte (Ordinalzahl)", hint: "Menge vs. Reihenfolge" },
+          { left: "viele", right: "mehrere", hint: "Beides unbestimmte Zahlwörter" }
+        ],
+        check: {
+          choice: ["Welches Wort ist ein Numerale?", ["drei", "schön", "weil", "Hund"], "drei"],
+          cloze: ["zweite ist eine", ["Ordinalzahl", "Präposition", "Interjektion"], "Ordinalzahl"],
+          match: [["Kardinalzahl", "fünf"], ["Ordinalzahl", "fünfte"], ["Bruchzahl", "Viertel"]]
+        },
+        extra: { type: "contextCloze", title: "Lückentext: Numerale im Kontext", text: "Beim <select data-ans='ersten'><option>...</option><option>ersten</option><option>eins</option><option>erster</option></select> Mal waren <select data-ans='zwölf'><option>...</option><option>zwölfte</option><option>zwölf</option><option>zwölften</option></select> Kinder da. <select data-ans='Die Hälfte'><option>...</option><option>Die Hälfte</option><option>Halbe</option><option>Halb</option></select> spielte Fußball." }
+      },
+      {
+        id: "praepositionen",
+        chapter: "wortarten",
+        title: "Präpositionen",
+        image: "assets/praepositionen.webp",
+        contextStory: `<p>Das Buch liegt <span class="w" data-type="pp" onclick="this.classList.toggle('active')"><strong>auf dem Tisch</strong><span class="anno">Wo? → Dativ</span></span>. Lege es <span class="w" data-type="pp" onclick="this.classList.toggle('active')"><strong>auf den Tisch</strong><span class="anno">Wohin? → Akkusativ</span></span>! Wir fahren <span class="w" data-type="pp" onclick="this.classList.toggle('active')"><strong>mit dem Bus</strong><span class="anno">Womit? → Dativ</span></span> <span class="w" data-type="pp" onclick="this.classList.toggle('active')"><strong>wegen des Regens</strong><span class="anno">Wegen wessen? → Genitiv</span></span>.</p>`,
+        definition: "Präpositionen nennt man auch Verhältniswörter. Sie zeigen, in welchem Verhältnis Wörter oder Wortgruppen zueinander stehen. Häufig geben sie Hinweise auf Ort, Zeit, Grund oder Art und Weise. Präpositionen stehen meistens vor einem Nomen oder Pronomen und verlangen oft einen bestimmten Kasus.",
+        easy: "Sie können Ort, Zeit, Grund oder Verhältnis ausdrücken: auf dem Tisch, nach der Pause, wegen des Regens. Viele verlangen einen bestimmten Kasus.",
+        deep: ["Viele Präpositionen verlangen einen bestimmten Kasus.", "Wechselpräpositionen nutzen bei 'wo?' den Dativ und bei 'wohin?' den Akkusativ."],
+        examples: ["Das Buch liegt auf dem Tisch.", "Lege es auf den Tisch!", "Wir fahren mit dem Bus.", "Wegen des Regens bleiben wir drinnen."],
+        mistake: "Bei Wechselpräpositionen hängt der Kasus von der Frage ab: Wo? = Dativ. Wohin? = Akkusativ. 'Ich gehe auf die Straße' (Wohin? Akkusativ) vs. 'Ich bin auf der Straße' (Wo? Dativ).",
+        discovery: {
+          text: "Vergleiche die Präpositionen im Satz.",
+          items: ["<strong>auf dem</strong> Tisch (Das Buch liegt dort.)", "<strong>auf den</strong> Tisch (Lege es dahin!)", "<strong>mit dem</strong> Bus (Womit?)", "<strong>wegen des</strong> Regens (Wegen wessen?)"],
+          question: "Welche Frage passt zu welcher Präposition? Woran erkennst du den Kasus?"
+        },
+        minimalPairs: [
+          { left: "auf dem Tisch", right: "auf den Tisch", hint: "Wo? (Dativ) vs. Wohin? (Akkusativ)" },
+          { left: "mit dem Bus", right: "für den Schüler", hint: "Dativ vs. Akkusativ" }
+        ],
+        check: {
+          choice: ["Welche Präposition verlangt häufig Akkusativ?", ["mit", "aus", "für", "seit"], "für"],
+          cloze: ["Bei der Frage Wohin? steht nach Wechselpräpositionen der", ["Akkusativ", "Genitiv", "Nominativ"], "Akkusativ"],
+          match: [["Dativ", "mit dem Bus"], ["Akkusativ", "für den Schüler"], ["Genitiv", "wegen des Regens"]]
+        },
+        extra: { type: "transform", title: "Transformation: Wo → Wohin", rows: [
+          { text: "Das Buch liegt auf dem Tisch. → Ich lege das Buch ", inputs: [["auf dem Tisch","auf den Tisch","auf den Tisches"],"auf den Tisch"], middle: "", inputs2: [], suffix: "." },
+          { text: "Er steht an der Bushaltestelle. → Er fährt ", inputs: [["an der Bushaltestelle","an die Bushaltestelle","an die Bushaltestellen"],"an die Bushaltestelle"], middle: "", inputs2: [], suffix: "." }
+        ]}
+      },
+      {
+        id: "bindewoerter",
+        chapter: "wortarten",
+        title: "Konjunktionen und Subjunktionen",
+        image: "assets/bindewoerter.webp",
+        contextStory: `<p>Es regnet, <span class="w" data-type="sub" onclick="this.classList.toggle('active')"><strong>und</strong><span class="anno">Konjunktion: verbindet gleichrangig</span></span> es ist kalt. <span class="w" data-type="sub" onclick="this.classList.toggle('active')"><strong>Weil</strong><span class="anno">Subjunktion: leitet Nebensatz ein</span></span> es regnet, bleiben wir drinnen. <span class="w" data-type="sub" onclick="this.classList.toggle('active')"><strong>Aber</strong><span class="anno">Konjunktion: verbindet gleichrangig (Gegensatz)</span></span> Tom möchte <span class="w" data-type="sub" onclick="this.classList.toggle('active')"><strong>dass</strong><span class="anno">Subjunktion: leitet Nebensatz ein</span></span> wir spielen.</p>`,
+        definition: "Konjunktionen und Subjunktionen sind Verbindungswörter. Konjunktionen verbinden gleichrangige Wörter, Wortgruppen oder Hauptsätze. Subjunktionen leiten Nebensätze ein und ordnen sie einem Hauptsatz unter. An ihnen erkennt man oft, ob eine Satzreihe oder ein Satzgefüge vorliegt.",
+        easy: "Konjunktionen verbinden Gleichrangiges. Subjunktionen leiten Nebensätze ein. Im Nebensatz steht das Verb oft am Ende.",
+        deep: ["Konjunktionen: und, oder, aber, denn.", "Subjunktionen: weil, dass, wenn, obwohl.", "Im Nebensatz steht das finite Verb meist am Ende."],
+        examples: ["Es regnet, und es ist kalt.", "Weil es regnet, bleiben wir drinnen.", "Tom möchte, dass wir spielen.", "Er geht, aber er kommt gleich zurück."],
+        mistake: "Nach weil, dass, wenn oder obwohl folgt ein Nebensatz mit dem finiten Verb am Ende. 'Weil es regnet, bleiben wir drinnen.' (nicht: weil es regnet bleiben...)",
+        discovery: {
+          text: "Vergleiche die Sätze.",
+          items: ["Es regnet, <strong>und</strong> es ist kalt. (Zwei Hauptsätze)", "<strong>Weil</strong> es regnet, bleiben wir drinnen. (HS + NS)", "Tom möchte, <strong>dass</strong> wir spielen. (HS + NS)"],
+          question: "Was verbindet 'und'? Was macht 'weil' und 'dass'? Wo steht das Verb?"
+        },
+        minimalPairs: [
+          { left: "und (Konjunktion)", right: "weil (Subjunktion)", hint: "gleichrangig vs. unterordnend" },
+          { left: "Satzreihe", right: "Satzgefüge", hint: "HS+HS vs. HS+NS" }
+        ],
+        check: {
+          choice: ["Welches Wort leitet meist einen Nebensatz ein?", ["und", "aber", "weil", "denn"], "weil"],
+          cloze: ["Subjunktionen leiten häufig", ["Nebensätze", "Nomen", "Adjektive"], "Nebensätze"],
+          match: [["Konjunktion", "und"], ["Subjunktion", "weil"], ["Nebensatz", "weil ich lerne"]]
+        },
+        extra: { type: "contextCloze", title: "Satzverknüpfung: Konjunktion einsetzen", text: "Es regnet, <select data-ans='und'><option>...</option><option>und</option><option>weil</option><option>dass</option></select> es ist kalt. <select data-ans='Deshalb'><option>...</option><option>Deshalb</option><option>Und</option><option>Aber</option></select> bleiben wir drinnen." }
+      },
+      {
+        id: "interjektionen",
+        chapter: "wortarten",
+        title: "Interjektionen",
+        image: "assets/interjektionen.webp",
+        contextStory: `<p><span class="w" data-type="interj" onclick="this.classList.toggle('active')"><strong>Hurra!</strong><span class="anno">Freude</span></span> Wir haben gewonnen. <span class="w" data-type="interj" onclick="this.classList.toggle('active')"><strong>Aua!</strong><span class="anno">Schmerz</span></span> Das tut weh. <span class="w" data-type="interj" onclick="this.classList.toggle('active')"><strong>Puh!</strong><span class="anno">Erleichterung</span></span> Das war knapp.</p>`,
+        definition: "Interjektionen sind Ausrufe oder Lautäußerungen. Sie drücken spontane Gefühle, Reaktionen oder Geräusche aus. Sie stehen häufig allein oder werden vom restlichen Satz abgetrennt. Interjektionen sind unveränderbar und gehören meist nicht fest zum Satzbau.",
+        easy: "Sie stehen oft allein oder am Satzanfang und haben häufig ein Ausrufezeichen. Sie drücken Freude, Schmerz, Ekel oder Überraschung aus.",
+        deep: ["Sie sind meist unveränderbar.", "Sie stehen oft außerhalb des eigentlichen Satzbaus.", "Sie zeigen Freude, Schmerz, Ekel, Überraschung oder Erleichterung."],
+        examples: ["Hurra! Wir haben gewonnen.", "Aua! Das tut weh.", "Puh! Das war knapp.", "Igitt! Das ist ekelhaft.", "Oh! Das überrascht mich."],
+        mistake: "Interjektionen sind keine Satzglieder, auch wenn sie in der Nähe eines Satzes stehen. Sie werden nicht konjugiert oder dekliniert.",
+        discovery: {
+          text: "Welche Gefühle drücken die Wörter aus?",
+          items: ["<strong>Hurra!</strong> Wir haben gewonnen.", "<strong>Aua!</strong> Das tut weh.", "<strong>Puh!</strong> Das war knapp.", "<strong>Igitt!</strong> Das ist ekelhaft."],
+          question: "Welche Gefühle oder Reaktionen erkennst du? Was haben die Wörter grammatisch gemeinsam?"
+        },
+        minimalPairs: [
+          { left: "Hurra!", right: "hurra (klein)", hint: "Interjektionen stehen oft allein und groß (am Satzanfang) oder mit Ausrufezeichen." },
+          { left: "Aua!", right: "schmerzhaft", hint: "Ausruf vs. Adjektiv" }
+        ],
+        check: {
+          choice: ["Welche Form ist eine Interjektion?", ["Hurra!", "laufen", "der", "wegen"], "Hurra!"],
+          cloze: ["Interjektionen drücken oft Gefühle oder spontane", ["Reaktionen", "Fälle", "Zeitformen"], "Reaktionen"],
+          match: [["Freude", "Hurra!"], ["Schmerz", "Aua!"], ["Ekel", "Igitt!"]]
+        },
+        extra: { type: "annotate", title: "Finde die Interjektionen", text: "<span class='token' data-ok='true'>Hurra!</span> Wir haben gewonnen. <span class='token' data-ok='false'>Der</span> Sieg ist groß. <span class='token' data-ok='true'>Puh!</span> Das war knapp." }
+      },
+      {
+        id: "konjugation",
+        chapter: "verben",
+        title: "Konjugation",
+        image: "assets/konjugation.webp",
+        contextStory: `<p><span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Ich frühstücke</strong><span class="anno">1. Person Singular</span></span>, <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>du frühstückst</strong><span class="anno">2. Person Singular</span></span>, <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>er frühstückt</strong><span class="anno">3. Person Singular</span></span>. <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Wir frühstücken</strong><span class="anno">1. Person Plural</span></span> zusammen, <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>ihr frühstückt</strong><span class="anno">2. Person Plural</span></span>, <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>sie frühstücken</strong><span class="anno">3. Person Plural</span></span>.</p>`,
+        definition: "Konjugation bedeutet, dass ein Verb seine Form verändert. Die Verbform passt sich an Person, Numerus, Zeitform und Modus an. Dadurch erkennt man zum Beispiel, wer handelt, wann etwas geschieht und wie die Aussage gemeint ist. Konjugierte Verben sind deshalb besonders wichtig für den Aufbau eines Satzes.",
+        easy: "Aus gehen wird: ich gehe, du gehst, er geht, wir gehen. Die Endung verändert sich.",
+        deep: ["Die Personalendung verändert sich.", "Die finite Verbform passt zum Subjekt.", "Auch Tempus und Modus gehören zur Verbform."],
+        examples: ["Ich frühstücke.", "Du frühstückst.", "Er frühstückt.", "Wir frühstücken.", "Ihr frühstückt.", "Sie frühstücken."],
+        mistake: "Infinitiv und konjugierte Form nicht verwechseln: gehen ist Grundform, gehst ist konjugiert. Achte bei unregelmäßigen Verben auf Vokaländerungen: laufen – läuft – lief.",
+        discovery: {
+          text: "Beobachte die Endungen.",
+          items: ["ich frühstück<strong>e</strong>", "du frühstück<strong>st</strong>", "er frühstück<strong>t</strong>", "wir frühstück<strong>en</strong>"],
+          question: "Welche Endung gehört zu welcher Person? Was ändert sich bei 'wir' und 'sie' (Plural)?"
+        },
+        minimalPairs: [
+          { left: "ich gehe", right: "du gehst", hint: "Endung -e vs. -st" },
+          { left: "laufen", right: "läuft", hint: "regelmäßig vs. unregelmäßig (Vokalwechsel)" }
+        ],
+        check: {
+          choice: ["Welche Form passt zu du?", ["gehe", "gehst", "gehen", "gingen"], "gehst"],
+          cloze: ["Verben passen sich an Person und", ["Zahl", "Genus", "Artikel"], "Zahl"],
+          match: [["1. Person Singular", "ich gehe"], ["2. Person Singular", "du gehst"], ["3. Person Singular", "er geht"]]
+        },
+        extra: { type: "contextCloze", title: "Konjugation im Kontext", text: "Tom <select data-ans='frühstückt'><option>...</option><option>frühstücke</option><option>frühstückst</option><option>frühstückt</option></select> jeden Morgen. Wir <select data-ans='frühstücken'><option>...</option><option>frühstücken</option><option>frühstückt</option><option>frühstücke</option></select> zusammen. <select data-ans='Läufst'><option>...</option><option>Läufst</option><option>Läufe</option><option>Läuft</option></select> du gern?" }
+      },
+      {
+        id: "zeitformen",
+        chapter: "verben",
+        title: "Zeitformen",
+        image: "assets/zeitformen.webp",
+        contextStory: `<p><span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Mia schreibt</strong><span class="anno">Präsens: Gegenwart</span></span> einen Brief. <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Gestern schrieb</strong><span class="anno">Präteritum: Vergangenheit</span></span> sie eine Karte. <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Sie hat</strong><span class="anno">Perfekt: Vergangenheit</span></span> lange <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>gearbeitet</strong><span class="anno">Partizip II</span></span>. <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Morgen wird</strong><span class="anno">Futur I: Zukunft</span></span> sie <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>abschicken</strong><span class="anno">Infinitiv</span></span>.</p>`,
+        definition: "Zeitformen zeigen, wann etwas geschieht. Ein Verb kann ausdrücken, ob eine Handlung in der Gegenwart, in der Vergangenheit oder in der Zukunft stattfindet. Im Deutschen unterscheidet man sechs wichtige Zeitformen: Präsens, Präteritum, Perfekt, Plusquamperfekt, Futur I und Futur II. Manche Zeitformen bestehen nur aus einer Verbform, andere werden mit Hilfsverben wie haben, sein oder werden gebildet.",
+        easy: "Deutsch unterscheidet sechs zentrale Zeitformen. Perfekt wird oft mit haben/sein + Partizip II gebildet. Futur I wird mit werden + Infinitiv gebildet.",
+        deep: ["Präsens und Präteritum sind einfache Formen.", "Perfekt und Plusquamperfekt werden mit Hilfsverb und Partizip II gebildet.", "Futur I und Futur II nutzen werden."],
+        examples: ["Mia schreibt einen Brief. (Präsens)", "Gestern schrieb sie eine Karte. (Präteritum)", "Sie hat lange gearbeitet. (Perfekt)", "Sie hatte geschlafen. (Plusquamperfekt)", "Morgen wird sie abschicken. (Futur I)"],
+        mistake: "Perfekt und Plusquamperfekt unterscheiden sich durch das Hilfsverb: habe gelernt (Perfekt), hatte gelernt (Plusquamperfekt). Futur I wird mit werden + Infinitiv gebildet, nicht mit wollen.",
+        discovery: {
+          text: "Derselbe Inhalt, andere Zeit.",
+          items: ["<strong>Mia schreibt</strong> einen Brief. (jetzt)", "<strong>Mia schrieb</strong> einen Brief. (früher)", "<strong>Mia hat</strong> einen Brief <strong>geschrieben</strong>. (früher, abgeschlossen)", "<strong>Mia wird</strong> einen Brief <strong>schreiben</strong>. (später)"],
+          question: "Woran erkennst du die Zeit? Welche Wörter bilden die Zeitform?"
+        },
+        minimalPairs: [
+          { left: "ich lerne (Präsens)", right: "ich lernte (Präteritum)", hint: "Gegenwart vs. Vergangenheit" },
+          { left: "ich habe gelernt (Perfekt)", right: "ich hatte gelernt (Plusquamperfekt)", hint: "Hilfsverb haben vs. hatte" }
+        ],
+        check: {
+          choice: ["Welche Zeitform ist ich habe gelernt?", ["Präsens", "Perfekt", "Futur I", "Präteritum"], "Perfekt"],
+          cloze: ["Futur I bildet man mit werden plus", ["Infinitiv", "Artikel", "Dativ"], "Infinitiv"],
+          match: [["Präsens", "ich lerne"], ["Präteritum", "ich lernte"], ["Plusquamperfekt", "ich hatte gelernt"]]
+        },
+        extra: { type: "transform", title: "Transformation: Gleicher Inhalt, andere Zeitform", rows: [
+          { text: "Mia schreibt einen Brief. (Präsens) → Gestern ", inputs: [["schrieb","schreibt","hat geschrieben"],"schrieb"], middle: " sie einen Brief. (Präteritum)", inputs2: [], suffix: "" },
+          { text: "Mia schreibt einen Brief. (Präsens) → Morgen ", inputs: [["wird schreiben","wird geschrieben","schreibt"],"wird schreiben"], middle: " sie einen Brief. (Futur I)", inputs2: [], suffix: "" }
+        ]}
+      },
+      {
+        id: "modus",
+        chapter: "verben",
+        title: "Modus",
+        image: "assets/modus.webp",
+        contextStory: `<p>Der Lehrer sagt: „<span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Lies</strong><span class="anno">Imperativ: Aufforderung</span></span> den Text!“ <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Ich lerne</strong><span class="anno">Indikativ: Tatsache</span></span> für die Prüfung. Er sagt, er <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>lerne</strong><span class="anno">Konjunktiv I: indirekte Rede</span></span> gern. <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>Wenn ich Zeit hätte</strong><span class="anno">Konjunktiv II: Irreales/Wunsch</span></span>, würde ich mehr lesen.</p>`,
+        definition: "Der Modus beschreibt die Aussageweise eines Verbs. Er zeigt, wie eine Aussage gemeint ist: als Tatsache, Aufforderung, fremde Aussage, Wunsch oder Möglichkeit. Zu den wichtigsten Modi gehören Indikativ, Imperativ, Konjunktiv I und Konjunktiv II. Der Modus hilft also dabei zu erkennen, ob etwas wirklich geschieht, verlangt wird oder nur vorgestellt ist.",
+        easy: "Es geht darum, ob etwas wirklich, gefordert, wiedergegeben oder nur möglich ist. Indikativ = Tatsache, Imperativ = Aufforderung, Konjunktiv I = fremde Rede, Konjunktiv II = Wunsch/Irreales.",
+        deep: ["Indikativ: Wirklichkeitsform.", "Imperativ: Aufforderung.", "Konjunktiv I: indirekte Rede.", "Konjunktiv II: Wunsch, Möglichkeit oder Irreales."],
+        examples: ["Lies den Text! (Imperativ)", "Ich lerne für die Prüfung. (Indikativ)", "Er sagt, er lerne gern. (Konjunktiv I)", "Wenn ich Zeit hätte, würde ich mehr lesen. (Konjunktiv II)"],
+        mistake: "Konjunktiv I gibt häufig fremde Aussagen wieder; Konjunktiv II zeigt Wunsch oder Irreales. 'Würde' ist eine Umschreibung des Konjunktiv II.",
+        discovery: {
+          text: "Wie ist die Aussage gemeint?",
+          items: ["<strong>Lies!</strong> (Was soll ich tun?)", "<strong>Ich lese.</strong> (Was ist?)", "<strong>Er sagt, er lese.</strong> (Was sagt er?)", "<strong>Wenn ich lesen könnte…</strong> (Was wäre, wenn?)"],
+          question: "Welcher Satz ist eine Aufforderung? Welcher eine Tatsache? Welcher eine fremde Aussage?"
+        },
+        minimalPairs: [
+          { left: "ich lerne (Indikativ)", right: "er lerne (Konjunktiv I)", hint: "Tatsache vs. fremde Aussage" },
+          { left: "ich habe Zeit", right: "ich hätte Zeit", hint: "Tatsache vs. Irreales" }
+        ],
+        check: {
+          choice: ["Welcher Modus steht in 'Lies den Text!'?", ["Indikativ", "Imperativ", "Konjunktiv I", "Konjunktiv II"], "Imperativ"],
+          cloze: ["Konjunktiv I nutzt man häufig für indirekte", ["Rede", "Pluralform", "Steigerung"], "Rede"],
+          match: [["Indikativ", "Ich lerne."], ["Imperativ", "Lies!"], ["Konjunktiv II", "Ich hätte Zeit."]]
+        },
+        extra: { type: "contextCloze", title: "Direkte → Indirekte Rede", text: "Der Lehrer sagt: „Ich bin krank.“ → Der Lehrer sagt, er <select data-ans='sei'><option>...</option><option>sei</option><option>ist</option><option>war</option></select> krank. (Konjunktiv I)" }
+      },
+      {
+        id: "aktiv-passiv",
+        chapter: "verben",
+        title: "Aktiv und Passiv",
+        image: "assets/aktiv-und-passiv.webp",
+        contextStory: `<p>Der Lehrer <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>erklärt</strong><span class="anno">Aktiv: wer handelt</span></span> die Regel. → Die Regel <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>wird erklärt</strong><span class="anno">Vorgangspassiv: was geschieht</span></span>. → Die Regel <span class="w" data-type="verb" onclick="this.classList.toggle('active')"><strong>ist erklärt</strong><span class="anno">Zustandspassiv: Ergebnis</span></span>.</p>`,
+        definition: "Aktiv und Passiv beschreiben, worauf der Schwerpunkt einer Aussage liegt. Im Aktiv steht im Vordergrund, wer etwas tut. Im Passiv steht im Vordergrund, was geschieht oder welches Ergebnis entsteht. Man unterscheidet dabei häufig zwischen Vorgangspassiv und Zustandspassiv.",
+        easy: "Aktiv fragt: Wer handelt? Passiv fragt: Was geschieht? Vorgangspassiv = werden + Partizip II. Zustandspassiv = sein + Partizip II.",
+        deep: ["Vorgangspassiv: werden + Partizip II.", "Zustandspassiv: sein + Partizip II.", "Das Akkusativobjekt kann im Passiv zum Subjekt werden."],
+        examples: ["Der Lehrer erklärt die Regel. (Aktiv)", "Die Regel wird erklärt. (Vorgangspassiv)", "Die Regel ist erklärt. (Zustandspassiv)", "Die Tür wird geöffnet. (Vorgangspassiv)", "Die Tür ist geöffnet. (Zustandspassiv)"],
+        mistake: "Vorgangspassiv beschreibt den Vorgang, Zustandspassiv das Ergebnis. 'Die Tür wird geöffnet' (jemand öffnet sie gerade) vs. 'Die Tür ist geöffnet' (sie ist schon offen).",
+        discovery: {
+          text: "Vergleiche die Sätze.",
+          items: ["Der Lehrer <strong>erklärt</strong> die Regel. (Wer?)", "Die Regel <strong>wird erklärt</strong>. (Was geschieht?)", "Die Regel <strong>ist erklärt</strong>. (Wie ist der Zustand?)"],
+          question: "Wo steht der Handelnde im Vordergrund? Wo die Handlung? Wo das Ergebnis?"
+        },
+        minimalPairs: [
+          { left: "Die Tür wird geöffnet", right: "Die Tür ist geöffnet", hint: "Vorgang vs. Zustand" },
+          { left: "Der Schüler liest", right: "Das Buch wird gelesen", hint: "Aktiv vs. Passiv" }
+        ],
+        check: {
+          choice: ["Welche Form ist Vorgangspassiv?", ["Die Tür öffnet.", "Die Tür wird geöffnet.", "Die Tür ist offen.", "Der Hausmeister öffnet."], "Die Tür wird geöffnet."],
+          cloze: ["Vorgangspassiv bildet man mit werden plus", ["Partizip II", "Komparativ", "Artikel"], "Partizip II"],
+          match: [["Aktiv", "Der Lehrer erklärt die Regel."], ["Vorgangspassiv", "Die Regel wird erklärt."], ["Zustandspassiv", "Die Tür ist geschlossen."]]
+        },
+        extra: { type: "transform", title: "Aktiv → Passiv", rows: [
+          { text: "Der Schüler öffnet die Tür. → Die Tür ", inputs: [["wird geöffnet","ist geöffnet","öffnet"],"wird geöffnet"], middle: "", inputs2: [], suffix: "." },
+          { text: "Mia liest das Buch. → Das Buch ", inputs: [["wird gelesen","ist gelesen","liest"],"wird gelesen"], middle: "", inputs2: [], suffix: "." }
+        ]}
+      },
+      {
+        id: "kasus",
+        chapter: "nomen",
+        title: "Kasus",
+        image: "assets/kasus.webp",
+        contextStory: `<p><span class="w nom" onclick="this.classList.toggle('active')"><strong>Der Briefträger</strong><span class="anno">Wer? → Nominativ</span></span> öffnet vorsichtig <span class="w akk" onclick="this.classList.toggle('active')"><strong>das schwere Tor</strong><span class="anno">Wen/Was? → Akkusativ</span></span>. Er gibt <span class="w dat" onclick="this.classList.toggle('active')"><strong>dem lauten Hund</strong><span class="anno">Wem? → Dativ</span></span> ein Leckerli. Wegen <span class="w gen" onclick="this.classList.toggle('active')"><strong>des starken Regens</strong><span class="anno">Wessen? → Genitiv</span></span> ist alles nass.</p>`,
+        definition: "Der Kasus ist der grammatische Fall eines Nomens oder einer Nomengruppe. Er zeigt, welche Rolle ein Nomen im Satz übernimmt. Im Deutschen gibt es vier Fälle: Nominativ, Genitiv, Dativ und Akkusativ. Man erkennt den Kasus oft an der Frageprobe und an den veränderten Artikeln.",
+        easy: "Die vier Fälle heißen Nominativ, Genitiv, Dativ und Akkusativ. Die Fragen sind: Wer/Was? Wessen? Wem? Wen/Was?",
+        deep: ["Nominativ: Wer oder was?", "Genitiv: Wessen?", "Dativ: Wem?", "Akkusativ: Wen oder was?"],
+        examples: ["Der Briefträger öffnet das Tor. (Nominativ: Wer?)", "Er gibt dem Hund ein Leckerli. (Dativ: Wem?)", "Wegen des Regens ist alles nass. (Genitiv: Wessen?)", "Ich sehe den Hund. (Akkusativ: Wen?)"],
+        mistake: "Die Frageprobe hilft, aber auch Artikel und Satzrolle müssen beachtet werden. Bei Wechselpräpositionen entscheidet Wo? (Dativ) oder Wohin? (Akkusativ).",
+        discovery: {
+          text: "Vergleiche die fettgedruckten Wörter.",
+          items: ["<strong>Der</strong> Lehrer erklärt die Regel. (Wer handelt?)", "Ich sehe <strong>den</strong> Lehrer. (Wen sehe ich?)", "Ich gebe <strong>dem</strong> Lehrer das Heft. (Wem gebe ich es?)", "Das Heft <strong>des</strong> Lehrers ist rot. (Wessen Heft?)"],
+          question: "Welche Frage passt zu welchem Artikel? Was ändert sich an der Form?"
+        },
+        minimalPairs: [
+          { left: "der Hund (Nominativ)", right: "den Hund (Akkusativ)", hint: "Wer? vs. Wen?" },
+          { left: "dem Hund (Dativ)", right: "des Hundes (Genitiv)", hint: "Wem? vs. Wessen?" }
+        ],
+        check: {
+          choice: ["Welche Frage gehört zum Dativ?", ["Wer oder was?", "Wessen?", "Wem?", "Wen oder was?"], "Wem?"],
+          cloze: ["Der Genitiv antwortet auf die Frage", ["Wessen?", "Wem?", "Wann?"], "Wessen?"],
+          match: [["Nominativ", "der Hund"], ["Genitiv", "des Hundes"], ["Akkusativ", "den Hund"]]
+        },
+        extra: { type: "contextCloze", title: "Kasus im Zusammenhang", text: "Heute besucht <select data-ans='der'><option>...</option><option>der</option><option>den</option><option>dem</option><option>des</option></select> Schüler <select data-ans='die'><option>...</option><option>die</option><option>der</option><option>den</option><option>dem</option></select> Lehrerin. Er bringt <select data-ans='der'><option>...</option><option>der</option><option>die</option><option>den</option><option>dem</option></select> Lehrerin <select data-ans='einen'><option>...</option><option>ein</option><option>einen</option><option>einem</option><option>einer</option></select> Apfel mit. Wegen <select data-ans='des'><option>...</option><option>der</option><option>die</option><option>den</option><option>des</option></select> schlechten Wetters bleiben sie drinnen." }
+      },
+      {
+        id: "genus",
+        chapter: "nomen",
+        title: "Genus",
+        image: "assets/genus.webp",
+        contextStory: `<p><span class="w" data-type="genus" onclick="this.classList.toggle('active')"><strong>Der</strong><span class="anno">maskulin</span></span> Tisch steht in <span class="w" data-type="genus" onclick="this.classList.toggle('active')"><strong>der</strong><span class="anno">feminin</span></span> Küche. Auf <span class="w" data-type="genus" onclick="this.classList.toggle('active')"><strong>dem</strong><span class="anno">neutrum</span></span> Tisch liegt <span class="w" data-type="genus" onclick="this.classList.toggle('active')"><strong>die</strong><span class="anno">feminin</span></span> Lampe. <span class="w" data-type="genus" onclick="this.classList.toggle('active')"><strong>Das</strong><span class="anno">neutrum</span></span> Mädchen spielt dort.</p>`,
+        definition: "Das Genus ist das grammatische Geschlecht eines Nomens. Im Deutschen gibt es drei Genera: maskulin, feminin und neutrum. Man erkennt sie meistens am Artikel der, die oder das. Das grammatische Geschlecht muss nicht immer mit dem natürlichen Geschlecht übereinstimmen.",
+        easy: "Die drei Genera sind maskulin, feminin und neutrum. Der Artikel zeigt meist das Genus: der Tisch (maskulin), die Lampe (feminin), das Buch (neutrum).",
+        deep: ["Maskulin: der Tisch.", "Feminin: die Lampe.", "Neutrum: das Buch.", "Das natürliche und das grammatische Geschlecht sind nicht immer gleich."],
+        examples: ["Der Tisch steht in der Küche.", "Auf dem Tisch liegt die Lampe.", "Das Mädchen spielt dort.", "Die Schule ist groß.", "Der Bruder liest ein Buch."],
+        mistake: "Nomen am besten immer mit Artikel lernen, weil der Artikel meistens das Genus zeigt. Viele Suffixe zeigen das Genus: -ung, -heit, -keit, -schaft sind meist feminin. -er, -en sind oft maskulin.",
+        discovery: {
+          text: "Sortiere die Nomen nach ihrem Artikel.",
+          items: ["<strong>der</strong> Tisch", "<strong>die</strong> Lampe", "<strong>das</strong> Buch", "<strong>die</strong> Schule", "<strong>der</strong> Bruder"],
+          question: "Wie viele Gruppen kannst du bilden? Gibt es Merkmale, die das Geschlecht verraten?"
+        },
+        minimalPairs: [
+          { left: "der Tisch (maskulin)", right: "die Tisch (falsch)", hint: "Nomen hat festes Genus, der Artikel passt sich an." },
+          { left: "das Mädchen (neutrum)", right: "die Mädchen (Plural)", hint: "Genus bleibt, Numerus ändert sich." }
+        ],
+        check: {
+          choice: ["Welcher Artikel zeigt meist Neutrum?", ["der", "die", "das", "den"], "das"],
+          cloze: ["Genus bedeutet grammatisches", ["Geschlecht", "Zeitform", "Satzglied"], "Geschlecht"],
+          match: [["maskulin", "der Tisch"], ["feminin", "die Lampe"], ["neutrum", "das Buch"]]
+        },
+        extra: { type: "contextCloze", title: "Genus erkennen: Suffixe", text: "Die <select data-ans='die'><option>...</option><option>der</option><option>die</option><option>das</option></select> Freundlichkeit ist wichtig. Das <select data-ans='das'><option>...</option><option>der</option><option>die</option><option>das</option></select> Mädchen lacht. Der <select data-ans='der'><option>...</option><option>der</option><option>die</option><option>das</option></select> Tisch ist groß." }
+      },
+      {
+        id: "numerus",
+        chapter: "nomen",
+        title: "Numerus",
+        image: "assets/numerus.webp",
+        contextStory: `<p>Im Zoo ist ein <span class="w" data-type="num" onclick="this.classList.toggle('active')"><strong>Elefant</strong><span class="anno">Singular: Einzahl</span></span>. Aber dort leben auch viele <span class="w" data-type="num" onclick="this.classList.toggle('active')"><strong>Elefanten</strong><span class="anno">Plural: Mehrzahl</span></span>. Das <span class="w" data-type="num" onclick="this.classList.toggle('active')"><strong>Kind</strong><span class="anno">Singular</span></span> schaut den <span class="w" data-type="num" onclick="this.classList.toggle('active')"><strong>Tieren</strong><span class="anno">Plural</span></span> zu.</p>`,
+        definition: "Der Numerus gibt an, ob ein Nomen in der Einzahl oder in der Mehrzahl steht. Die Einzahl nennt man Singular, die Mehrzahl nennt man Plural. Im Plural verändert sich häufig die Form des Nomens und manchmal auch das Verb im Satz. Der Numerus hilft also zu erkennen, ob von einer Sache oder von mehreren gesprochen wird.",
+        easy: "Singular bedeutet Einzahl, Plural bedeutet Mehrzahl. Im Plural ändert sich oft die Nomenform: der Hund – die Hunde.",
+        deep: ["Pluralformen können auf -e, -er, -n, -en oder -s enden.", "Manchmal verändert sich ein Vokal durch Umlaut.", "Artikel und Verb helfen beim Erkennen."],
+        examples: ["Im Zoo ist ein Elefant.", "Aber dort leben auch viele Elefanten.", "Das Kind schaut den Tieren zu.", "Die Kinder lachen laut.", "Die Mäuse rennen schnell."],
+        mistake: "Die kann Singular oder Plural sein: die Katze (Singular), die Katzen (Plural). Achte auf die Nomenendung und das Verb. 'Die Kinder lachen' (Plural) vs. 'Das Kind lacht' (Singular).",
+        discovery: {
+          text: "Vergleiche die Wortpaare.",
+          items: ["<strong>der Hund</strong> – <strong>die Hunde</strong>", "<strong>das Kind</strong> – <strong>die Kinder</strong>", "<strong>die Maus</strong> – <strong>die Mäuse</strong>", "<strong>das Auto</strong> – <strong>die Autos</strong>"],
+          question: "Was ändert sich? Gibt es verschiedene Pluralformen?"
+        },
+        minimalPairs: [
+          { left: "das Kind (Singular)", right: "die Kinder (Plural)", hint: "Einzahl vs. Mehrzahl, Endung und Umlaut" },
+          { left: "die Maus", right: "die Mäuse", hint: "Umlaut im Plural" }
+        ],
+        check: {
+          choice: ["Welche Form steht im Plural?", ["der Tisch", "das Buch", "die Kinder", "eine Blume"], "die Kinder"],
+          cloze: ["Singular bedeutet", ["Einzahl", "Mehrzahl", "Fall"], "Einzahl"],
+          match: [["Singular", "das Kind liest"], ["Plural", "die Kinder lesen"], ["Pluralendung -s", "Autos"]]
+        },
+        extra: { type: "transform", title: "Singular → Plural", rows: [
+          { text: "Das <strong>Kind</strong> spielt. → Die ", inputs: [["Kinder","Kind","Kindes"],"Kinder"], middle: " ", inputs2: [], suffix: " spielen." },
+          { text: "Der <strong>Hund</strong> bellt. → Die ", inputs: [["Hunde","Hund","Hunden"],"Hunde"], middle: " ", inputs2: [], suffix: " bellen." }
+        ]}
+      },
+      {
+        id: "deklination",
+        chapter: "nomen",
+        title: "Deklination",
+        image: "assets/deklination.webp",
+        contextStory: `<p><span class="w nom" onclick="this.classList.toggle('active')"><strong>Der kleine Hund</strong><span class="anno">Nominativ</span></span> läuft. Ich sehe <span class="w akk" onclick="this.classList.toggle('active')"><strong>den kleinen Hund</strong><span class="anno">Akkusativ</span></span>. Ich gebe <span class="w dat" onclick="this.classList.toggle('active')"><strong>dem kleinen Hund</strong><span class="anno">Dativ</span></span> ein Leckerli. Wegen <span class="w gen" onclick="this.classList.toggle('active')"><strong>des kleinen Hundes</strong><span class="anno">Genitiv</span></span> ist alles nass.</p>`,
+        definition: "Deklination bedeutet, dass Nomen, Artikel, Pronomen und Adjektive ihre Form verändern. Diese Veränderung hängt von Kasus, Numerus und Genus ab. Besonders deutlich sieht man die Deklination an Artikeln wie der, des, dem und den. Sie hilft dabei, die Rolle einer Nomengruppe im Satz zu bestimmen.",
+        easy: "Die Form richtet sich nach Kasus, Numerus und Genus. In einer Nomengruppe verändern sich oft Artikel, Adjektiv und Nomen gleichzeitig.",
+        deep: ["Artikel und Adjektiv passen zusammen.", "Der Kasus macht die Rolle im Satz deutlich.", "Im Genitiv steht oft -s oder -es."],
+        examples: ["Der kleine Hund läuft. (Nominativ)", "Ich sehe den kleinen Hund. (Akkusativ)", "Ich gebe dem kleinen Hund ein Leckerli. (Dativ)", "Wegen des kleinen Hundes ist alles nass. (Genitiv)"],
+        mistake: "Bei einer Nomengruppe verändern sich oft mehrere Wörter, nicht nur das Nomen. Achte auf den Artikel und das Adjektiv: der kleine Hund → den kleinen Hund.",
+        discovery: {
+          text: "Vergleiche die Nomengruppe in verschiedenen Fällen.",
+          items: ["<strong>Der kleine Hund</strong> läuft. (Wer?)", "Ich sehe <strong>den kleinen Hund</strong>. (Wen?)", "Ich gebe <strong>dem kleinen Hund</strong>… (Wem?)", "Wegen <strong>des kleinen Hundes</strong>… (Wessen?)"],
+          question: "Was ändert sich alles? Nomen, Adjektiv oder Artikel?"
+        },
+        minimalPairs: [
+          { left: "der kleine Hund (Nominativ)", right: "den kleinen Hund (Akkusativ)", hint: "Artikel und Adjektiv ändern sich." },
+          { left: "des kleinen Hundes", right: "der kleinen Hunde", hint: "Genitiv Singular vs. Plural" }
+        ],
+        check: {
+          choice: ["Welche Form steht im Genitiv?", ["der kleine Hund", "des kleinen Hundes", "dem kleinen Hund", "den kleinen Hund"], "des kleinen Hundes"],
+          cloze: ["Deklination richtet sich nach Kasus, Numerus und", ["Genus", "Tempus", "Modus"], "Genus"],
+          match: [["Nominativ", "der kleine Hund"], ["Dativ", "dem kleinen Hund"], ["Akkusativ", "den kleinen Hund"]]
+        },
+        extra: { type: "annotate", title: "Annotationsaufgabe: Deklination in der Nomengruppe", text: "Klicke auf die Wörter, die sich <strong>im Genitiv</strong> verändern würden. <span class='token' data-ok='true'>der</span> <span class='token' data-ok='true'>kleine</span> <span class='token' data-ok='true'>Hund</span> <span class='token' data-ok='false'>läuft</span> <span class='token' data-ok='false'>schnell</span>." }
+      }
+    ];
+
+    const extraChecks = {
+      nomen: { type: "mark", prompt: "Markiere im Satz alle Nomen.", words: [["Der", false], ["mutige", false], ["Schüler", true], ["zeigt", false], ["Freude", true], ["über", false], ["Berlin.", true]], solution: "Schüler, Freude, Berlin" },
+      verben: { type: "wordtype", prompt: "Bestimme die Wortart des fettgedruckten Wortes.", sentence: "Mina <strong>schreibt</strong> eine Nachricht.", options: ["Nomen", "Verb", "Adjektiv", "Pronomen"], answer: "Verb" },
+      adjektive: { type: "correct", prompt: "Korrigiere den Fehler.", wrong: "Der Hund ist am schnellersten.", answers: ["Der Hund ist am schnellsten."], solution: "Der Hund ist am schnellsten." },
+      pronomen: { type: "multi", prompt: "Wähle alle richtigen Aussagen aus.", options: [["Pronomen können Nomen ersetzen.", true], ["Pronomen werden immer gesteigert.", false], ["Mein ist ein Possessivpronomen.", true], ["Wer kann ein Interrogativpronomen sein.", true]] },
+      adverbien: { type: "explain", prompt: "Erkläre kurz den Unterschied zwischen Adverbien und Adjektiven.", sample: "Adverbien bleiben meist unverändert und geben Umstände an. Adjektive beschreiben Eigenschaften und können oft gesteigert oder dekliniert werden." },
+      numerale: { type: "wordtype", prompt: "Bestimme die Wortart des fettgedruckten Wortes.", sentence: "Im Regal stehen <strong>drei</strong> Bücher.", options: ["Numerale", "Adverb", "Präposition", "Interjektion"], answer: "Numerale" },
+      praepositionen: { type: "correct", prompt: "Korrigiere den Kasusfehler.", wrong: "Ich fahre mit den Fahrrad.", answers: ["Ich fahre mit dem Fahrrad."], solution: "Ich fahre mit dem Fahrrad." },
+      bindewoerter: { type: "explain", prompt: "Erkläre kurz den Unterschied zwischen Konjunktion und Subjunktion.", sample: "Konjunktionen verbinden Gleichrangiges. Subjunktionen leiten Nebensätze ein und ordnen sie einem Hauptsatz unter." },
+      interjektionen: { type: "multi", prompt: "Wähle alle richtigen Aussagen aus.", options: [["Interjektionen drücken spontane Reaktionen aus.", true], ["Interjektionen werden konjugiert.", false], ["Aua! ist eine Interjektion.", true], ["Interjektionen stehen oft außerhalb des Satzbaus.", true]] },
+      konjugation: { type: "correct", prompt: "Korrigiere die Verbform.", wrong: "Du gehe nach Hause.", answers: ["Du gehst nach Hause."], solution: "Du gehst nach Hause." },
+      zeitformen: { type: "multi", prompt: "Wähle alle richtigen Aussagen aus.", options: [["Perfekt wird oft mit haben oder sein gebildet.", true], ["Futur I nutzt werden plus Infinitiv.", true], ["Präteritum beschreibt immer Zukunft.", false], ["Plusquamperfekt beschreibt Vorvergangenheit.", true]] },
+      modus: { type: "explain", prompt: "Erkläre kurz den Unterschied zwischen Indikativ und Imperativ.", sample: "Der Indikativ stellt etwas als Tatsache dar. Der Imperativ ist eine Aufforderung, ein Befehl oder eine Bitte." },
+      "aktiv-passiv": { type: "wordtype", prompt: "Bestimme die Form des fettgedruckten Satzes.", sentence: "<strong>Die Tür wird geöffnet.</strong>", options: ["Aktiv", "Vorgangspassiv", "Zustandspassiv", "Imperativ"], answer: "Vorgangspassiv" },
+      kasus: { type: "correct", prompt: "Korrigiere den Kasusfehler.", wrong: "Ich helfe den Schüler.", answers: ["Ich helfe dem Schüler."], solution: "Ich helfe dem Schüler." },
+      genus: { type: "multi", prompt: "Wähle alle richtigen Aussagen aus.", options: [["Der Artikel zeigt oft das Genus.", true], ["Das Genus ist immer natürliches Geschlecht.", false], ["Die Lampe ist feminin.", true], ["Das Buch ist neutrum.", true]] },
+      numerus: { type: "mark", prompt: "Markiere alle Pluralformen.", words: [["der Hund", false], ["die Bücher", true], ["das Kind", false], ["die Schulen", true], ["ein Auto", false]], solution: "die Bücher, die Schulen" },
+      deklination: { type: "explain", prompt: "Erkläre kurz den Unterschied zwischen Konjugation und Deklination.", sample: "Konjugation verändert Verben. Deklination verändert Nomen, Artikel, Pronomen und Adjektive nach Kasus, Numerus und Genus." }
+    };
+
+    const deepTasks = {
+      nomen: {
+        title: "Wortschatz unter die Lupe nehmen",
+        prompt: "Untersuche einen kurzen Text aus deinem Alltag und zeige, woran man Nomen sicher erkennt.",
+        steps: ["Wähle sechs bis acht Nomen aus einem kurzen Text oder erfinde einen eigenen Absatz.", "Prüfe jedes Nomen mit Artikelprobe, Großschreibung und Bedeutung.", "Bestimme bei mindestens drei Nomen Kasus, Genus und Numerus.", "Formuliere eine kurze Regel, die einem jüngeren Lernpartner beim Erkennen von Nomen hilft."],
+        product: "Tabelle mit Belegen und ein eigener Merksatz."
+      },
+      verben: {
+        title: "Verben als Motor des Satzes untersuchen",
+        prompt: "Zeige an selbst gewählten Sätzen, wie Verben Handlungen, Vorgänge oder Zustände ausdrücken.",
+        steps: ["Schreibe sechs Sätze zu einem Schultag oder einem Hobby.", "Markiere alle Verben und unterscheide Handlungs-, Vorgangs- und Zustandsverben.", "Bestimme bei drei Verben die finite Form und eine infinite Form.", "Erkläre, warum ohne Verb meist kein vollständiger Satz entsteht."],
+        product: "Markierter Satzblock mit kurzer Begründung."
+      },
+      adjektive: {
+        title: "Wirkung von Adjektiven vergleichen",
+        prompt: "Untersuche, wie Adjektive einen Text genauer und anschaulicher machen.",
+        steps: ["Schreibe einen kurzen neutralen Satz über eine Person, einen Ort oder einen Gegenstand.", "Erweitere den Satz mit mindestens fünf passenden Adjektiven.", "Nutze je ein Adjektiv attributiv, prädikativ und adverbial.", "Steigere zwei Adjektive und erkläre, wie sich die Aussage dadurch verändert."],
+        product: "Vorher-nachher-Vergleich mit Funktionsmarkierungen."
+      },
+      pronomen: {
+        title: "Wiederholungen klug vermeiden",
+        prompt: "Überarbeite einen Text so, dass Pronomen sinnvoll eingesetzt werden.",
+        steps: ["Schreibe einen kurzen Absatz mit absichtlichen Wiederholungen von Nomen.", "Ersetze passende Wiederholungen durch Pronomen.", "Bestimme mindestens vier verwendete Pronomen nach ihrer Art.", "Begründe, wann ein Pronomen den Text verbessert und wann es unklar werden kann."],
+        product: "Überarbeiteter Absatz mit Pronomen-Kommentar."
+      },
+      adverbien: {
+        title: "Umstände gezielt ergänzen",
+        prompt: "Erweitere einfache Sätze so, dass Ort, Zeit, Grund und Art und Weise klar werden.",
+        steps: ["Beginne mit dem Satz: Mia lernt.", "Ergänze nacheinander ein Lokal-, Temporal-, Kausal- und Modaladverb.", "Schreibe zu jedem Adverb die passende Frage auf.", "Vergleiche ein Adverb mit einem Adjektiv und erkläre den Unterschied."],
+        product: "Vier erweiterte Sätze mit Fragen und Vergleich."
+      },
+      numerale: {
+        title: "Zahlen im Alltag sortieren",
+        prompt: "Untersuche, wie Zahlwörter genaue Mengen, Reihenfolgen und Anteile ausdrücken.",
+        steps: ["Erstelle eine kleine Klassen- oder Fantasie-Statistik mit mindestens acht Zahlwörtern.", "Ordne die Zahlwörter Kardinalzahl, Ordinalzahl, Bruchzahl oder unbestimmtem Zahlwort zu.", "Formuliere zwei Sätze, in denen ein Numerale vor einem Nomen steht.", "Erkläre, warum Zahlwörter beim genauen Beschreiben wichtig sind."],
+        product: "Mini-Statistik mit Zuordnung und Erklärung."
+      },
+      praepositionen: {
+        title: "Verhältnisse sichtbar machen",
+        prompt: "Beschreibe einen Raum, einen Weg oder ein Bild mit vielen Präpositionen.",
+        steps: ["Schreibe acht Sätze mit Präpositionalgruppen.", "Markiere die Präpositionen und die dazugehörigen Nomen oder Pronomen.", "Bestimme bei mindestens fünf Beispielen den Kasus.", "Erkläre an einem Beispiel den Unterschied zwischen Wo? und Wohin?."],
+        product: "Beschreibung mit Kasus-Markierungen."
+      },
+      bindewoerter: {
+        title: "Sätze sinnvoll verknüpfen",
+        prompt: "Baue aus kurzen Sätzen abwechslungsreiche Satzreihen und Satzgefüge.",
+        steps: ["Notiere sechs kurze Hauptsätze zu einem Thema.", "Verbinde drei davon mit Konjunktionen zu Satzreihen.", "Verbinde drei davon mit Subjunktionen zu Satzgefügen.", "Markiere die Verbindungswörter und erkläre die Verbposition."],
+        product: "Vergleichstabelle: Satzreihe oder Satzgefüge."
+      },
+      interjektionen: {
+        title: "Gefühle sprachlich darstellen",
+        prompt: "Zeige, wie Interjektionen spontane Reaktionen in einem Dialog ausdrücken.",
+        steps: ["Schreibe einen kurzen Dialog mit mindestens sechs Interjektionen.", "Ordne jeder Interjektion ein Gefühl oder eine Situation zu.", "Prüfe, welche Interjektionen allein stehen könnten.", "Erkläre, warum Interjektionen meist nicht fest zum Satzbau gehören."],
+        product: "Dialog mit Gefühls- und Satzbau-Kommentar."
+      },
+      konjugation: {
+        title: "Verbformen systematisch bilden",
+        prompt: "Untersuche, wie sich ein Verb an Person, Numerus, Zeitform und Modus anpasst.",
+        steps: ["Wähle ein regelmäßiges und ein unregelmäßiges Verb.", "Konjugiere beide Verben im Präsens in allen sechs Personen.", "Bilde zusätzlich je eine Form im Präteritum und im Perfekt.", "Erkläre, woran man die finite Verbform erkennt."],
+        product: "Konjugationstabelle mit kurzer Auswertung."
+      },
+      zeitformen: {
+        title: "Ereignisse zeitlich ordnen",
+        prompt: "Erzähle ein Ereignis so, dass verschiedene Zeitformen bewusst eingesetzt werden.",
+        steps: ["Schreibe eine kurze Geschichte mit Gegenwart, Vergangenheit, Vorvergangenheit und Zukunft.", "Verwende mindestens vier der sechs Zeitformen.", "Markiere die Verbformen und benenne die Zeitform.", "Erkläre, warum die gewählte Zeitform zur Stelle im Text passt."],
+        product: "Zeitstrahl mit markierten Beispielsätzen."
+      },
+      modus: {
+        title: "Aussageweisen vergleichen",
+        prompt: "Verwandle Aussagen so, dass deutlich wird, ob etwas Tatsache, Aufforderung, fremde Aussage oder Wunsch ist.",
+        steps: ["Wähle drei einfache Aussagesätze.", "Forme sie passend in Indikativ, Imperativ, Konjunktiv I und Konjunktiv II um.", "Markiere die veränderten Verbformen.", "Beschreibe, wie sich die Bedeutung durch den Modus verändert."],
+        product: "Vier-Spalten-Vergleich mit Bedeutungsnotiz."
+      },
+      "aktiv-passiv": {
+        title: "Den Blickwinkel eines Satzes ändern",
+        prompt: "Untersuche, wie Aktiv und Passiv den Schwerpunkt einer Aussage verändern.",
+        steps: ["Schreibe vier aktive Sätze mit handelnder Person.", "Wandle sie ins Vorgangspassiv um.", "Bilde zu zwei Sätzen auch ein Zustandspassiv.", "Erkläre, wann das Passiv in einem Sachtext sinnvoll sein kann."],
+        product: "Aktiv-Passiv-Vergleich mit Fokus-Erklärung."
+      },
+      kasus: {
+        title: "Fälle im Satz begründen",
+        prompt: "Analysiere Nomengruppen und begründe ihren Kasus mit Frageprobe und Satzrolle.",
+        steps: ["Schreibe oder wähle fünf Sätze mit verschiedenen Nomengruppen.", "Markiere die Nomengruppen und stelle die passende Kasusfrage.", "Bestimme Nominativ, Genitiv, Dativ oder Akkusativ.", "Erkläre bei zwei Beispielen, wie Artikel oder Endungen beim Erkennen helfen."],
+        product: "Kasus-Tabelle mit Frageprobe."
+      },
+      genus: {
+        title: "Artikel bewusst lernen",
+        prompt: "Untersuche, warum das grammatische Geschlecht nicht immer einfach zu erraten ist.",
+        steps: ["Sammle jeweils fünf Nomen mit der, die und das.", "Markiere Artikel und Genus farbig.", "Finde zwei Beispiele, bei denen natürliches und grammatisches Geschlecht nicht gleich sind.", "Formuliere einen Tipp, wie man Genus sicherer lernen kann."],
+        product: "Artikel-Sammlung mit Lernstrategie."
+      },
+      numerus: {
+        title: "Singular und Plural vergleichen",
+        prompt: "Untersuche, wie Nomen ihre Form in der Mehrzahl verändern.",
+        steps: ["Sammle zehn Nomen im Singular und bilde den Plural.", "Ordne die Pluralformen nach Endungen oder Umlaut.", "Schreibe drei Satzpaare, in denen sich auch das Verb anpasst.", "Erkläre, welche Formen besonders leicht zu verwechseln sind."],
+        product: "Plural-Tabelle mit Beispielsätzen."
+      },
+      deklination: {
+        title: "Nomengruppen verändern",
+        prompt: "Zeige an einer Nomengruppe, wie Artikel, Adjektiv und Nomen zusammenpassen.",
+        steps: ["Wähle eine Nomengruppe mit Artikel, Adjektiv und Nomen.", "Setze sie in alle vier Fälle im Singular.", "Bilde zusätzlich zwei Formen im Plural.", "Markiere die veränderten Stellen und erkläre, warum sie sich ändern."],
+        product: "Deklinationstabelle mit Markierungen."
+      }
+    };
+
+    topics.forEach(topic => {
+      topic.videoLinks = topicVideos[topic.id] || [["ivi education: Deutsch", IVI_VIDEO_URL]];
+    });
+
+    const memorySentences = {
+      nomen: "Nomen schreibt man groß und kann sie oft mit der, die oder das verbinden.",
+      verben: "Ohne Verb gibt es meist keinen vollständigen Satz.",
+      adjektive: "Adjektive beschreiben Nomen genauer und lassen sich oft steigern.",
+      pronomen: "Pronomen stehen für Nomen oder begleiten sie.",
+      adverbien: "Adverbien machen Angaben zu Ort, Zeit, Art und Weise oder Grund.",
+      numerale: "Numerale nennen Zahlen, Mengen oder Reihenfolgen.",
+      praepositionen: "Präpositionen verbinden Wörter und verlangen oft einen bestimmten Kasus.",
+      bindewoerter: "Konjunktionen verbinden, Subjunktionen ordnen Nebensätze unter.",
+      interjektionen: "Interjektionen drücken Gefühle oder spontane Reaktionen aus.",
+      konjugation: "Bei der Konjugation passt sich das Verb an Person und Zahl an.",
+      zeitformen: "Zeitformen zeigen, wann etwas geschieht.",
+      modus: "Der Modus zeigt, wie eine Aussage gemeint ist.",
+      "aktiv-passiv": "Aktiv nennt den Handelnden, Passiv betont Handlung oder Zustand.",
+      kasus: "Kasus zeigt, welche Rolle ein Nomen im Satz hat.",
+      genus: "Der Artikel zeigt meistens das Genus eines Nomens.",
+      numerus: "Numerus zeigt, ob ein Nomen in der Einzahl oder Mehrzahl steht.",
+      deklination: "Bei der Deklination verändern sich Nomen, Artikel und Adjektive."
+    };
+
+    // localStorage mit Fallback für Sandbox
+    let storage = { getItem:()=>null, setItem:()=>{}, removeItem:()=>{} };
+    try { storage = localStorage; } catch(e) {}
+
+    const completed = new Set(JSON.parse(storage.getItem("grammatikDone") || "[]"));
+    let activeTopic = topics[0];
+    let activeView = "topic";
+
+    const nav = document.querySelector("#topicNav");
+    const topicArea = document.querySelector("#topicArea");
+    const currentPath = document.querySelector("#currentPath");
+    const overview = document.querySelector("#overview");
+    const progressText = document.querySelector("#progressText");
+    const progressBar = document.querySelector("#progressBar");
+    const progressFeedback = document.querySelector("#progressFeedback");
+    const resetProgressBtn = document.querySelector("#resetProgressBtn");
+    const completeBtn = document.querySelector("#completeBtn");
+    const overviewBtn = document.querySelector("#overviewBtn");
+    const quizSection = document.querySelector("#wortartenQuiz60");
+
+    const progressFeedbackMessages = {
+      0: "Startpunkt: Schau dir zuerst die Übersicht an und wähle ein Thema, das du dir in Ruhe erschließen möchtest.",
+      10: "Guter Einstieg: Du hast die ersten Schritte gemacht. Bleib neugierig und nutze die Beispiele zum Vergleichen.",
+      20: "Du kommst ins Arbeiten: Wiederhole kurz, was du bereits sicher erkennst, bevor du weitergehst.",
+      30: "Solider Aufbau: Mehrere Grundlagen sitzen schon. Kleine Fehler sind jetzt hilfreiche Hinweise.",
+      40: "Du bist gut unterwegs: Verbinde die Infografiken mit den Mini-Checks, dann wird dein Wissen stabiler.",
+      50: "Halbzeit: Du hast schon viel geschafft. Nimm dir bei unsicheren Themen bewusst noch einmal Zeit.",
+      60: "Starker Lernweg: Du erkennst immer mehr Zusammenhänge. Achte jetzt auf feine Unterschiede.",
+      70: "Sehr ordentlich: Die meisten Themen sind bearbeitet. Prüfe gezielt, wo du noch schwankst.",
+      80: "Fast sicher: Dein Überblick wird deutlich. Nutze die Aufgaben, um letzte Lücken zu schließen.",
+      90: "Sehr stark: Du bist kurz vor dem Ziel. Wiederhole noch die schwierigen Begriffe und Beispiele.",
+      100: "Geschafft: Du hast alle Themen abgeschlossen. Jetzt kannst du dein Wissen im Abschlusstest festigen."
+    };
+
+    function renderNav() {
+      const chapterSections = Object.entries(chapters).map(([chapterId, label]) => {
+        const buttons = topics
+          .filter(topic => topic.chapter === chapterId)
+          .map(topic => `
+            <button class="topic-button ${activeView === "topic" && topic.id === activeTopic.id ? "active" : ""} ${completed.has(topic.id) ? "done" : ""}" data-id="${topic.id}" data-chapter="${topic.chapter}" type="button">
+              <span class="dot" aria-hidden="true"></span>
+              <span>${topic.title}</span>
+              <span class="done-mark" aria-label="abgeschlossen">OK</span>
+            </button>
+          `).join("");
+        return `<section class="nav-group"><h2>${label}</h2>${buttons}</section>`;
+      }).join("");
+
+      const quizButton = `
+        <section class="nav-group">
+          <h2>Kapitel 4: Teste dein Wissen</h2>
+          <button class="topic-button ${activeView === "quiz" ? "active" : ""}" id="quizNavButton" data-chapter="test" type="button">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Abschlusstest Wortarten</span>
+            <span class="done-mark" aria-hidden="true">OK</span>
+          </button>
+        </section>
+      `;
+
+      nav.innerHTML = chapterSections + quizButton;
+
+      nav.querySelectorAll(".topic-button[data-id]").forEach(button => {
+        button.addEventListener("click", () => showTopic(topics.find(item => item.id === button.dataset.id)));
+      });
+
+      document.querySelector("#quizNavButton").addEventListener("click", showQuiz);
+    }
+
+    function renderTopic(topic) {
+      const chapterLabel = chapters[topic.chapter];
+      const ruleId = `rule-${topic.id}`;
+      currentPath.textContent = `${chapterLabel} / ${topic.title}`;
+
+      const introHtml = topicIntroTexts[topic.id]
+        ? `<section class="info-box intro-box"><h3>Zum Einstieg</h3><p>${topicIntroTexts[topic.id]}</p></section>`
+        : "";
+
+      let discoveryHtml = "";
+      if (topic.discovery) {
+        discoveryHtml = `
+          <section class="discovery">
+            <h3 style="margin:0 0 8px;">1. Beobachte und entdecke</h3>
+            <p>${topic.discovery.text}</p>
+            <ul>
+              ${topic.discovery.items.map(item => `<li>${item}</li>`).join("")}
+            </ul>
+            <p><em>${topic.discovery.question}</em></p>
+            <button class="reveal-btn" type="button" onclick="document.getElementById('${ruleId}').style.display='block'; this.style.display='none'">Regel anzeigen</button>
+          </section>
+        `;
+      }
+
+      let minimalPairsHtml = "";
+      if (topic.minimalPairs) {
+        minimalPairsHtml = `
+          <section>
+            <h3 style="margin:0 0 10px;">${topic.discovery ? "2" : "1"}. Minimalpaare: Ein Wort, verschiedene Formen</h3>
+            <div class="minimal-pairs">
+              ${topic.minimalPairs.map(pair => `
+                <div class="pair">
+                  <strong>${pair.left}</strong> vs. <strong>${pair.right}</strong>
+                  <em>${pair.hint}</em>
+                </div>
+              `).join("")}
+            </div>
+          </section>
+        `;
+      }
+
+      let contextHtml = "";
+      if (topic.contextStory) {
+        contextHtml = `
+          <div class="story-box">
+            ${topic.contextStory}
+            ${/(class=['"]w\s+(nom|akk|dat|gen)|class=['"](nom|akk|dat|gen)\s+w)/.test(topic.contextStory) ? `
+              <div class="legend">
+                <span class="nom">Nominativ</span>
+                <span class="akk">Akkusativ</span>
+                <span class="dat">Dativ</span>
+                <span class="gen">Genitiv</span>
+              </div>` : ""}
+            <p style="font-size:.9rem;color:var(--muted);margin-top:8px;">
+              Tipp: Klicke auf die markierten Wörter, um die grammatische Funktion zu sehen.
+            </p>
+          </div>
+        `;
+      }
+
+      topicArea.innerHTML = `
+        <aside class="visual-panel">
+          <img src="${topic.image}" alt="Infografik: ${topic.title}">
+          ${contextHtml}
+          <section class="video-card">
+            <h3>Passende Erklärvideos</h3>
+            <div class="video-links">
+              ${(topic.videoLinks && topic.videoLinks.length ? topic.videoLinks : [["ivi education: Deutsch", IVI_VIDEO_URL]]).map(([label, url]) => `<a href="${url}" target="_blank" rel="noopener">${label}</a>`).join("")}
+            </div>
+          </section>
+        </aside>
+        <article class="topic-card">
+          <header class="topic-head" data-chapter="${topic.chapter}">
+            <p>${chapterLabel}</p>
+            <h2>${topic.title}</h2>
+          </header>
+          <div class="topic-body">
+            ${introHtml}
+            ${discoveryHtml}
+            ${minimalPairsHtml}
+            <div class="definition" id="${ruleId}" style="${topic.discovery ? 'display:none;' : ''}">${topic.definition}</div>
+            <div class="memory-box"><strong>Merksatz</strong><span>${memorySentences[topic.id]}</span></div>
+            <div class="info-grid">
+              <section class="info-box"><h3>Einfach erklärt</h3><p>${topic.easy}</p></section>
+              <section class="info-box"><h3>Genauer erklärt</h3><ul>${topic.deep.map(item => `<li>${item}</li>`).join("")}</ul></section>
+              <section class="info-box"><h3>Beispiele im Kontext</h3><ul>${topic.examples.map(item => `<li>${item}</li>`).join("")}</ul></section>
+              <section class="notice"><strong>Achtung</strong> <span>${topic.mistake}</span></section>
+            </div>
+            <section class="checks" id="checks">
+              ${renderChoice(topic)}
+              ${renderCloze(topic)}
+              ${renderMatch(topic)}
+              ${renderExtraCheck(topic)}
+            </section>
+            ${renderDeepTask(topic)}
+          </div>
+        </article>
+      `;
+      wireChecks(topic);
+    }
+
+    function renderChoice(topic) {
+      const [question, options, answer] = topic.check.choice;
+      return `
+        <section class="check-card" data-check="choice">
+          <h3>Mini-Check 1: Auswählen</h3>
+          <p>${question}</p>
+          <div class="choice-grid">
+            ${options.map(option => `<button class="choice" data-answer="${option}" data-correct="${answer}" type="button">${option}</button>`).join("")}
+          </div>
+          <div class="feedback"></div>
+        </section>
+      `;
+    }
+
+    function renderCloze(topic) {
+      const [start, options, answer] = topic.check.cloze;
+      return `
+        <section class="check-card" data-check="cloze">
+          <h3>Mini-Check 2: Lückentext</h3>
+          <div class="cloze-row">
+            <span>${start}</span>
+            <select data-correct="${answer}">
+              <option value="">auswählen</option>
+              ${options.map(option => `<option value="${option}">${option}</option>`).join("")}
+            </select>
+          </div>
+          <div class="feedback"></div>
+        </section>
+      `;
+    }
+
+    function renderMatch(topic) {
+      const pairs = topic.check.match;
+      const tokens = pairs.map(pair => pair[1]).sort(() => Math.random() - 0.5);
+      return `
+        <section class="check-card" data-check="match">
+          <h3>Mini-Check 3: Zuordnen</h3>
+          <div class="match-wrap">
+            <div class="match-bank" aria-label="Antworten">
+              ${tokens.map(token => `<div class="drag-token" draggable="true" data-value="${token}">${token}</div>`).join("")}
+            </div>
+            <div class="match-targets" aria-label="Zuordnungen">
+              ${pairs.map(pair => `<div class="drop-slot" data-correct="${pair[1]}"><strong>${pair[0]}</strong></div>`).join("")}
+            </div>
+          </div>
+          <div class="feedback"></div>
+        </section>
+      `;
+    }
+
+    function encodeCheckData(value) {
+      return encodeURIComponent(JSON.stringify(value));
+    }
+
+    function renderDeepTask(topic) {
+      const task = deepTasks[topic.id];
+      if (!task) return "";
+      return `
+        <section class="deep-task">
+          <div class="deep-task-label">Vertiefungsauftrag</div>
+          <h3>${task.title}</h3>
+          <p>${task.prompt}</p>
+          <ol>
+            ${task.steps.map(step => `<li>${step}</li>`).join("")}
+          </ol>
+          <div class="task-output"><strong>Ergebnis:</strong> ${task.product}</div>
+        </section>
+      `;
+    }
+
+    function renderExtraCheck(topic) {
+      const check = topic.extra || extraChecks[topic.id];
+      if (!check) return "";
+      const titles = {
+        mark: "Mini-Check 4: Markieren",
+        wordtype: "Mini-Check 4: Wortart bestimmen",
+        correct: "Mini-Check 4: Fehler korrigieren",
+        explain: "Mini-Check 4: Kurz erklären",
+        multi: "Mini-Check 4: Aussagen prüfen",
+        errorSearch: "Mini-Check 4: Fehlersuche im Text",
+        transform: "Mini-Check 4: Transformation",
+        contextCloze: "Mini-Check 4: Lückentext im Zusammenhang",
+        annotate: "Mini-Check 4: Annotationsaufgabe"
+      };
+
+      if (check.type === "mark") {
+        return `
+          <section class="check-card" data-check="extra" data-type="mark">
+            <h3>${titles[check.type]}</h3>
+            <p>${check.prompt}</p>
+            <div class="mark-sentence">
+              ${check.words.map(([word, isCorrect]) => `<button class="mark-token" data-correct="${isCorrect}" type="button">${word}</button>`).join("")}
+            </div>
+            <div class="extra-actions"><button class="extra-check-btn" type="button">Prüfen</button></div>
+            <div class="feedback" data-solution="${check.solution}"></div>
+          </section>
+        `;
+      }
+
+      if (check.type === "wordtype") {
+        return `
+          <section class="check-card" data-check="extra" data-type="wordtype">
+            <h3>${titles[check.type]}</h3>
+            <p>${check.prompt}</p>
+            <p>${check.sentence}</p>
+            <div class="choice-grid">
+              ${check.options.map(option => `<button class="extra-choice" data-answer="${option}" data-correct="${check.answer}" type="button">${option}</button>`).join("")}
+            </div>
+            <div class="feedback"></div>
+          </section>
+        `;
+      }
+
+      if (check.type === "correct") {
+        return `
+          <section class="check-card" data-check="extra" data-type="correct" data-answers="${encodeCheckData(check.answers)}">
+            <h3>${titles[check.type]}</h3>
+            <p>${check.prompt}</p>
+            <p><strong>Fehler:</strong> ${check.wrong}</p>
+            <input class="extra-input" type="text" placeholder="Korrigierten Satz eingeben">
+            <div class="extra-actions"><button class="extra-check-btn" type="button">Prüfen</button></div>
+            <div class="feedback" data-solution="${check.solution}"></div>
+          </section>
+        `;
+      }
+
+      if (check.type === "explain") {
+        return `
+          <section class="check-card" data-check="extra" data-type="explain">
+            <h3>${titles[check.type]}</h3>
+            <p>${check.prompt}</p>
+            <textarea class="extra-textarea" placeholder="Schreibe deine Erklärung in 1-2 Sätzen."></textarea>
+            <div class="extra-actions"><button class="extra-check-btn" type="button">Beispielantwort anzeigen</button></div>
+            <div class="feedback" data-solution="${check.sample}"></div>
+          </section>
+        `;
+      }
+
+      if (check.type === "multi") {
+        return `
+          <section class="check-card" data-check="extra" data-type="multi">
+            <h3>${titles[check.type]}</h3>
+            <p>${check.prompt}</p>
+            <div class="choice-grid">
+              ${check.options.map(([option, isCorrect]) => `<button class="extra-choice" data-correct="${isCorrect}" type="button">${option}</button>`).join("")}
+            </div>
+            <div class="extra-actions"><button class="extra-check-btn" type="button">Prüfen</button></div>
+            <div class="feedback"></div>
+          </section>
+        `;
+      }
+
+      if (check.type === "errorSearch") {
+        return `
+          <section class="check-card" data-check="extra" data-type="errorSearch">
+            <h3>${check.title || titles.errorSearch}</h3>
+            <p>${check.text}</p>
+            <div class="error-text" id="errorText_${topic.id}">
+              ${check.html}
+            </div>
+            <div class="feedback" id="errorFeedback_${topic.id}"></div>
+          </section>
+        `;
+      }
+
+      if (check.type === "transform" || check.type === "transformAdj") {
+        return `
+          <section class="check-card" data-check="extra" data-type="transform">
+            <h3>${check.title || titles.transform}</h3>
+            <div id="transform_${topic.id}">
+              ${check.rows.map((row, idx) => `
+                <div class="transform-row" data-idx="${idx}">
+                  <span>${row.text}</span>
+                  ${row.inputs ? `<select data-ans="${row.inputs[1]}"><option value="">...</option>${row.inputs[0].map(o => `<option value="${o}">${o}</option>`).join("")}</select>` : ""}
+                  ${row.middle ? `<span>${row.middle}</span>` : ""}
+                  ${row.inputs2 && row.inputs2.length ? `<select data-ans="${row.inputs2[1]}"><option value="">...</option>${row.inputs2[0].map(o => `<option value="${o}">${o}</option>`).join("")}</select>` : ""}
+                  ${row.suffix ? `<span>${row.suffix}</span>` : ""}
+                  ${row.input ? `<input type="text" class="extra-input" style="width:180px" data-ans="${row.check}">` : ""}
+                </div>
+              `).join("")}
+            </div>
+            <div class="extra-actions"><button class="extra-check-btn" onclick="checkTransform('${topic.id}')" type="button">Prüfen</button></div>
+            <div class="feedback" id="transformFeedback_${topic.id}"></div>
+          </section>
+        `;
+      }
+
+      if (check.type === "contextCloze") {
+        return `
+          <section class="check-card" data-check="extra" data-type="contextCloze">
+            <h3>${check.title || titles.contextCloze}</h3>
+            <div class="cloze-context" id="clozeContext_${topic.id}">
+              ${check.text}
+            </div>
+            <div class="extra-actions"><button class="extra-check-btn" onclick="checkContextCloze('${topic.id}')" type="button">Prüfen</button></div>
+            <div class="feedback" id="clozeContextFeedback_${topic.id}"></div>
+          </section>
+        `;
+      }
+
+      if (check.type === "annotate") {
+        return `
+          <section class="check-card" data-check="extra" data-type="annotate">
+            <h3>${check.title || titles.annotate}</h3>
+            <p>${check.prompt || check.title}</p>
+            <div class="anno-task" id="annoTask_${topic.id}">
+              ${check.text}
+            </div>
+            <div class="feedback" id="annoFeedback_${topic.id}"></div>
+          </section>
+        `;
+      }
+
+      return "";
+    }
+
+    function checkTransform(topicId) {
+      const rows = document.querySelectorAll(`#transform_${topicId} .transform-row`);
+      let ok = true;
+      rows.forEach(row => {
+        const s1 = row.querySelector('select[data-ans]');
+        const inp = row.querySelector('input[data-ans]');
+        if (s1 && s1.value !== s1.dataset.ans) ok = false;
+        if (inp && normalizeAnswer(inp.value) !== normalizeAnswer(inp.dataset.ans)) ok = false;
+        const s2 = row.querySelectorAll('select[data-ans]')[1];
+        if (s2 && s2.value !== s2.dataset.ans) ok = false;
+      });
+      const fb = document.getElementById(`transformFeedback_${topicId}`);
+      fb.innerHTML = ok ? '<span class="correct">Richtig transformiert!</span>' : '<span class="wrong">Noch nicht ganz. Vergleiche die Formen noch einmal.</span>';
+      if (ok) {
+        const card = document.querySelector(`#transform_${topicId}`).closest('.check-card');
+        if (card) card.dataset.solved = "true";
+      }
+      checkTopicDone(topicId);
+    }
+
+    function checkContextCloze(topicId) {
+      const container = document.getElementById(`clozeContext_${topicId}`);
+      const selects = container.querySelectorAll('select[data-ans]');
+      let ok = true;
+      selects.forEach(s => { if (s.value !== s.dataset.ans) ok = false; });
+      const fb = document.getElementById(`clozeContextFeedback_${topicId}`);
+      fb.innerHTML = ok ? '<span class="correct">Alles richtig ergänzt!</span>' : '<span class="wrong">Noch nicht ganz. Beachte Kasus, Numerus und Genus.</span>';
+      if (ok) {
+        const card = container.closest('.check-card');
+        if (card) card.dataset.solved = "true";
+      }
+      checkTopicDone(topicId);
+    }
+
+    function wireChecks(topic) {
+      topicArea.querySelectorAll(".choice").forEach(choice => {
+        choice.addEventListener("click", () => {
+          const card = choice.closest(".check-card");
+          card.querySelectorAll(".choice").forEach(button => button.classList.remove("correct", "wrong"));
+          const ok = choice.dataset.answer === choice.dataset.correct;
+          choice.classList.add(ok ? "correct" : "wrong");
+          card.querySelector(".feedback").textContent = ok ? "Richtig." : `Noch nicht. Richtig ist: ${choice.dataset.correct}`;
+          checkTopicDone(topic.id);
+        });
+      });
+
+      topicArea.querySelectorAll("select").forEach(select => {
+        if (select.closest('[data-check="extra"]')) return; // context selects handled separately
+        select.addEventListener("change", () => {
+          const card = select.closest(".check-card");
+          const ok = select.value === select.dataset.correct;
+          card.querySelector(".feedback").textContent = ok ? "Richtig." : select.value ? `Noch nicht. Richtig ist: ${select.dataset.correct}` : "";
+          card.dataset.solved = ok ? "true" : "false";
+          checkTopicDone(topic.id);
+        });
+      });
+
+      topicArea.querySelectorAll(".drag-token").forEach(token => {
+        token.addEventListener("dragstart", event => event.dataTransfer.setData("text/plain", token.dataset.value));
+        token.addEventListener("click", () => {
+          topicArea.querySelectorAll(".drag-token").forEach(item => item.classList.remove("selected"));
+          token.classList.add("selected");
+        });
+      });
+
+      topicArea.querySelectorAll(".drop-slot").forEach(slot => {
+        slot.addEventListener("click", () => {
+          const selected = topicArea.querySelector(".drag-token.selected");
+          if (selected) placeTokenInSlot(selected.dataset.value, slot, topic.id);
+        });
+        slot.addEventListener("dragover", event => {
+          event.preventDefault();
+          slot.classList.add("over");
+        });
+        slot.addEventListener("dragleave", () => slot.classList.remove("over"));
+        slot.addEventListener("drop", event => {
+          event.preventDefault();
+          placeTokenInSlot(event.dataTransfer.getData("text/plain"), slot, topic.id);
+        });
+      });
+
+      topicArea.querySelectorAll(".mark-token").forEach(token => {
+        token.addEventListener("click", () => token.classList.toggle("selected"));
+      });
+
+      topicArea.querySelectorAll(".extra-choice").forEach(choice => {
+        choice.addEventListener("click", () => {
+          const card = choice.closest(".check-card");
+          if (card.dataset.type === "wordtype") {
+            card.querySelectorAll(".extra-choice").forEach(button => button.classList.remove("selected", "correct", "wrong"));
+            const ok = choice.dataset.answer === choice.dataset.correct;
+            choice.classList.add(ok ? "correct" : "wrong");
+            card.dataset.solved = ok ? "true" : "false";
+            card.querySelector(".feedback").textContent = ok ? "Richtig." : `Noch nicht. Richtig ist: ${choice.dataset.correct}`;
+            checkTopicDone(topic.id);
+            return;
+          }
+          choice.classList.toggle("selected");
+        });
+      });
+
+      topicArea.querySelectorAll(".extra-check-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          evaluateExtraCheck(button.closest(".check-card"));
+          checkTopicDone(topic.id);
+        });
+      });
+
+      // Fehlersuche
+      const errContainer = document.getElementById(`errorText_${topic.id}`);
+      if (errContainer) {
+        errContainer.querySelectorAll('.err').forEach(el => {
+          el.addEventListener('click', function() {
+            if (this.classList.contains('fixed')) return;
+            this.textContent = this.dataset.fix;
+            this.classList.add('fixed');
+            checkErrors(topic.id);
+          });
+        });
+      }
+
+      // Annotation
+      const annoContainer = document.getElementById(`annoTask_${topic.id}`);
+      if (annoContainer) {
+        annoContainer.querySelectorAll('.token').forEach(token => {
+          token.addEventListener('click', function() {
+            if (this.classList.contains('ok') || this.classList.contains('bad')) return;
+            const isOk = this.dataset.ok === 'true';
+            this.classList.add(isOk ? 'ok' : 'bad');
+            checkAnnotation(topic.id);
+          });
+        });
+      }
+    }
+
+    function checkErrors(topicId) {
+      const container = document.getElementById(`errorText_${topicId}`);
+      const all = container.querySelectorAll('.err');
+      const fixed = container.querySelectorAll('.err.fixed');
+      const fb = document.getElementById(`errorFeedback_${topicId}`);
+      if (fixed.length === all.length) {
+        fb.innerHTML = '<span class="correct">Super! Alle Fehler korrigiert.</span>';
+        const card = container.closest('.check-card');
+        if (card) card.dataset.solved = "true";
+      } else {
+        fb.textContent = `${fixed.length} von ${all.length} korrigiert.`;
+      }
+      checkTopicDone(topicId);
+    }
+
+    function checkAnnotation(topicId) {
+      const container = document.getElementById(`annoTask_${topicId}`);
+      const tokens = container.querySelectorAll('.token');
+      const ok = [...tokens].filter(t => t.dataset.ok === 'true' && t.classList.contains('ok')).length;
+      const bad = container.querySelectorAll('.token.bad').length;
+      const needed = [...tokens].filter(t => t.dataset.ok === 'true').length;
+      const fb = document.getElementById(`annoFeedback_${topicId}`);
+      if (bad > 0) {
+        fb.innerHTML = '<span class="wrong">Das war nicht richtig. Versuche es noch einmal.</span>';
+      } else if (ok === needed) {
+        fb.innerHTML = '<span class="correct">Perfekt! Du hast alles richtig markiert.</span>';
+        const card = container.closest('.check-card');
+        if (card) card.dataset.solved = "true";
+      } else {
+        fb.textContent = `${ok} von ${needed} richtig markiert.`;
+      }
+      checkTopicDone(topicId);
+    }
+
+    function normalizeAnswer(value) {
+      return value.trim().replace(/\s+/g, " ").replace(/[.!?]+$/g, "").toLowerCase();
+    }
+
+    function evaluateExtraCheck(card) {
+      const type = card.dataset.type;
+      const feedback = card.querySelector(".feedback");
+
+      if (type === "mark") {
+        let ok = true;
+        card.querySelectorAll(".mark-token").forEach(token => {
+          token.classList.remove("correct", "wrong");
+          const selected = token.classList.contains("selected");
+          const shouldSelect = token.dataset.correct === "true";
+          if (selected && shouldSelect) token.classList.add("correct");
+          if (selected && !shouldSelect) token.classList.add("wrong");
+          if (selected !== shouldSelect) ok = false;
+        });
+        card.dataset.solved = ok ? "true" : "false";
+        feedback.textContent = ok ? "Richtig markiert." : `Noch nicht. Richtige Lösung: ${feedback.dataset.solution}`;
+      }
+
+      if (type === "correct") {
+        const answers = JSON.parse(decodeURIComponent(card.dataset.answers));
+        const input = card.querySelector(".extra-input");
+        const ok = answers.some(answer => normalizeAnswer(answer) === normalizeAnswer(input.value));
+        card.dataset.solved = ok ? "true" : "false";
+        feedback.textContent = ok ? "Richtig korrigiert." : `Noch nicht. Beispiel: ${feedback.dataset.solution}`;
+      }
+
+      if (type === "explain") {
+        const text = card.querySelector(".extra-textarea").value.trim();
+        const ok = text.length >= 25;
+        card.dataset.solved = ok ? "true" : "false";
+        feedback.textContent = ok ? `Gute Arbeitsgrundlage. Beispielantwort: ${feedback.dataset.solution}` : "Schreibe noch mindestens einen kurzen Erklärungssatz.";
+      }
+
+      if (type === "multi") {
+        let ok = true;
+        card.querySelectorAll(".extra-choice").forEach(choice => {
+          choice.classList.remove("correct", "wrong");
+          const selected = choice.classList.contains("selected");
+          const shouldSelect = choice.dataset.correct === "true";
+          if (selected && shouldSelect) choice.classList.add("correct");
+          if (selected && !shouldSelect) choice.classList.add("wrong");
+          if (selected !== shouldSelect) ok = false;
+        });
+        card.dataset.solved = ok ? "true" : "false";
+        feedback.textContent = ok ? "Alle richtigen Aussagen ausgewählt." : "Noch nicht. Prüfe die Aussagen noch einmal.";
+      }
+    }
+
+    function placeTokenInSlot(value, slot, topicId) {
+      slot.classList.remove("over", "correct", "wrong");
+      const existing = slot.querySelector(".drag-token");
+      if (existing) document.querySelector(".match-bank").appendChild(existing);
+      const token = [...topicArea.querySelectorAll(".drag-token")].find(item => item.dataset.value === value);
+      if (token) {
+        token.classList.remove("selected");
+        slot.appendChild(token);
+        slot.classList.add(value === slot.dataset.correct ? "correct" : "wrong");
+      }
+      updateMatchFeedback(slot.closest(".check-card"));
+      checkTopicDone(topicId);
+    }
+
+    function updateMatchFeedback(card) {
+      const slots = [...card.querySelectorAll(".drop-slot")];
+      const filled = slots.filter(slot => slot.querySelector(".drag-token"));
+      const correct = slots.filter(slot => slot.classList.contains("correct"));
+      if (correct.length === slots.length) {
+        card.querySelector(".feedback").textContent = "Alles richtig zugeordnet.";
+        card.dataset.solved = "true";
+      } else if (filled.length) {
+        card.querySelector(".feedback").textContent = `${correct.length} von ${slots.length} Zuordnungen stimmen.`;
+        card.dataset.solved = "false";
+      }
+    }
+
+    function checkTopicDone(topicId) {
+      const choiceOk = !!topicArea.querySelector('[data-check="choice"] .choice.correct');
+      const clozeOk = topicArea.querySelector('[data-check="cloze"]')?.dataset.solved === "true" || topicArea.querySelector('[data-check="cloze"] select')?.value === topicArea.querySelector('[data-check="cloze"] select')?.dataset.correct;
+      const matchOk = topicArea.querySelector('[data-check="match"]')?.dataset.solved === "true";
+      const extraCards = [...topicArea.querySelectorAll('[data-check="extra"]')];
+      const extraOk = extraCards.length === 0 || extraCards.every(card => card.dataset.solved === "true");
+      if (choiceOk && clozeOk && matchOk && extraOk) {
+        completed.add(topicId);
+        saveProgress();
+        renderNav();
+      }
+      updateProgress();
+    }
+
+    function saveProgress() {
+      try { storage.setItem("grammatikDone", JSON.stringify([...completed])); } catch(e) {}
+    }
+
+    function updateProgress() {
+      const progressPercent = Math.round((completed.size / topics.length) * 100);
+      const feedbackStep = Math.min(100, Math.max(0, Math.round(progressPercent / 10) * 10));
+      progressText.textContent = `${completed.size} von ${topics.length}`;
+      progressBar.style.width = `${progressPercent}%`;
+      if (progressFeedback) {
+        progressFeedback.dataset.step = String(feedbackStep);
+        progressFeedback.innerHTML = `<strong>Lernfeedback ${feedbackStep}%</strong>${progressFeedbackMessages[feedbackStep]}`;
+      }
+      completeBtn.textContent = completed.has(activeTopic.id) ? "Thema verstanden" : "Ich habe das Thema verstanden";
+    }
+
+    function hideQuiz() {
+      if (quizSection) quizSection.style.display = "none";
+    }
+
+    function showTopic(topic) {
+      activeTopic = topic;
+      activeView = "topic";
+      overview.style.display = "none";
+      hideQuiz();
+      completeBtn.style.display = "inline-flex";
+      renderTopic(topic);
+      renderNav();
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showQuiz() {
+      activeView = "quiz";
+      overview.style.display = "none";
+      topicArea.innerHTML = "";
+      if (quizSection) quizSection.style.display = "block";
+      completeBtn.style.display = "none";
+      currentPath.textContent = "Kapitel 4: Teste dein Wissen";
+      renderNav();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    overviewBtn.addEventListener("click", () => {
+      activeView = "overview";
+      overview.style.display = "";
+      topicArea.innerHTML = "";
+      hideQuiz();
+      completeBtn.style.display = "none";
+      currentPath.textContent = "Überblick";
+      renderNav();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    completeBtn.addEventListener("click", () => {
+      completed.add(activeTopic.id);
+      saveProgress();
+      renderNav();
+      updateProgress();
+    });
+
+    resetProgressBtn.addEventListener("click", () => {
+      completed.clear();
+      try { storage.removeItem("grammatikDone"); } catch(e) {}
+      renderNav();
+      updateProgress();
+    });
+
+    renderNav();
+    hideQuiz();
+    topicArea.innerHTML = "";
+    completeBtn.style.display = "none";
+    currentPath.textContent = overviewBtn.textContent;
+    updateProgress();
+  </script>
+</body>
+</html>

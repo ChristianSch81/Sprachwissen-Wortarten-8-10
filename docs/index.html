@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Startseite zu den Lernpaketen Wortarten und Satzglieder">
+  <title>Deutsch Sprachwissen I und II 8/9/10</title>
+  <style>
+    :root {
+      --ink: #252525;
+      --muted: #666;
+      --accent: #9d1f2f;
+      --accent-dark: #741622;
+      --paper: #fff;
+      --line: #d8d8d8;
+      --shadow: 0 18px 42px rgba(45, 45, 45, .14);
+      --header-depth: 220px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 8% 28%, rgba(255, 198, 78, .24) 0 74px, transparent 75px),
+        radial-gradient(circle at 92% 38%, rgba(121, 185, 177, .2) 0 92px, transparent 93px),
+        linear-gradient(180deg, var(--accent) 0 var(--header-depth), transparent var(--header-depth)),
+        linear-gradient(180deg, #f2f2f2, #fff 55%, #f4f4f4);
+    }
+
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 54px 0 64px;
+    }
+
+    header {
+      max-width: 780px;
+      margin-bottom: 46px;
+      color: #fff;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.15rem);
+      line-height: 1.05;
+    }
+
+    .title-detail {
+      display: block;
+      margin-top: 7px;
+      font-size: .54em;
+      font-weight: 700;
+      letter-spacing: .025em;
+    }
+
+    header p {
+      margin: 14px 0 0;
+      font-size: 1.06rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      min-height: 315px;
+      flex-direction: column;
+      padding: 30px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .card::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 7px;
+      content: "";
+      background: var(--accent);
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-5px);
+      border-color: rgba(157, 31, 47, .5);
+      box-shadow: 0 24px 52px rgba(45, 45, 45, .19);
+      outline: none;
+    }
+
+    .number {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff1f2;
+      color: var(--accent);
+      font-size: 1.35rem;
+      font-weight: 850;
+    }
+
+    h2 {
+      margin: 22px 0 8px;
+      font-size: 1.75rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .open {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: auto;
+      padding-top: 28px;
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .open::after {
+      content: "→";
+      font-size: 1.35rem;
+      transition: transform .2s ease;
+    }
+
+    .card:hover .open::after,
+    .card:focus-visible .open::after { transform: translateX(5px); }
+
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: .9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      :root { --header-depth: 245px; }
+      main { padding-top: 38px; }
+      header { margin-bottom: 30px; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: 270px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, .open::after { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Sprachwissen</p>
+      <h1>Deutsch Sprachwissen <span class="title-detail">I und II · Klassen 8/9/10</span></h1>
+      <p>Wähle ein Thema aus und starte direkt mit Erklärungen und Übungen.</p>
+    </header>
+
+    <section class="cards" aria-label="Themenauswahl">
+      <a class="card" href="Wortarten-html/index.html">
+        <span class="number" aria-hidden="true">I</span>
+        <h2>Wortarten</h2>
+        <p>Nomen, Verben, Adjektive, Pronomen und weitere Wortarten kennenlernen und sicher bestimmen.</p>
+        <span class="open">Lernpaket öffnen</span>
+      </a>
+
+      <a class="card" href="satzglieder-html/index.html">
+        <span class="number" aria-hidden="true">II</span>
+        <h2>Satzglieder</h2>
+        <p>Subjekt, Prädikat, Objekte, adverbiale Bestimmungen sowie Satzarten und Satzbau untersuchen.</p>
+        <span class="open">Lernpaket öffnen</span>
+      </a>
+    </section>
+
+    <footer>Deutsch · Sprachwissen I und II · 8/9/10</footer>
+  </main>
+</body>
+</html>
