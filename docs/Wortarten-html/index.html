@@ -1071,6 +1071,16 @@
       font: inherit;
     }
 
+    .transform-instruction {
+      margin: 0 0 10px;
+      padding: 9px 11px;
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      background: #fff7f8;
+      color: var(--accent-dark);
+      font-weight: 650;
+    }
+
     .anno-task {
       padding: 12px;
       border: 1px solid #c9d7eb;
@@ -2333,9 +2343,9 @@
           cloze: ["Die Grundform eines Verbs nennt man", ["Infinitiv", "Artikel", "Kasus"], "Infinitiv"],
           match: [["Vollverb", "lesen"], ["Hilfsverb", "haben"], ["Modalverb", "können"]]
         },
-        extra: { type: "transform", title: "Transformation: Hilfsverb + Vollverb", rows: [
-          { text: "Mia schreibt einen Brief. → Mia ", inputs: [["hat","ist","wird"],"hat"], middle: " einen Brief ", inputs2: [["geschrieben","schreiben","schreibt"],"geschrieben"], suffix: "." },
-          { text: "Er kommt. → Er ", inputs: [["kann","muss","darf"],"muss"], middle: " ", inputs2: [["kommt","kommen","kam"],"kommen"], suffix: "." }
+        extra: { type: "transform", title: "Verben umformen: Perfekt und Modalverb bilden", rows: [
+          { text: "Bilde das Perfekt: Mia schreibt einen Brief. → Mia ", inputs: [["hat","ist","wird"],"hat"], middle: " einen Brief ", inputs2: [["geschrieben","schreiben","schreibt"],"geschrieben"], suffix: "." },
+          { text: "Drücke eine Notwendigkeit mit einem Modalverb aus: Er kommt. → Er ", inputs: [["kann","muss","darf"],"muss"], middle: " ", inputs2: [["kommt","kommen","kam"],"kommen"], suffix: "." }
         ]}
       },
       {
@@ -2585,9 +2595,9 @@
           cloze: ["Futur I bildet man mit werden plus", ["Infinitiv", "Artikel", "Dativ"], "Infinitiv"],
           match: [["Präsens", "ich lerne"], ["Präteritum", "ich lernte"], ["Plusquamperfekt", "ich hatte gelernt"]]
         },
-        extra: { type: "transform", title: "Transformation: Gleicher Inhalt, andere Zeitform", rows: [
+        extra: { type: "transform", title: "Transformation: Gleicher Inhalt, andere Zeitform", instruction: "Futur I: Wähle im ersten Dropdown das finite Hilfsverb und im zweiten Dropdown den Infinitiv am Satzende.", rows: [
           { text: "Mia schreibt einen Brief. (Präsens) → Gestern ", inputs: [["schrieb","schreibt","hat geschrieben"],"schrieb"], middle: " sie einen Brief. (Präteritum)", inputs2: [], suffix: "" },
-          { text: "Mia schreibt einen Brief. (Präsens) → Morgen ", inputs: [["wird schreiben","wird geschrieben","schreibt"],"wird schreiben"], middle: " sie einen Brief. (Futur I)", inputs2: [], suffix: "" }
+          { text: "Mia schreibt einen Brief. (Präsens) → Morgen ", inputs: [["wird","hat","schreibt"],"wird"], middle: " sie einen Brief ", inputs2: [["schreiben","geschrieben","schrieb"],"schreiben"], suffix: ". (Futur I)" }
         ]}
       },
       {
@@ -3247,6 +3257,7 @@
         return `
           <section class="check-card" data-check="extra" data-type="transform">
             <h3>${check.title || titles.transform}</h3>
+            ${check.instruction ? `<p class="transform-instruction">${check.instruction}</p>` : ""}
             <div id="transform_${topic.id}">
               ${check.rows.map((row, idx) => `
                 <div class="transform-row" data-idx="${idx}">
