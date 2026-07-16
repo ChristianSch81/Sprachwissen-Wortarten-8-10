@@ -3005,6 +3005,84 @@
   }
 ];
     const VIDEO_URL = "https://ivi-education.de/videos/deutsch/";
+
+    const SHARED_PROGRESS_KEY = "sprachwissenProgressV1";
+    let progressStorage = { getItem:()=>null, setItem:()=>{}, removeItem:()=>{} };
+    try { progressStorage = localStorage; } catch(e) {}
+
+    function createSharedProgressStore(storageAdapter) {
+      function read() {
+        let data = null;
+        try { data = JSON.parse(storageAdapter.getItem(SHARED_PROGRESS_KEY) || "null"); } catch(e) {}
+        if (!data || typeof data !== "object" || Array.isArray(data)) data = { version: 1, packages: {} };
+        if (!data.packages || typeof data.packages !== "object" || Array.isArray(data.packages)) data.packages = {};
+        data.version = 1;
+        return data;
+      }
+
+      function write(data) {
+        data.version = 1;
+        data.updatedAt = new Date().toISOString();
+        try { storageAdapter.setItem(SHARED_PROGRESS_KEY, JSON.stringify(data)); } catch(e) {}
+      }
+
+      function updatePackage(packageId, updater) {
+        const data = read();
+        const current = data.packages[packageId] && typeof data.packages[packageId] === "object"
+          ? data.packages[packageId]
+          : {};
+        data.packages[packageId] = updater(current) || current;
+        write(data);
+      }
+
+      return {
+        read,
+        saveExerciseTopic(packageId, topicId, title, stats) {
+          updatePackage(packageId, current => {
+            const byTopic = { ...(current.exercises?.byTopic || {}) };
+            byTopic[topicId] = {
+              title,
+              correct: stats.correct,
+              attempted: stats.attempted,
+              total: stats.total,
+              updatedAt: new Date().toISOString()
+            };
+            const totals = Object.values(byTopic).reduce((sum, item) => {
+              sum.correct += Number(item.correct) || 0;
+              sum.attempted += Number(item.attempted) || 0;
+              sum.total += Number(item.total) || 0;
+              return sum;
+            }, { correct: 0, attempted: 0, total: 0 });
+            return { ...current, exercises: { byTopic, totals } };
+          });
+        },
+        saveFinalTest(packageId, result) {
+          updatePackage(packageId, current => ({
+            ...current,
+            finalTest: {
+              correct: result.correct,
+              total: result.total,
+              sections: result.sections || [],
+              evaluatedAt: new Date().toISOString()
+            }
+          }));
+        },
+        clearFinalTest(packageId) {
+          updatePackage(packageId, current => {
+            const next = { ...current };
+            delete next.finalTest;
+            return next;
+          });
+        },
+        resetPackage(packageId) {
+          const data = read();
+          delete data.packages[packageId];
+          write(data);
+        }
+      };
+    }
+
+    window.SprachwissenProgress = createSharedProgressStore(progressStorage);
     const completed = new Set(JSON.parse(localStorage.getItem("satzgliederDone") || "[]"));
     let activeTopic = topics[0];
     let activeView = "overview";
@@ -3322,12 +3400,46 @@
       const matchOk = topicArea.querySelector('[data-check="match"]')?.dataset.solved === "true";
       const extraCard = topicArea.querySelector('[data-check="extra"]');
       const extraOk = !extraCard || extraCard.dataset.solved === "true";
+      saveExerciseProgress(topicId);
       if (choiceOk && clozeOk && matchOk && extraOk) {
         completed.add(topicId);
         saveProgress();
         renderNav();
       }
       updateProgress();
+    }
+
+    function saveExerciseProgress(topicId) {
+      const topic = topics.find(item => item.id === topicId);
+      const cards = [...topicArea.querySelectorAll(".check-card[data-check]")];
+      if (!topic || cards.length === 0) return;
+
+      let attempted = 0;
+      let correct = 0;
+
+      cards.forEach(card => {
+        let wasAttempted = false;
+        let wasCorrect = false;
+
+        if (card.dataset.check === "choice") {
+          wasAttempted = !!card.querySelector(".choice.correct, .choice.wrong");
+          wasCorrect = !!card.querySelector(".choice.correct");
+        } else {
+          wasAttempted = card.dataset.solved === "true" || card.dataset.solved === "false";
+          wasCorrect = card.dataset.solved === "true";
+        }
+
+        if (wasAttempted) attempted++;
+        if (wasCorrect) correct++;
+      });
+
+      if (attempted > 0) {
+        window.SprachwissenProgress?.saveExerciseTopic("satzglieder", topicId, topic.title, {
+          correct,
+          attempted,
+          total: cards.length
+        });
+      }
     }
 
     function saveProgress() {
@@ -3393,6 +3505,7 @@
     resetProgressBtn.addEventListener("click", () => {
       completed.clear();
       localStorage.removeItem("satzgliederDone");
+      window.SprachwissenProgress?.resetPackage("satzglieder");
       renderNav();
       updateProgress();
     });
@@ -3509,6 +3622,20 @@
         const sectionCorrect = cards.filter(card => card.classList.contains("correct")).length;
         section.querySelector(".quiz-section-score").textContent = "Zwischenergebnis: " + sectionCorrect + " von " + cards.length;
       });
+      const sectionResults = [...document.querySelectorAll("#testSection .quiz-section")].map((section, index) => {
+        const cards = [...section.querySelectorAll(".quiz-card")];
+        return {
+          id: "satzglieder-test-" + (index + 1),
+          title: testSections[index]?.title || "Teilbereich " + (index + 1),
+          correct: cards.filter(card => card.classList.contains("correct")).length,
+          total: cards.length
+        };
+      });
+      window.SprachwissenProgress?.saveFinalTest("satzglieder", {
+        correct: correctCount,
+        total: testQuestions.length,
+        sections: sectionResults
+      });
       const secureText = correctCount >= 45 ? "Du bist sicher unterwegs." : "Ab 45 Punkten bist du sicher.";
       document.querySelector("#quizScore").innerHTML = "Gesamtpunktzahl: " + correctCount + " von " + testQuestions.length + " Punkten<br><span class=\"hint\">" + secureText + "</span>";
     }
@@ -3527,6 +3654,7 @@
         score.textContent = "Noch nicht ausgewertet";
       });
       document.querySelector("#quizScore").innerHTML = "";
+      window.SprachwissenProgress?.clearFinalTest("satzglieder");
     }
 
     document.querySelector("#quizCheckBtn").addEventListener("click", checkQuiz);
