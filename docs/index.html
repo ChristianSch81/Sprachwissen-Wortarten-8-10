@@ -86,6 +86,91 @@
       font-size: 1.06rem;
     }
 
+    .podcast-feature {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 22px;
+      margin: 0 0 30px;
+      padding: 28px 30px;
+      border: 1px solid #e4c7cc;
+      border-left: 7px solid var(--accent);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: var(--shadow);
+    }
+
+    .podcast-icon {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff1f2;
+      color: var(--accent-dark);
+      font-size: 2rem;
+    }
+
+    .podcast-kicker {
+      margin: 0 0 5px;
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .podcast-feature h2 {
+      margin: 0;
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+    }
+
+    .podcast-copy {
+      margin: 9px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .podcast-player {
+      width: 100%;
+      min-height: 46px;
+      margin: 18px 0 0;
+    }
+
+    .podcast-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin: 14px 0 0;
+      padding: 0;
+      color: #4d4d4d;
+      font-size: .94rem;
+      list-style: none;
+    }
+
+    .podcast-benefits li::before {
+      margin-right: 7px;
+      color: var(--accent);
+      content: "✓";
+      font-weight: 900;
+    }
+
+    .podcast-transcript {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      margin-top: 16px;
+      color: var(--accent-dark);
+      font-weight: 800;
+      text-underline-offset: 3px;
+    }
+
+    .podcast-transcript:hover,
+    .podcast-transcript:focus-visible {
+      color: var(--accent);
+      outline: 3px solid rgba(157, 31, 47, .2);
+      outline-offset: 3px;
+    }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -463,12 +548,68 @@
       font-weight: 700;
     }
 
+    .transfer-help {
+      margin-top: 28px;
+      padding: 28px 30px;
+      border: 1px solid #e4c7cc;
+      border-left: 6px solid var(--accent);
+      border-radius: var(--radius);
+      background: #fbf5f6;
+      box-shadow: 0 10px 24px rgba(45, 45, 45, .07);
+    }
+
+    .transfer-help h2 {
+      margin: 0 0 8px;
+      color: var(--accent-dark);
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+    }
+
+    .transfer-help > p {
+      margin: 0;
+      color: #4d4d4d;
+      line-height: 1.6;
+    }
+
+    .transfer-steps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .transfer-step {
+      padding: 20px;
+      border: 1px solid #eadcdf;
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .transfer-step h3 {
+      margin: 0 0 8px;
+      color: var(--accent-dark);
+      font-size: 1.08rem;
+    }
+
+    .transfer-step p {
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .transfer-note {
+      margin-top: 16px !important;
+      color: var(--ink) !important;
+      font-weight: 700;
+    }
+
     footer {
       margin-top: 26px;
       color: var(--muted);
       font-size: .9rem;
       text-align: center;
     }
+
+    footer span { display: block; }
+    footer span + span { margin-top: 5px; }
 
     @media (max-width: 680px) {
       :root { --header-depth: 305px; }
@@ -484,11 +625,22 @@
         padding: 5px;
         border-radius: 9px;
       }
+      .podcast-feature {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 24px 20px;
+      }
+      .podcast-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.55rem;
+      }
       .cards { grid-template-columns: 1fr; }
       .card { min-height: 270px; }
       .dashboard-head { flex-direction: column; }
       .progress-actions { justify-content: flex-start; }
       .progress-grid { grid-template-columns: 1fr; }
+      .transfer-steps { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 520px) {
@@ -504,6 +656,7 @@
       .card p { order: 3; }
       .card .open { order: 4; }
       .progress-dashboard { padding: 22px 18px; }
+      .transfer-help { padding: 22px 18px; }
       .ring-summary {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -527,6 +680,25 @@
       <h1>Deutsch Sprachwissen <span class="title-detail">I und II · Phase 8/9/10</span></h1>
       <p>Wähle ein Thema aus und starte direkt mit Erklärungen und Übungen.</p>
     </header>
+
+    <section class="podcast-feature" aria-labelledby="podcastTitle" aria-describedby="podcastDescription">
+      <div class="podcast-icon" aria-hidden="true">🎧</div>
+      <div>
+        <p class="podcast-kicker">Lernpodcast · 23:48 Minuten · Sprachwissen I und II</p>
+        <h2 id="podcastTitle">Sprachwissen kompakt: vom Wort zum Satz</h2>
+        <p class="podcast-copy" id="podcastDescription">Höre die wichtigsten Regeln zu Wortarten, Verben, Nomen, Satzgliedern, Satzstrukturen und Feldermodell – locker erklärt und mit vielen Beispielen.</p>
+        <audio class="podcast-player" controls preload="metadata" aria-label="Lernpodcast Sprachwissen kompakt abspielen">
+          <source src="podcast/sprachwissen-kompakt.mp3" type="audio/mpeg">
+          Dein Browser kann die Audiodatei nicht abspielen. <a href="podcast/sprachwissen-kompakt.mp3">Podcast herunterladen</a>.
+        </audio>
+        <ul class="podcast-benefits" aria-label="Inhalte des Lernpodcasts">
+          <li>alle 29 Themen im Überblick</li>
+          <li>verständliche Satzbeispiele</li>
+          <li>Schnellcheck am Ende</li>
+        </ul>
+        <a class="podcast-transcript" href="podcast/sprachwissen-kompakt-transkript.md">Vollständiges Transkript öffnen</a>
+      </div>
+    </section>
 
     <section class="cards" aria-label="Themenauswahl">
       <a class="card" href="Wortarten-html/index.html">
@@ -569,7 +741,28 @@
       <p class="progress-status" id="progressStatus" aria-live="polite"></p>
     </section>
 
-    <footer>Deutsch · Sprachwissen I und II · 8/9/10</footer>
+    <section class="transfer-help" aria-labelledby="transferHelpTitle">
+      <h2 id="transferHelpTitle">So sicherst du deinen Lernfortschritt</h2>
+      <p>Deine Ergebnisse werden nur in diesem Browser gespeichert. Mit Export kannst du eine Sicherungskopie erstellen und sie später wieder einlesen – auch auf einem anderen Gerät.</p>
+
+      <div class="transfer-steps">
+        <article class="transfer-step">
+          <h3>Export = Fortschritt sichern</h3>
+          <p>Wähle oben <strong>Export</strong>. Dein Browser lädt eine kleine JSON-Datei herunter. Bewahre sie an einem Ort auf, an dem du sie später wiederfindest.</p>
+        </article>
+        <article class="transfer-step">
+          <h3>Import = Fortschritt wiederherstellen</h3>
+          <p>Wähle oben <strong>Import</strong> und öffne deine zuvor gesicherte JSON-Datei. Bestätige anschließend, dass die vorhandenen Daten ersetzt werden dürfen.</p>
+        </article>
+      </div>
+
+      <p class="transfer-note">Wichtig: Eine Exportdatei enthält den Lernfortschritt aus beiden Lernpaketen. Beim Import wird der aktuell gespeicherte Fortschritt vollständig ersetzt.</p>
+    </section>
+
+    <footer>
+      <span>Deutsch · Sprachwissen I und II · 8/9/10</span>
+      <span>Autor: Christian Schwend · Alemannenschule Wutöschingen</span>
+    </footer>
   </main>
   <script>
     (() => {
