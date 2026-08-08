@@ -668,6 +668,15 @@
     @media (prefers-reduced-motion: reduce) {
       .card, .open::after { transition: none; }
     }
+
+    .site-footer {
+      text-align: center;
+      padding: 18px 12px;
+      margin-top: 48px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+    }
   </style>
 </head>
 <body>
@@ -1079,5 +1088,8 @@
       renderDashboard();
     })();
   </script>
+  <footer class="site-footer">
+    <p>Die Inhalte dieses Lernpakets wurden mit Unterstützung von Künstlicher Intelligenz erstellt.</p>
+  </footer>
 </body>
 </html>
